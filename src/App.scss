@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  outline: none;
+}
+/*
+@font-face {
+  font-family: 'Circe';
+  src: url('fonts/FS-Meridian') format('woff2'),
+  url('fonts/Circe-Regular.woff') format('woff'),
+  url('fonts/Circe-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+*/
+@font-face {
+  font-family: 'FS Meridian';
+  src: url("../src/fonts/FS-Meridian.woff") format('woff');
+}
