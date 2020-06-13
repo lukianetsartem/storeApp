@@ -1,6 +1,6 @@
 import {NavLink} from "react-router-dom"
 import React, {useState} from "react"
-import '../../../scss/header.scss'
+import '../../../scss/header/header.scss'
 import CloseIcon from '@material-ui/icons/Close'
 
 export const InfoBar = (props) => {

@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import '../../scss/header.scss'
+import '../../scss/header/header.scss'
 import {NavItem} from "./NavItem/NavItem"
 import {InfoBar} from "./InfoBar/InfoBar"
 import logo from "../../assets/img/logo.jpg"

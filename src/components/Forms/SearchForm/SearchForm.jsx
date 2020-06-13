@@ -1,7 +1,7 @@
 import React from 'react'
 import {useForm} from "react-hook-form";
 import SearchIcon from '@material-ui/icons/Search'
-import '../../../scss/searchForm.scss'
+import '../../../scss/forms/searchForm.scss'
 
 export const SearchForm = () => {
     const { register, handleSubmit } = useForm()

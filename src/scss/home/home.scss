@@ -1,0 +1,65 @@
+// Home slider styles
+
+.ant-carousel {
+  .slick-track {
+    height: auto;
+    max-height: 600px;
+  }
+  .slick-slide {
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+  }
+}
+
+.ant-carousel {
+  .slick-slide {
+    a {
+      img {
+        height: 100%;
+        width: 100%;
+      }
+    }
+  }
+}
+
+.slide-description {
+  font-family: "FS Meridian";
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-align: left;
+  margin-top: 50px;
+  margin-left: 50px;
+  .slide-title {
+    margin: 0;
+    font-size: 65px;
+    line-height: 75px;
+    font-weight: 400;
+  }
+  .slide-heading {
+    margin-top: 18px;
+    margin-bottom: 0;
+    font-size: 30px;
+  }
+  .slide-section-name {
+    font-size: 16px;
+    margin-top: 10px;
+    margin-bottom: 0;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: underline;
+  }
+}
+
+#first-slide {
+  color: black;
+}
+
+#second-slide {
+  color: white;
+}
+
+#third-slide {
+  color: #2B2B2B;
+}
