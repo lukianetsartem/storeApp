@@ -1,0 +1,73 @@
+.commercial-banner-section {
+  max-width: 1244px;
+  height: 700px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.painted-banner {
+  position: relative;
+  background-color: #a1b2dd;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  img {
+    margin-top: 40px;
+    width: 450px;
+    height: 450px;
+    position: absolute;
+    right: 0;
+  }
+  p {
+    margin-top: 16%;
+    margin-left: 10%;
+    position: absolute;
+    font-size: 52px;
+    font-family: "FS Neruda";
+    width: 100%;
+    color: white;
+  }
+  a {
+    height: 18px;
+    margin-top: 100%;
+    color: white;
+    border-bottom: 2px solid white;
+  }
+}
+
+.commercial-add-link {
+  text-transform: uppercase;
+  border-bottom: 2px solid #2B2B2B;
+  font-size: 14px;
+  line-height: normal;
+  font-family: FS Meridian Medium, sans-serif;
+  position: relative;
+  letter-spacing: .6px;
+  color: #000;
+}
+
+.unpainted-banner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+  height: 100%;
+  text-align: center;
+  img {
+    width: 450px;
+    height: 450px;
+  }
+  p {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 52px;
+    font-family: "FS Neruda";
+    width: 100%;
+    color: black;
+  }
+  a {
+    margin-top: 50px;
+  }
+}

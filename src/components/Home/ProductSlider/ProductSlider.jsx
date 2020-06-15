@@ -10,7 +10,7 @@ export const ProductSlider = (props) => {
         slidesToScroll: 1,
         slidesToShow: 4,
         speed: 500,
-        arrows: true,
+        arrows: false,
         dots: false,
         draggable: true,
         autoplay: true,
@@ -20,13 +20,15 @@ export const ProductSlider = (props) => {
 
     return (
         <div className={'product-slider-container'}>
-            <p className={'product-slider-title'}>New products</p>
+            <p className={'product-slider-title'}>{props.title}</p>
             <Carousel {...settings} className={'product-slider'}>
-                {props.products.map(p => <ProductSlide productType={p.productType}
-                                                       productPhoto={p.productPhotos.modelPhoto}
-                                                       description={p.description}
-                                                       price={p.price}
-                                                       key={p._id}/>)}
+                {props.products
+                    .filter(p => p.productType === props.productType)
+                    .map(p => <ProductSlide productType={p.productType}
+                                            productPhoto={p.productPhotos.modelPhoto}
+                                            description={p.description}
+                                            price={p.price}
+                                            key={p._id}/>)}
             </Carousel>
         </div>
     )

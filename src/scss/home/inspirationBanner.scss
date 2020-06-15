@@ -1,0 +1,55 @@
+.inspiration-banner {
+  max-width: 1244px;
+  margin: auto;
+  height: 622px;
+  display: flex;
+  justify-content: space-between;
+
+  .inspiration-banner-content {
+    width: 50%;
+  }
+
+  img {
+    width: 50%;
+    height: 100%;
+  }
+}
+
+.inspiration-banner-info {
+  display: flex;
+  align-items: center;
+
+  .inspiration-banner-content {
+    padding-left: 100px;
+    width: 400px;
+    .inspiration-banner-title {
+      font-size: 52px;
+      font-family: "FS Neruda";
+      width: 100%;
+      color: black;
+      margin: 0;
+    }
+
+    .inspiration-banner-description {
+      margin: 0;
+      max-height: 260px;
+      overflow: hidden;
+      font-family: FS Meridian Regular,sans-serif;
+      color: #404040;
+      font-size: 13px;
+      padding-bottom: 20px;
+      padding-top: 20px;
+    }
+
+    .banner-link {
+      text-transform: uppercase;
+      border-bottom: 2px solid #2B2B2B;
+      font-size: 14px;
+      line-height: normal;
+      font-family: FS Meridian Medium, sans-serif;
+      position: relative;
+      letter-spacing: .6px;
+      color: #000;
+    }
+  }
+}
