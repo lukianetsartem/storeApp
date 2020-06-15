@@ -23,5 +23,4 @@ export const setProducts = () => async dispatch => {
     const res = await productsAPI.setProducts()
     const products = res.products
     dispatch({type: SET_PRODUCTS_AC, products})
-    console.log(products)
 }

@@ -3,6 +3,7 @@ import '../../scss/home/home.scss'
 import {HomeSlider} from "./HomeSlider/HomeSlider";
 import {useDispatch, useSelector} from "react-redux";
 import {setProducts} from "../../reducers/productsReducer";
+import {ProductSlider} from "./ProductSlider/ProductSlider";
 
 export const Home = () => {
     const products = useSelector(state => state.products.products)
@@ -15,6 +16,7 @@ export const Home = () => {
     return (
         <div>
             <HomeSlider/>
+            <ProductSlider products={products}/>
         </div>
     )
 }

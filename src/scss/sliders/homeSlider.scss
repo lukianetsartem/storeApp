@@ -1,0 +1,53 @@
+// Home slider styles
+
+.home-slide {
+  width: 100%;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.home-slide-img {
+  width: 100%;
+}
+
+.home-slide-description {
+  font-family: "FS Meridian";
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-align: left;
+  margin-top: 50px;
+  margin-left: 50px;
+  .home-slide-title {
+    margin: 0;
+    font-size: 65px;
+    line-height: 75px;
+    font-weight: 400;
+  }
+  .home-slide-heading {
+    margin-top: 18px;
+    margin-bottom: 0;
+    font-size: 30px;
+  }
+  .home-slide-section-name {
+    font-size: 16px;
+    margin-top: 10px;
+    margin-bottom: 0;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: underline;
+  }
+}
+
+#first-slide {
+  color: black;
+}
+
+#second-slide {
+  color: white;
+}
+
+#third-slide {
+  color: #2B2B2B;
+}

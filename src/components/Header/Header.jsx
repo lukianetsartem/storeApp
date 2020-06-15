@@ -5,7 +5,7 @@ import {InfoBar} from "./InfoBar/InfoBar"
 import logo from "../../assets/img/logo.jpg"
 import {NavLink} from "react-router-dom"
 import {SearchForm} from "../Forms/SearchForm/SearchForm"
-import {SecondaryArea} from "./SecondaryArea";
+import {SecondaryArea} from "./SecondaryArea/SecondaryArea";
 
 export const Header = () => {
     const [infoBarView, setInfoBarView] = useState(true);
