@@ -35,11 +35,11 @@ export const ProductSlider = (props) => {
 }
 
 const ProductSlide = (props) => {
-    const productUrl = `/${props.productType}s/${props.key}`.toLowerCase()
+    const productUrl = `/${props.productType}s/${props.description}`.toLowerCase().replace(',', '')
     const name = props.description
 
     return (
-        <NavLink to={productUrl} className={'product-slide'}>
+        <NavLink target="_blank" to={productUrl} className={'product-slide'}>
             <img src={props.productPhoto} className={'product-slide-img'}/>
             <p className={'product-slide-name'}>
                 {name.length >= 22 ? name.substr(0, 25) + '..' : name}

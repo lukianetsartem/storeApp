@@ -1,5 +1,5 @@
 import {NavLink} from "react-router-dom"
-import React, {useState} from "react"
+import React from "react"
 import '../../../scss/header/header.scss'
 import CloseIcon from '@material-ui/icons/Close'
 

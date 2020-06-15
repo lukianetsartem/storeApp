@@ -5,7 +5,10 @@ import {useDispatch, useSelector} from "react-redux";
 import {setProducts} from "../../reducers/productsReducer";
 import {ProductSlider} from "./ProductSlider/ProductSlider";
 import {CommercialAdd} from "./CommercialAdd/CommercialAdd";
-import {InspirationBanner} from "./InspirationBaner/InspirationBanner";
+import {InspirationBanner} from "./InspirationBanner/InspirationBanner";
+import {InstagramBanner} from "./InstagramBanner/InstagramBanner";
+import {ShopNavigation} from "./ShopNavigation/ShopNavigation";
+import {HomeAboutUs} from "./HomeAboutUs/HomeAboutUs";
 
 export const Home = () => {
     const products = useSelector(state => state.products.products)
@@ -48,16 +51,14 @@ export const Home = () => {
             <ProductSlider products={products} title={'Comfortable sofas'} productType={'Sofa'}/>
             <CommercialAdd firstBanner={commercialAddData.firstAdd.firstBanner}
                            secondBanner={commercialAddData.firstAdd.secondBanner}/>
-            <ProductSlider products={products} title={'Insanely soft beds'} productType={'Sofa'} />
+            <ProductSlider products={products} title={'Insanely soft beds'} productType={'Bed'} />
             <InspirationBanner/>
             <CommercialAdd firstBanner={commercialAddData.secondAdd.firstBanner}
                            secondBanner={commercialAddData.secondAdd.secondBanner}/>
+            <ProductSlider products={products} title={'Nice chairs'} productType={'Chair'}/>
+            <InstagramBanner/>
+            <ShopNavigation/>
+            <HomeAboutUs/>
         </div>
     )
 }
-/*
-<CommercialAdd firstBanner={commercialAddData.firstAdd.firstBanner}
-                           secondBanner={commercialAddData.firstAdd.secondBanner}/>
-            <CommercialAdd firstBanner={commercialAddData.secondAdd.firstBanner}
-                           secondBanner={commercialAddData.secondAdd.secondBanner}/>
- */

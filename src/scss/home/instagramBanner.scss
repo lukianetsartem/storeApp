@@ -1,0 +1,35 @@
+.instagram-banner {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1224px;
+  margin: auto;
+  img {
+    width: 33%;
+  }
+}
+
+.instagram-banner-content {
+  text-align: center;
+  margin-top: 150px;
+  a {
+    text-transform: uppercase;
+    border-bottom: 2px solid #2B2B2B;
+    font-size: 14px;
+    line-height: normal;
+    font-family: FS Meridian Medium, sans-serif;
+    position: relative;
+    letter-spacing: .6px;
+    color: #000;
+  }
+}
+
+.instagram-banner-title {
+  margin: 0;
+  font-size: 45px;
+  font-family: "FS Neruda";
+  color: black;
+}
+
+.instagram-banner-icon {
+  margin-top: 10px;
+}
