@@ -9,6 +9,7 @@ import {InspirationBanner} from "./InspirationBanner/InspirationBanner";
 import {InstagramBanner} from "./InstagramBanner/InstagramBanner";
 import {ShopNavigation} from "./ShopNavigation/ShopNavigation";
 import {HomeAboutUs} from "./HomeAboutUs/HomeAboutUs";
+import {Footer} from "../Footer/Footer";
 
 export const Home = () => {
     const products = useSelector(state => state.products.products)
@@ -59,6 +60,7 @@ export const Home = () => {
             <InstagramBanner/>
             <ShopNavigation/>
             <HomeAboutUs/>
+            <Footer/>
         </div>
     )
 }
