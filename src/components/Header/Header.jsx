@@ -13,7 +13,7 @@ export const Header = () => {
     return (
         <header className={'header'}>
             <div className={'first-header-area'}>
-                <NavLink className={'logo'} to={'/'}>
+                <NavLink className={'logo'} to={'/home'}>
                     <img src={logo}/>
                 </NavLink>
                 <div className={'search-area'}>
@@ -26,9 +26,9 @@ export const Header = () => {
             <div className={'second-header-area'}>
                 <NavItem name={'sofas'}/>
                 <NavItem name={'chairs'}/>
+                <NavItem name={'beds'}/>
                 <NavItem name={'tables'}/>
                 <NavItem name={'storage'}/>
-                <NavItem name={'beds'}/>
                 <NavItem name={'lightning'}/>
                 <NavItem name={'accessories'}/>
                 <NavItem name={'garden'}/>

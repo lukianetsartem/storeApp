@@ -1,0 +1,73 @@
+.products {
+  max-width: 1244px;
+  margin: auto;
+}
+
+.products-section {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.products-header-title {
+  margin-top: 15px;
+  font-family: "FS Neruda";
+  font-variant-ligatures: no-common-ligatures;
+  font-size: 45px;
+  letter-spacing: 0.4px;
+  line-height: 40px;
+  text-align: center;
+  color: black;
+  margin-bottom: 25px;
+}
+
+.category-path {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  a {
+    text-transform: uppercase;
+    color: #2B2B2B;
+    font-size: 12px;
+    font-family: "FS Meridian";
+  }
+}
+
+.products-sorter {
+  position: relative;
+  display: flex;
+  align-items: center;
+  color: rgb(125, 124, 124);
+  padding-top: 20px;
+  padding-bottom: 20px;
+  p {
+    margin: 0;
+    margin-left: 10px;
+  }
+}
+
+.products-select {
+  position: relative;
+  overflow: hidden;
+  width: 200px;
+  border: 1px solid rgb(221, 221, 221);
+  display: flex;
+  align-items: center;
+  select {
+    z-index: 9999;
+    -webkit-appearance: none;
+    background-color: transparent;
+    height: 45px;
+    width: 200px;
+    padding: 0 10px;
+    font-family: "FS Meridian";
+    font-size: 14px;
+    text-transform: uppercase;
+    border: none;
+    width: 200px;
+  }
+}
+
+.products-select-icon {
+  position: absolute;
+  right: 5px;
+}

@@ -1,0 +1,96 @@
+// Product    styles
+.product-store-item {
+  font-family: "FS Meridian";
+  width: 33.33%;
+  position: relative;
+  margin-bottom: 25px;
+  a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.add-to-wish-list {
+  cursor: pointer;
+  position: absolute;
+  background-color: white;
+  width: 35px;
+  height: 35px;
+  border-radius: 50px;
+  top: 5px;
+  right: +35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-store-item-image-interior {
+  opacity:0;filter:alpha(opacity=0);
+  height: 185px;
+  position: absolute;
+}
+
+.product-store-item-image-model {
+  height: 185px;
+  display: block;
+  opacity: 1;
+  margin: auto;
+}
+
+.product-store-item-image {
+  width: 356px;
+  height: 185px;
+  position: relative;
+  display: flex;
+  img {
+    left: 0;
+    top: 0;
+    -moz-transition: all 0.5s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+  }
+}
+
+.add-to-wish-list:hover, .product-store-item-image:hover {
+  .product-store-item-image-interior {
+    opacity: 1;
+    filter: alpha(opacity=100);
+  }
+  .product-store-item-image-model {
+    opacity: 1;
+    filter:alpha(opacity=0);
+  }
+
+}
+
+.product-store-item-price {
+  color: black;
+  font-weight: bold;
+}
+
+.product-store-item-title {
+  color: black;
+  margin-top: 10px;
+  width: 250px;
+  height: 40px;
+  text-align: center;
+}
+
+.product-store-item-disabled-price {
+  color: black;
+  text-decoration: line-through;
+  padding-left: 5px;
+}
+
+.sale-price-product {
+  display: flex;
+  justify-content: center;
+}
+
+.product-store-item-sale-price {
+  color: #CC4b4b;
+  font-weight: bold;
+  padding-right: 5px;
+}

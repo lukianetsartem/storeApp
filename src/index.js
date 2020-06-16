@@ -9,13 +9,13 @@ import {BrowserRouter} from "react-router-dom";
 
 ReactDOM.render(
     <React.StrictMode>
-        <BrowserRouter>
-            <Provider store={getStore()}>
+        <Provider store={getStore()}>
+            <BrowserRouter>
                 <App/>
-            </Provider>
-        </BrowserRouter>
+            </BrowserRouter>
+        </Provider>
     </React.StrictMode>,
-    document.getElementById('root')
+    document.getElementById('storeApplication')
 );
 
 // If you want your app to work offline and load faster, you can change

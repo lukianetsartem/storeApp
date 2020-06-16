@@ -9,7 +9,6 @@ import {InspirationBanner} from "./InspirationBanner/InspirationBanner";
 import {InstagramBanner} from "./InstagramBanner/InstagramBanner";
 import {ShopNavigation} from "./ShopNavigation/ShopNavigation";
 import {HomeAboutUs} from "./HomeAboutUs/HomeAboutUs";
-import {Footer} from "../Footer/Footer";
 
 export const Home = () => {
     const products = useSelector(state => state.products.products)
@@ -56,11 +55,10 @@ export const Home = () => {
             <InspirationBanner/>
             <CommercialAdd firstBanner={commercialAddData.secondAdd.firstBanner}
                            secondBanner={commercialAddData.secondAdd.secondBanner}/>
-            <ProductSlider products={products} title={'Nice chairs'} productType={'Chair'}/>
+            <ProductSlider products={products} title={'Our chairs'} productType={'Chair'}/>
             <InstagramBanner/>
             <ShopNavigation/>
             <HomeAboutUs/>
-            <Footer/>
         </div>
     )
 }

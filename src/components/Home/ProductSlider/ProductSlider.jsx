@@ -28,6 +28,7 @@ export const ProductSlider = (props) => {
                                             productPhoto={p.productPhotos.modelPhoto}
                                             description={p.description}
                                             price={p.price}
+                                            salePrice={p.salePrice}
                                             key={p._id}/>)}
             </Carousel>
         </div>
@@ -35,16 +36,24 @@ export const ProductSlider = (props) => {
 }
 
 const ProductSlide = (props) => {
-    const productUrl = `/${props.productType}s/${props.description}`.toLowerCase().replace(',', '')
+    const productUrl = `${props.productType}s/${props.description
+        .replace(',', ' ')
+        .split(' ')
+        .join('-')}`
+        .toLowerCase()
     const name = props.description
 
     return (
-        <NavLink target="_blank" to={productUrl} className={'product-slide'}>
+        <NavLink to={productUrl} className={'product-slide'}>
             <img src={props.productPhoto} className={'product-slide-img'}/>
             <p className={'product-slide-name'}>
                 {name.length >= 22 ? name.substr(0, 25) + '..' : name}
             </p>
-            <p className={'product-slide-price'}>£{props.price}</p>
+            {!props.salePrice && <p className={'product-store-item-price'}>£{props.price}</p>}
+            {props.salePrice && <div className={'sale-price-product'}>
+                <p className={'product-store-item-sale-price'}>£{props.salePrice}</p>
+                <p className={'product-store-item-disabled-price'}>£{props.price}</p>
+            </div>}
         </NavLink>
     )
 }
