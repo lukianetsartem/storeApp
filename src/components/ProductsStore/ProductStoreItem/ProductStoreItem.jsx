@@ -4,7 +4,7 @@ import '../../../scss/productsStore/productStoreItem.scss'
 import FavoriteIcon from '@material-ui/icons/Favorite';
 
 export const ProductStoreItem = (props) => {
-    const productUrl = `${props.productType}s/${props.description
+    const productUrl = `${props.productType}/${props.description
         .replace(',', ' ')
         .split(' ')
         .join('-')}`
@@ -20,10 +20,10 @@ export const ProductStoreItem = (props) => {
                     <img className={'product-store-item-image-interior'} src={`${props.interiorPhoto}`}/>
                 </div>
                 <p className={'product-store-item-title'}>{props.description}</p>
-                {!props.salePrice && <p className={'product-store-item-price'}>£{props.price}</p>}
-                {props.salePrice && <div className={'sale-price-product'}>
-                    <p className={'product-store-item-sale-price'}>£{props.salePrice}</p>
-                    <p className={'product-store-item-disabled-price'}>£{props.price}</p>
+                {!props.oldPrice && <p className={'product-store-item-price'}>£{props.price}</p>}
+                {props.oldPrice && <div className={'sale-price-product'}>
+                    <p className={'product-store-item-sale-price'}>£{props.oldPrice}</p>
+                    <p className={'product-store-item-disabled-price'}>£{props.oldPrice}</p>
                 </div>}
             </NavLink>
             <div className={'add-to-wish-list'}>

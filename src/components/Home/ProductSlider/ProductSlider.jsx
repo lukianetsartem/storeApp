@@ -36,7 +36,7 @@ export const ProductSlider = (props) => {
 }
 
 const ProductSlide = (props) => {
-    const productUrl = `${props.productType}s/${props.description
+    const productUrl = `${props.productType}/${props.description
         .replace(',', ' ')
         .split(' ')
         .join('-')}`

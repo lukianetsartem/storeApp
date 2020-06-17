@@ -6,7 +6,7 @@ export const CategoryPath = (props) => {
     return (
         <div className={'category-path'}>
             <NavLink to={'/home'}>Home</NavLink>
-            <NavLink to={`/${props.categoryPath}`}> / {props.categoryPath}s</NavLink>
+            <NavLink to={`/${props.categoryPath}`}> / {props.categoryPath}</NavLink>
             {props.productName && <NavLink to={`/${props.categoryPath}/${props.productName}`}>/
                 {props.productName}</NavLink>}
         </div>

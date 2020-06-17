@@ -21,10 +21,10 @@ export const Footer = () => {
                     <div className={'footer-navigation'}>
                         <p className={'footer-navigation-title'}>Shop furniture</p>
                         <nav>
-                            <NavLink to={'/sofas'}>Sofas</NavLink>
-                            <NavLink to={'/chairs'}>Chairs</NavLink>
-                            <NavLink to={'/beds'}>Beds</NavLink>
-                            <NavLink to={'/tables'}>Tables</NavLink>
+                            <NavLink to={'/sofa'}>Sofas</NavLink>
+                            <NavLink to={'/chair'}>Chairs</NavLink>
+                            <NavLink to={'/bed'}>Beds</NavLink>
+                            <NavLink to={'/table'}>Tables</NavLink>
                         </nav>
                     </div>
                     <div className={'footer-navigation'}>

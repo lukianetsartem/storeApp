@@ -24,10 +24,10 @@ export const Header = () => {
                 </div>
             </div>
             <div className={'second-header-area'}>
-                <NavItem name={'sofas'}/>
-                <NavItem name={'chairs'}/>
-                <NavItem name={'beds'}/>
-                <NavItem name={'tables'}/>
+                <NavItem name={'sofa'}/>
+                <NavItem name={'chair'}/>
+                <NavItem name={'bed'}/>
+                <NavItem name={'table'}/>
                 <NavItem name={'storage'}/>
                 <NavItem name={'lightning'}/>
                 <NavItem name={'accessories'}/>
