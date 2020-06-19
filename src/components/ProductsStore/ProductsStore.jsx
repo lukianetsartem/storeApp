@@ -10,8 +10,6 @@ import {Preloader} from "../common/Preloader/Preloader";
 export const ProductsStore = (props) => {
     const dispatch = useDispatch()
     const categoryPath = props.productType.toLowerCase()
-    // Checking, whether props are loaded?
-    const isLoaded = useSelector(state => state.products.isLoaded)
     // Products data for component
     let [products, sortProducts] = useState(useSelector(state => state.products.products)
         .filter(p => p.productType === props.productType))
@@ -21,8 +19,10 @@ export const ProductsStore = (props) => {
         dispatch(setProducts())
     }, [])
 
+    // Checking, whether props are loaded?
+    const isProductsLoaded = useSelector(state => state.products.isProductsLoaded)
     // If props isn't loaded, return preloader
-    if (isLoaded === false) return <Preloader/>
+    if (isProductsLoaded === false) return <Preloader/>
 
     // Products filter
     const productSorter = (e) => {

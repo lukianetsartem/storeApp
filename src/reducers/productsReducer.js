@@ -7,7 +7,8 @@ const initialState = {
     products: [],
     product: {},
     count: 0,
-    isLoaded: false,
+    isProductsLoaded: false,
+    isProductDataLoaded: false,
 }
 
 export const productsReducer = (state = initialState, action) => {
@@ -16,13 +17,13 @@ export const productsReducer = (state = initialState, action) => {
             return {
                 ...state,
                 products: action.products,
-                isLoaded: action.isLoaded,
+                isProductsLoaded: true,
             }
         case SET_PRODUCT_DATA_AC:
             return {
                 ...state,
-                product: action.p,
-                isLoaded: action.isLoaded,
+                product: action.product,
+                isProductDataLoaded: true,
             }
         default:
             return state
@@ -32,23 +33,23 @@ export const productsReducer = (state = initialState, action) => {
 // Getting product data from server
 export const setProducts = () => async dispatch => {
     const res = await productsAPI.setProducts()
-    const isLoaded = true
     const products = res.products
-    dispatch({type: SET_PRODUCTS_AC, products, isLoaded})
+    dispatch({type: SET_PRODUCTS_AC, products})
 }
 
 // Getting product data from server, filtered by requested product type
 export const setProductData = (reqProduct) => async dispatch => {
     const res = await productsAPI.setProducts()
-    const isLoaded = true
-    res.products.filter(p => {
-        const resProduct = p.description
+    res.products.filter(product => {
+        const resProduct = product.description
             .replace(',', ' ')
+            .replace('& ', '')
             .replace('  ', ' ')
             .split(' ')
             .join('-').toLowerCase()
         if(resProduct === reqProduct) {
-            dispatch({type: SET_PRODUCT_DATA_AC, p, isLoaded})
+            debugger
+            dispatch({type: SET_PRODUCT_DATA_AC, product})
         }
     })
 }

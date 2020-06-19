@@ -14,20 +14,23 @@ import {HouseProudSlider} from "./HouseProudSlider/HouseProudSlider";
 
 const ProductPage = (props) => {
     const dispatch = useDispatch()
-    // Getting products from data base
-    const product = useSelector(state => state.products.product)
     // Getting product name
     let productName = props.match.params.product
 
     useEffect(() => {
         // Request date of product by him name
         dispatch(setProductData(productName))
-    }, [props.match.params])
+    }, [])
+
+    // Getting products from data base
+    const product = useSelector(state => state.products.product)
 
     // Check, whether props are loaded?
-    const isLoaded = useSelector(state => state.products.isLoaded)
+    const isProductDataLoaded = useSelector(state => state.products.isProductDataLoaded)
+
+    debugger
     // If pros aren't loaded, return preloader
-    if (isLoaded === false) return <Preloader/>
+    if (isProductDataLoaded === false) return <Preloader/>
 
     return (
         <div className={'product'}>

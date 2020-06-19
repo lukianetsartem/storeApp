@@ -24,11 +24,17 @@
 .category-path {
   margin-top: 10px;
   margin-bottom: 10px;
-  a {
+  display: flex;
+  a, p, span {
     text-transform: uppercase;
     color: #2B2B2B;
     font-size: 12px;
     font-family: "FS Meridian";
+    cursor: pointer;
+  }
+  span {
+    padding-left: 3px;
+    padding-right: 3px;
   }
 }
 

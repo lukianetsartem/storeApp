@@ -7,6 +7,7 @@ export const ProductStoreItem = (props) => {
     // Product url
     const productUrl = `products/${props.description 
         .replace(',', ' ')
+        .replace('& ', '')
         .replace('  ', ' ')
         .split(' ')
         .join('-')}`
