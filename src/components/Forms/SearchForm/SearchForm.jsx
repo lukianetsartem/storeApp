@@ -4,6 +4,7 @@ import SearchIcon from '@material-ui/icons/Search'
 import '../../../scss/forms/searchForm.scss'
 
 export const SearchForm = () => {
+    // Form for searching products
     const { register, handleSubmit } = useForm()
     const onSubmit = (data) => {
         console.log(data)

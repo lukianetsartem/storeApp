@@ -1,13 +1,14 @@
 import React from 'react'
 import '../../../scss/sliders/homeSlider.scss'
-import {Carousel} from "antd";
-import 'antd/dist/antd.css';
 import {NavLink} from "react-router-dom";
+import 'antd/dist/antd.css';
 import firstSlide from "../../../assets/img/firstSlide.jpg"
 import secondSlide from "../../../assets/img/secondSlide.jpg"
 import thirdSlide from "../../../assets/img/thirdSlide.jpg"
+import {Carousel} from 'antd'
 
 export const HomeSlider = () => {
+    // Slider settings
     const settings = {
         draggable: true,
         autoplay: true,
@@ -16,16 +17,16 @@ export const HomeSlider = () => {
     }
 
     return (
-        <Carousel {...settings} effect="fade">
-            <NavLink to={'/chairs'} className={'home-slide'}>
+        <Carousel {...settings} effect={'fade'}>
+            <NavLink to={'/chair'} className={'home-slide'}>
                 <img src={firstSlide} className={'home-slide-img'}/>
                 <div className={'home-slide-description'} id={'first-slide'}>
                     <p className={'home-slide-title'}>Sun city</p>
-                    <p className={'home-slide-heading'}>Your urban oasis</p>
+                    <p className={'home-slide-heading'}>Your urbanan oasis</p>
                     <p className={'home-slide-section-name'}>Shop chairs</p>
                 </div>
             </NavLink>
-            <NavLink to={'/sofas'}>
+            <NavLink to={'/sofa'}>
                 <img src={secondSlide} className={'home-slide-img'}/>
                 <div className={'home-slide-description'} id={'second-slide'}>
                     <p className={'home-slide-title'}>Take a break</p>
@@ -33,7 +34,7 @@ export const HomeSlider = () => {
                     <p className={'home-slide-section-name'}>Shop sofas</p>
                 </div>
             </NavLink>
-            <NavLink to={'/tables'}>
+            <NavLink to={'/table'}>
                 <img src={thirdSlide} className={'home-slide-img'}/>
                 <div className={'home-slide-description'} id={'third-slide'}>
                     <p className={'home-slide-title'}>Let's dish</p>

@@ -1,0 +1,294 @@
+.product {
+  width: 100%;
+}
+
+.products-header {
+  max-width: 1244px;
+  margin: auto;
+}
+
+.products-header-title {
+  margin: 0;
+}
+
+.product-page-heading-container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1244px;
+  margin: auto;
+}
+
+.product-page-heading {
+  max-width: 280px;
+  margin-left: 20px;
+  width: 30%;
+  height: 200px;
+}
+
+.product-page-heading-title {
+  font-family: "FS Neruda", serif;
+  font-variant-ligatures: no-common-ligatures;
+  font-size: 40px;
+  line-height: 35px;
+  overflow-wrap: break-word;
+  padding-right: 30px;
+  color: black;
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.product-page-heading-description {
+  font-size: 15px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.product-page-heading-price {
+  margin: 0;
+  font-size: 24px;
+  font-weight: bold;
+  color: black;
+}
+
+.product-page-heading-loyalty {
+  text-decoration: underline;
+  margin: 0;
+}
+
+.loyalty-program {
+  font-weight: bold;
+  color: black;
+}
+
+.in-stock {
+  color: #D9534F;
+  font-weight: bold;
+}
+
+.product-page-heading-dispatch {
+  margin-top: 10px;
+  color: #8c8c8c;
+}
+
+.product-page-heading-basket-adder {
+  width: 100%;
+  height: 45px;
+  background-color: #2B2B2B;
+  text-align: center;
+  color: white;
+  text-transform: uppercase;
+  border: none;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.shipping-info {
+  height: 200px;
+  width: 100%;
+  background-color: #f8f8f8;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.shipping-info-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  max-width: 1224px;
+}
+
+.shipping-info-item {
+  text-align: center;
+  padding-left: 80px;
+  padding-right: 80px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.shipping-info-item-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  p {
+    font-size: 16px;
+    margin: 0;
+    margin-left: 5px;
+    font-weight: bold;
+    color: black;
+    text-transform: uppercase;
+  }
+  .shipping-info-icon {
+    color: black;
+  }
+}
+
+.shipping-info-item-description {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.shipping-info-learn-more {
+  text-decoration: underline;
+  color: black;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.shipping-info-dropdown {
+  position: absolute;
+  margin-top: 130px;
+  background-color: #f8f8f8;
+  z-index: 999;
+  max-width: 220px;
+  box-shadow: rgba(184, 184, 184, 0.5) 0px 2px 3px 0px;
+  border: 1px solid rgba(215, 215, 215, 0.5);
+}
+
+.shipping-info-dropdown-content {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.shipping-info-dropdown-title {
+  color: black;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-top: 15px;
+  margin-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.shipping-info-dropdown-text {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.shipping-info-dropdown-close {
+  position: absolute;
+  top: -10px;
+  right: 5px;
+  cursor: pointer;
+}
+
+.product-story {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1224px;
+  margin: auto;
+  padding-top: 20px;
+  padding-bottom: 40px;
+  a {
+    color: black;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-bottom: 1px solid black;
+  }
+}
+
+.product-story-title {
+  font-family: "FS Neruda", serif;
+  font-variant-ligatures: no-common-ligatures;
+  font-size: 55px;
+  line-height: 35px;
+  overflow-wrap: break-word;
+  padding-right: 30px;
+  color: black;
+  margin: 0;
+}
+
+.product-story-text {
+  margin-top: 15px;
+  max-width: 500px;
+  text-align: center;
+  font-size: 16px;
+}
+
+.product-gallery {
+  max-width: 1244px;
+  margin: auto;
+  margin-bottom: 100px;
+  .product-gallery-first-section {
+    width: 100%;
+    img {
+      width: 100%;
+    }
+  }
+  .product-gallery-second-section {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 1.5%;
+    img {
+      width: 49%;
+    }
+  }
+}
+
+.product-description {
+  max-width: 700px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.product-description-content {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.product-description-header {
+  font-family: "FS Neruda", serif;
+  font-variant-ligatures: no-common-ligatures;
+  font-size: 40px;
+  line-height: 35px;
+  overflow-wrap: break-word;
+  padding-right: 30px;
+  color: black;
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.product-description-title {
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: black;
+}
+
+.product-description-item {
+  display: flex;
+  color: black;
+  justify-content: space-between;
+  span {
+    font-weight: bold;
+    font-size: 15px;
+  }
+  p {
+    padding-left: 80px;
+  }
+}
+
+.product-description-row {
+  margin-top: 20px;
+}
+
+.product-size-photo {
+  margin: auto;
+  max-width: 1224px;
+  width: 100%;
+  padding-bottom: 50px;
+  img {
+    width: 100%;
+  }
+}

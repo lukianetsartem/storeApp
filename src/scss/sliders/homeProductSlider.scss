@@ -1,0 +1,44 @@
+.product-slider-container {
+  margin-top: 20px;
+}
+
+.product-slider {
+  position: relative;
+  max-width: 1242px;
+  height: 300px;
+  margin: auto;
+}
+
+.product-slide:hover {
+  color: #2B2B2B;
+}
+
+.product-slide {
+  color: #2B2B2B;
+  font-family: "FS Meridian";
+  font-size: 14px;
+  .product-slide-img {
+    margin: auto;
+  }
+  .product-slide-price {
+    color: black;
+    padding-top: 20px;
+    font-weight: bold;
+  }
+  text-align: center;
+  p {
+    margin: 0;
+  }
+}
+
+.product-slide-img {
+  width: 280px;
+  height: 200px;
+}
+
+.product-slider-title {
+  text-align: center;
+  font-size: 40px;
+  font-family: "FS Neruda";
+  margin-bottom: 10px;
+}

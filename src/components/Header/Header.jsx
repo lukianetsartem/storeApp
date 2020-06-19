@@ -8,7 +8,8 @@ import {SearchForm} from "../Forms/SearchForm/SearchForm"
 import {SecondaryArea} from "./SecondaryArea/SecondaryArea";
 
 export const Header = () => {
-    const [infoBarView, setInfoBarView] = useState(true);
+    // Info bar enable/disable state
+    const [infoBarView, setInfoBarView] = useState(true)
 
     return (
         <header className={'header'}>

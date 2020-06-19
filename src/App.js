@@ -7,6 +7,7 @@ import {Footer} from "./components/Footer/Footer"
 import {StoreRouter} from "./components/StoreRouter/StoreRouter";
 
 export const App = () => {
+
     return (
         <div>
             <Header/>

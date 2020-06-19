@@ -4,13 +4,15 @@ import '../../../scss/productsStore/productStoreItem.scss'
 import FavoriteIcon from '@material-ui/icons/Favorite';
 
 export const ProductStoreItem = (props) => {
-    const productUrl = `${props.productType}/${props.description
+    // Product url
+    const productUrl = `products/${props.description 
         .replace(',', ' ')
+        .replace('  ', ' ')
         .split(' ')
         .join('-')}`
         .toLowerCase()
 
-    const [isFollowed, setIsFollowed] = useState(false)
+    const [isFollowed, setIsFollowed] = useState(false) // Product following state
 
     return (
         <div className={'product-store-item'}>
@@ -19,7 +21,7 @@ export const ProductStoreItem = (props) => {
                     <img className={'product-store-item-image-model'} src={`${props.modelPhoto}`}/>
                     <img className={'product-store-item-image-interior'} src={`${props.interiorPhoto}`}/>
                 </div>
-                <p className={'product-store-item-title'}>{props.description}</p>
+                <p className={'product-store-item-title'}>{props.description.length > 50 ? props.description.slice(0,50) + '..' : props.description }</p>
                 {!props.oldPrice && <p className={'product-store-item-price'}>£{props.price}</p>}
                 {props.oldPrice && <div className={'sale-price-product'}>
                     <p className={'product-store-item-sale-price'}>£{props.oldPrice}</p>

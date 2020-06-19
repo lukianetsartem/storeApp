@@ -1,19 +1,23 @@
 import React, {useEffect} from 'react'
 import '../../scss/home/home.scss'
-import {HomeSlider} from "./HomeSlider/HomeSlider";
-import {useDispatch, useSelector} from "react-redux";
-import {setProducts} from "../../reducers/productsReducer";
-import {ProductSlider} from "./ProductSlider/ProductSlider";
-import {CommercialAdd} from "./CommercialAdd/CommercialAdd";
-import {InspirationBanner} from "./InspirationBanner/InspirationBanner";
-import {InstagramBanner} from "./InstagramBanner/InstagramBanner";
-import {ShopNavigation} from "./ShopNavigation/ShopNavigation";
-import {HomeAboutUs} from "./HomeAboutUs/HomeAboutUs";
+import {HomeSlider} from "./HomeSlider/HomeSlider"
+import {useDispatch, useSelector} from "react-redux"
+import {setProducts} from "../../reducers/productsReducer"
+import {CommercialAdd} from "./CommercialAdd/CommercialAdd"
+import {InspirationBanner} from "./InspirationBanner/InspirationBanner"
+import {InstagramBanner} from "./InstagramBanner/InstagramBanner"
+import {ShopNavigation} from "./ShopNavigation/ShopNavigation"
+import {HomeAboutUs} from "./HomeAboutUs/HomeAboutUs"
+import {HomeProductSlider} from "./HomeProductSlider/HomeProductSlider"
+import {Preloader} from "../common/Preloader/Preloader";
 
 export const Home = () => {
+    // Getting products from data base
     const products = useSelector(state => state.products.products)
+    const isLoaded = useSelector(state => state.products.isLoaded)
     const dispatch = useDispatch()
-
+    
+    // Hard code for banners
     const commercialAddData = {
         firstAdd: {
             firstBanner: {
@@ -42,20 +46,23 @@ export const Home = () => {
     }
 
     useEffect(() => {
+        // Requesting products
         dispatch(setProducts())
     }, [])
+
+    if (isLoaded === false) return <Preloader/>
 
     return (
         <div>
             <HomeSlider/>
-            <ProductSlider products={products} title={'Comfortable sofas'} productType={'Sofa'}/>
+            <HomeProductSlider products={products} title={'Comfortable sofas'} productType={'Sofa'}/>
             <CommercialAdd firstBanner={commercialAddData.firstAdd.firstBanner}
                            secondBanner={commercialAddData.firstAdd.secondBanner}/>
-            <ProductSlider products={products} title={'Insanely soft beds'} productType={'Bed'} />
+            <HomeProductSlider products={products} title={'Insanely soft beds'} productType={'Bed'} />
             <InspirationBanner/>
             <CommercialAdd firstBanner={commercialAddData.secondAdd.firstBanner}
                            secondBanner={commercialAddData.secondAdd.secondBanner}/>
-            <ProductSlider products={products} title={'Our chairs'} productType={'Chair'}/>
+            <HomeProductSlider products={products} title={'Our chairs'} productType={'Chair'}/>
             <InstagramBanner/>
             <ShopNavigation/>
             <HomeAboutUs/>
