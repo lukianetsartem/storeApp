@@ -1,7 +1,8 @@
 import React, {useRef, useState} from 'react'
 import '../../../scss/sliders/productSlider.scss'
-import {Carousel} from "antd";
-import 'antd/dist/antd.css';
+import {Carousel} from "antd"
+import 'antd/dist/antd.css'
+import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos'
 
 export const ProductSlider = (props) => {
     // Setting carousel control
@@ -10,13 +11,31 @@ export const ProductSlider = (props) => {
     const mainProductSlider = useRef()
     const additionalProductSlider = useRef()
 
+    // Custom arrows
+    const PrevArrow = (props) => {
+        return (
+            <div className={'product-slider-prev'}>
+                <ArrowForwardIosIcon className={'product-slider-prev-arrow'} onClick={props.onClick}/>
+            </div>
+        )
+    }
+    const NextArrow = (props) => {
+        return (
+            <div className={'product-slider-next'} onClick={props.onClick}>
+                <ArrowForwardIosIcon/>
+            </div>
+        )
+    }
+
     const mainSliderSettings = {
         asNavFor: additionalSlider,
         dots: false,
         draggable: true,
         infinite: true,
+        arrows: true,
+        prevArrow: <PrevArrow/>,
+        nextArrow: <NextArrow/>
     }
-
     const additionalSliderSettings = {
         asNavFor: mainSlider,
         dots: false,

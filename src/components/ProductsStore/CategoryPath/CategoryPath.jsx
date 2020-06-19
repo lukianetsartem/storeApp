@@ -9,7 +9,7 @@ export const CategoryPath = (props) => {
             <NavLink to={'/home'}>Home</NavLink>
             <span>/</span>
             <NavLink to={`/${props.categoryPath}`}>{props.categoryPath}</NavLink>
-            <span>/</span>
+            {props.productId && <span>/</span>}
             {props.productId && <p>{props.productId.split('-').join(' ')}</p>}
         </div>
     )

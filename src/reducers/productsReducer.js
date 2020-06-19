@@ -1,7 +1,8 @@
 import {productsAPI} from "../api/api"
 
-const SET_PRODUCTS_AC = 'SET_PRODUCTS_AC'
 const SET_PRODUCT_DATA_AC = 'SET_PRODUCT_DATA_AC'
+const SET_PRODUCTS_AC = 'SET_PRODUCTS_AC'
+const ZEROING_AC = 'ZEROING_AC'
 
 const initialState = {
     products: [],
@@ -47,8 +48,7 @@ export const setProductData = (reqProduct) => async dispatch => {
             .replace('  ', ' ')
             .split(' ')
             .join('-').toLowerCase()
-        if(resProduct === reqProduct) {
-            debugger
+        if (resProduct === reqProduct) {
             dispatch({type: SET_PRODUCT_DATA_AC, product})
         }
     })

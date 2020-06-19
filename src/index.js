@@ -8,13 +8,11 @@ import {BrowserRouter} from "react-router-dom";
 import {App} from "./App";
 
 ReactDOM.render(
-    <React.StrictMode>
-        <Provider store={getStore()}>
-            <BrowserRouter>
-                <App/>
-            </BrowserRouter>
-        </Provider>
-    </React.StrictMode>,
+    <Provider store={getStore()}>
+        <BrowserRouter>
+            <App/>
+        </BrowserRouter>
+    </Provider>,
     document.getElementById('storeApplication')
 )
 
