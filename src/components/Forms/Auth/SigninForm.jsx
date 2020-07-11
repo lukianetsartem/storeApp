@@ -40,6 +40,10 @@ export const SigninForm = () => {
                                ref={register({ required: true, maxLength: 15, minLength: 5 })}/>
                         {errors.password && <p className={'sign-form-error'}>This is required</p>}
                     </div>
+                    <div className={'sign-form-checkbox'}>
+                        <input name="rememberMe" defaultChecked={false} type={'checkbox'} ref={register}/>
+                        <p>Remember me</p>
+                    </div>
                     <button type={'submit'} className={'login-form-submit'}>
                         Sign in
                     </button>

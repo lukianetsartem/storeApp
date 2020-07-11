@@ -8,7 +8,6 @@ export const SignupForm = () => {
     const {register, handleSubmit, errors} = useForm()
     const onSubmit = (data) => {
         console.log(data)
-        console.log(errors)
     }
 
     return (
@@ -38,7 +37,7 @@ export const SignupForm = () => {
                         <input name="firstName"
                                placeholder={'Example'}
                                style={errors.firstName && {borderColor: '#CC4b4b'}}
-                               ref={register({ required: true, maxLength: 30, minLength: 2 })}/>
+                               ref={register({ required: true, maxLength: 30, minLength: 2, pattern: /^[A-Za-z]+$/ })}/>
                         {errors.firstName && <p className={'sign-form-error'}>This is required</p>}
                     </div>
                     <div className={'sign-form-item'}>
@@ -46,7 +45,7 @@ export const SignupForm = () => {
                         <input name="lastName"
                                placeholder={'Example'}
                                style={errors.lastName && {borderColor: '#CC4b4b'}}
-                               ref={register({ required: true, maxLength: 30, minLength: 2 })}/>
+                               ref={register({ required: true, maxLength: 30, minLength: 2, pattern: /^[A-Za-z]+$/ })}/>
                         {errors.lastName && <p className={'sign-form-error'}>This is required</p>}
                     </div>
                     <div className={'sign-form-item'}>
@@ -68,10 +67,6 @@ export const SignupForm = () => {
                     <div className={'sign-form-checkbox'}>
                         <input name="promotions" defaultChecked={true} type={'checkbox'} ref={register}/>
                         <p>I'd like Made.com to send me exclusive promotions, discounts and trends and consent to capture of my interactions with such content. I can opt out of receiving these communications at any time</p>
-                    </div>
-                    <div className={'sign-form-remember-checkbox'}>
-                        <input name="rememberMe" type={'checkbox'} ref={register}/>
-                        <p>Remember me</p>
                     </div>
                     <button type={'submit'} className={'login-form-submit'}>
                         Sign in
