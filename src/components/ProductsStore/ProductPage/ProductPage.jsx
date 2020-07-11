@@ -1,16 +1,16 @@
 import React, {useEffect} from 'react'
-import '../../scss/product/product.scss'
-import {NavLink, withRouter} from "react-router-dom";
-import {setProductData} from "../../reducers/productsReducer";
-import {useDispatch, useSelector} from "react-redux";
-import {CategoryPath} from "../ProductsStore/CategoryPath/CategoryPath";
-import {Preloader} from "../common/Preloader/Preloader";
-import {ProductSlider} from "./ProductSlider/ProductSlider";
-import {ShippingInfo} from "./ShippingInfo/ShippingInfo";
-import {ProductHeading} from "./ProductHeading/ProductHeading";
-import {ProductGallery} from "./ProductGallery/ProductGallery";
-import {ProductDescription} from "./ProductDescription/ProductDescription";
-import {HouseProudSlider} from "./HouseProudSlider/HouseProudSlider";
+import '../../../scss/productsStore/product/product.scss'
+import {NavLink, withRouter} from "react-router-dom"
+import {useDispatch, useSelector} from "react-redux"
+import {ProductSlider} from "./ProductSlider/ProductSlider"
+import {ShippingInfo} from "./ShippingInfo/ShippingInfo"
+import {ProductHeading} from "./ProductHeading/ProductHeading"
+import {ProductGallery} from "./ProductGallery/ProductGallery"
+import {ProductDescription} from "./ProductDescription/ProductDescription"
+import {HouseProudSlider} from "./HouseProudSlider/HouseProudSlider"
+import {setProductData} from "../../../reducers/products"
+import {Preloader} from "../../common/Preloader/Preloader"
+import {CategoryPath} from "../CategoryPath/CategoryPath"
 
 const ProductPage = (props) => {
     const dispatch = useDispatch()
@@ -28,7 +28,6 @@ const ProductPage = (props) => {
     // Check, whether props are loaded?
     const isProductDataLoaded = useSelector(state => state.products.isProductDataLoaded)
 
-    debugger
     // If pros aren't loaded, return preloader
     if (isProductDataLoaded === false) return <Preloader/>
 
@@ -51,7 +50,7 @@ const ProductPage = (props) => {
             <ProductGallery product={product}/>
             <ProductDescription productParams={product.productParams} details={product.details}/>
             <div className={'product-size-photo'}>
-                <img src={product.productPhotos.sizePhoto}/>
+                <img src={product.productPhotos.additionalPhotos[6]}/>
             </div>
             {product.productPhotos.houseProudPhotos.length >= 5 && <HouseProudSlider photos={product.productPhotos.houseProudPhotos}/>}
         </div>

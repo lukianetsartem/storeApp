@@ -1,7 +1,9 @@
-import React, {useState} from "react"
+import React, {useEffect, useState} from "react"
 import {NavLink} from "react-router-dom"
 import '../../../scss/productsStore/productStoreItem.scss'
 import FavoriteIcon from '@material-ui/icons/Favorite';
+import {useDispatch, useSelector} from "react-redux";
+import {setWishList} from "../../../reducers/products";
 
 export const ProductStoreItem = (props) => {
     // Product url
@@ -14,7 +16,22 @@ export const ProductStoreItem = (props) => {
         .toLowerCase()
 
     const [isFollowed, setIsFollowed] = useState(false) // Product following state
+    const dispatch = useDispatch()
+    const wishList = useSelector(state => state.products.wishList)
 
+    const setWishListData = (wishListData) => {
+        debugger
+        dispatch(setWishList(wishListData))
+    }
+
+    useEffect(() => {
+        debugger
+        setWishListData()
+    }, [])
+
+    console.log(wishList)
+    console.log(props)
+    debugger
     return (
         <div className={'product-store-item'}>
             <NavLink to={productUrl}>
@@ -38,6 +55,8 @@ export const ProductStoreItem = (props) => {
                                   isFollowed === false
                                       ? setIsFollowed(true)
                                       : setIsFollowed(false)
+                                  debugger
+                                  setWishListData(props)
                               }}/>
             </div>
         </div>

@@ -1,4 +1,4 @@
-import {ProductsStore} from "../ProductsStore/ProductsStore";
+import {ProductsStore} from "../ProductsStore";
 import {Route} from "react-router-dom";
 import React from "react";
 import ProductPage from "../ProductPage/ProductPage";

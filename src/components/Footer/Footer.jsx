@@ -1,7 +1,7 @@
 import React from 'react'
-import {SubscribeForm} from "../Forms/SubscribeForm/SubscribeForm";
+import {SubscribeForm} from "../Forms/Subscribe/SubscribeForm"
 import '../../scss/footer/footer.scss'
-import {NavLink} from "react-router-dom";
+import {NavLink} from "react-router-dom"
 
 export const Footer = () => {
     return (

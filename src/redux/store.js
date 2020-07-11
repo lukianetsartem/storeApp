@@ -1,10 +1,12 @@
-import {applyMiddleware, combineReducers, compose, createStore} from "redux"
-import {productsReducer} from "../reducers/productsReducer"
 import thunk from "redux-thunk"
+import {applyMiddleware, combineReducers, compose, createStore} from "redux"
+import {products} from "../reducers/products"
+import {auth} from "../reducers/auth";
 
 // Combining reducers
 let rootReducer = combineReducers({
-    products: productsReducer,
+    products: products,
+    auth: auth,
 })
 
 // Connecting Redux DEVTools to state

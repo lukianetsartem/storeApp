@@ -2,17 +2,18 @@ import {productsAPI} from "../api/api"
 
 const SET_PRODUCT_DATA_AC = 'SET_PRODUCT_DATA_AC'
 const SET_PRODUCTS_AC = 'SET_PRODUCTS_AC'
-const ZEROING_AC = 'ZEROING_AC'
+const SET_WISH_LIST_DATA = 'SET_WISH_LIST_DATA'
 
 const initialState = {
+    isProductDataLoaded: false,
+    isProductsLoaded: false,
     products: [],
+    wishList: [],
     product: {},
     count: 0,
-    isProductsLoaded: false,
-    isProductDataLoaded: false,
 }
 
-export const productsReducer = (state = initialState, action) => {
+export const products = (state = initialState, action) => {
     switch (action.type) {
         case SET_PRODUCTS_AC:
             return {
@@ -48,8 +49,10 @@ export const setProductData = (reqProduct) => async dispatch => {
             .replace('  ', ' ')
             .split(' ')
             .join('-').toLowerCase()
-        if (resProduct === reqProduct) {
-            dispatch({type: SET_PRODUCT_DATA_AC, product})
-        }
+        if(resProduct === reqProduct) dispatch({type: SET_PRODUCT_DATA_AC, product})
     })
+}
+
+export const setWishList = (wishListData) => dispatch => {
+    dispatch({type: SET_WISH_LIST_DATA, wishListData})
 }

@@ -1,5 +1,5 @@
 import React, {useRef, useState} from 'react'
-import '../../../scss/sliders/productSlider.scss'
+import '../../../../scss/sliders/productSlider.scss'
 import {Carousel} from "antd"
 import 'antd/dist/antd.css'
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos'

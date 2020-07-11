@@ -1,6 +1,6 @@
 import React from 'react'
 import {Carousel} from "antd";
-import '../../../scss/sliders/houseProudSlider.scss'
+import '../../../../scss/sliders/houseProudSlider.scss'
 
 export const HouseProudSlider = (props) => {
     // Slider settings

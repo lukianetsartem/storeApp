@@ -2,7 +2,7 @@ import React, {useEffect} from 'react'
 import '../../scss/home/home.scss'
 import {HomeSlider} from "./HomeSlider/HomeSlider"
 import {useDispatch, useSelector} from "react-redux"
-import {setProducts} from "../../reducers/productsReducer"
+import {setProducts} from "../../reducers/products"
 import {CommercialAdd} from "./CommercialAdd/CommercialAdd"
 import {InspirationBanner} from "./InspirationBanner/InspirationBanner"
 import {InstagramBanner} from "./InstagramBanner/InstagramBanner"

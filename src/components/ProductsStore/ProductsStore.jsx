@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import {useDispatch, useSelector} from "react-redux"
-import {setProducts} from "../../reducers/productsReducer"
+import {setProducts} from "../../reducers/products"
 import {CategoryPath} from "./CategoryPath/CategoryPath"
 import '../../scss/productsStore/productsStore.scss'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
@@ -14,12 +14,13 @@ export const ProductsStore = (props) => {
 
     useEffect(() => {
         // Get products data from data base
-        dispatch(setProducts())
+        dispatch(setProducts(props.productType))
     }, [])
 
     // Products data for component
-    let [products, sortProducts] = useState(useSelector(state => state.products.products)
+    const productsData = useSelector(state => state.products.products
         .filter(p => p.productType === props.productType))
+    const [products, sortProducts] = useState(productsData)
     // Checking, whether props are loaded?
     const isProductsLoaded = useSelector(state => state.products.isProductsLoaded)
     // If props isn't loaded, return preloader
@@ -27,7 +28,7 @@ export const ProductsStore = (props) => {
 
     // Products filter
     const productSorter = (e) => {
-        if(e.currentTarget.value === "PRICE_LOW_TO_HIGH") {
+        if (e.currentTarget.value === "PRICE_LOW_TO_HIGH") {
             sortProducts(products // Creating new array to keep immutable
                 .slice() // Sorting products by price from bigger to smaller
                 .sort((a, b) => a.price > b.price ? 1 : -1))

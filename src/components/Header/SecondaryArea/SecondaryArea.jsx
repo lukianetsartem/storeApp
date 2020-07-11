@@ -2,10 +2,10 @@ import {NavLink} from "react-router-dom"
 import React from "react"
 import '../../../scss/header/header.scss'
 import LocationOnIcon from '@material-ui/icons/LocationOn'
-import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
-import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
-import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
-import PersonIcon from '@material-ui/icons/Person';
+import HelpOutlineIcon from '@material-ui/icons/HelpOutline'
+import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket'
+import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder'
+import PersonIcon from '@material-ui/icons/Person'
 
 export const SecondaryArea = () => {
     return (
