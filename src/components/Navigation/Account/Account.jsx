@@ -1,11 +1,11 @@
 import React from 'react'
 import {useSelector} from "react-redux"
-import {Signin} from "./Signin/Signin"
+import {Redirect} from "react-router-dom";
 
 export const Account = () => {
     const isAuth = useSelector(state => state.auth.isAuth)
 
-    if(!isAuth) return <Signin/>
+    if(!isAuth) return <Redirect to={'/signin'}/>
 
     return (
         <div>
