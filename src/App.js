@@ -6,6 +6,7 @@ import {Redirect, Route} from "react-router-dom"
 import {Footer} from "./components/Footer/Footer"
 import {StoreRouter} from "./components/ProductsStore/StoreRouter/StoreRouter"
 import {NavigationRouter} from "./components/Navigation/NavigationRouter"
+import {useSelector} from "react-redux";
 
 export const App = () => {
 

@@ -68,6 +68,7 @@
 }
 
 .sign-form-item {
+  position: relative;
   p {
     margin: 0;
     color: black;
@@ -105,4 +106,17 @@
 .login-form-submit:hover {
   background-color: rgba(255, 238, 96, 0.76);
   transition: 0.3s;
+}
+
+.password-visibility-icon-container {
+  position: absolute;
+  right: +10px;
+  top: +30px;
+  .password-visibility-icon {
+    font-size: 20px;
+    cursor: pointer;
+  }
+  .visible-icon {
+    color: #1483cd;
+  }
 }

@@ -1,9 +1,13 @@
 import React from 'react'
-import {NavLink} from "react-router-dom"
+import {NavLink, Redirect} from "react-router-dom"
 import {SigninForm} from "../../../Forms/Auth/SigninForm"
 import '../../../../scss/navigation/account/signin.scss'
+import {useSelector} from "react-redux";
 
 export const Signin = () => {
+    const isAuth = useSelector(state => state.user.isAuth)
+    if(isAuth) return <Redirect to={'/account'}/>
+
     return (
         <div className={'sign-page'}>
             <div className={'sign-title'}>

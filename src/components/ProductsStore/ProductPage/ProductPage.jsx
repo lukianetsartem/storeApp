@@ -8,7 +8,7 @@ import {ProductHeading} from "./ProductHeading/ProductHeading"
 import {ProductGallery} from "./ProductGallery/ProductGallery"
 import {ProductDescription} from "./ProductDescription/ProductDescription"
 import {HouseProudSlider} from "./HouseProudSlider/HouseProudSlider"
-import {setProductData} from "../../../reducers/products"
+import {setProductData} from "../../../reducers/shop"
 import {Preloader} from "../../common/Preloader/Preloader"
 import {CategoryPath} from "../CategoryPath/CategoryPath"
 

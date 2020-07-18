@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import {useDispatch, useSelector} from "react-redux"
-import {setProducts} from "../../reducers/products"
+import {setProducts} from "../../reducers/shop"
 import {CategoryPath} from "./CategoryPath/CategoryPath"
 import '../../scss/productsStore/productsStore.scss'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';

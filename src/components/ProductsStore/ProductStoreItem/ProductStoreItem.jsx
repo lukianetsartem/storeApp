@@ -3,7 +3,7 @@ import {NavLink} from "react-router-dom"
 import '../../../scss/productsStore/productStoreItem.scss'
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import {useDispatch, useSelector} from "react-redux";
-import {setWishList} from "../../../reducers/products";
+import {setWishList} from "../../../reducers/shop";
 
 export const ProductStoreItem = (props) => {
     // Product url

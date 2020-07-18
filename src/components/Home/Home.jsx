@@ -2,17 +2,17 @@ import React, {useEffect} from 'react'
 import '../../scss/home/home.scss'
 import {HomeSlider} from "./HomeSlider/HomeSlider"
 import {useDispatch, useSelector} from "react-redux"
-import {setProducts} from "../../reducers/products"
+import {setProducts} from "../../reducers/shop"
 import {CommercialAdd} from "./CommercialAdd/CommercialAdd"
 import {InspirationBanner} from "./InspirationBanner/InspirationBanner"
 import {InstagramBanner} from "./InstagramBanner/InstagramBanner"
 import {ShopNavigation} from "./ShopNavigation/ShopNavigation"
 import {HomeAboutUs} from "./HomeAboutUs/HomeAboutUs"
 import {HomeProductSlider} from "./HomeProductSlider/HomeProductSlider"
-import {Preloader} from "../common/Preloader/Preloader";
+import {Preloader} from "../common/Preloader/Preloader"
 
 export const Home = () => {
-    // Getting products from data base
+    // Getting shop from data base
     const products = useSelector(state => state.products.products)
     const isLoaded = useSelector(state => state.products.isLoaded)
     const dispatch = useDispatch()
@@ -46,7 +46,7 @@ export const Home = () => {
     }
 
     useEffect(() => {
-        // Requesting products
+        // Requesting shop
         dispatch(setProducts())
     }, [])
 
