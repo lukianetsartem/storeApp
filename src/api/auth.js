@@ -13,3 +13,7 @@ export const signInRequest = (authData) => {
 export const signUpRequest = (authData) => {
     return instance.post('/signup', authData).then(response => response.data)
 }
+
+export const userDataRequest = () => {
+    return instance.get('/data').then(response => response.data)
+}

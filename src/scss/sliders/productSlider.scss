@@ -18,6 +18,7 @@
   height: 50px;
   width: 100px;
   padding: 5px 5px 5px 5px;
+  cursor: pointer;
   img {
     border: 0.5px solid #c6c5c5;
     width: 100%;
@@ -26,6 +27,7 @@
 }
 
 .product-slider-next, .product-slider-prev {
+  cursor: pointer;
   width: 80px;
   height: 50px;
   background-color: rgba(220, 220, 220, 0.32);

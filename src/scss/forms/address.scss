@@ -1,0 +1,76 @@
+.address-form {
+  width: 600px;
+  border: 1px solid #dadcdc;
+  margin-top: 30px;
+  border-radius: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #2B2B2B;
+}
+
+.address-form-content {
+  width: 92%;
+  height: 95%;
+  position: relative;
+  margin-top: 10px;
+}
+
+.address-form-title {
+  p {
+    font-size: 30px;
+    margin: 0;
+    font-family: "FS Neruda";
+  }
+
+  span {
+    display: flex;
+    height: 2px;
+    width: 100%;
+    background-color: #2B2B2B;
+  }
+}
+
+.address-form-subtitle {
+  margin-top: 10px;
+}
+
+.address-form-section-double {
+  display: flex;
+  justify-content: space-between;
+
+  div {
+    width: 45%;
+  }
+}
+
+.address-form-close-icon {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.address-form-control {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  button {
+    width: 45%;
+    max-width: 300px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    color: black;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  .address-form-control-submit {
+    background-color: #FFEE60;
+  }
+}

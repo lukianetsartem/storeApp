@@ -23,10 +23,10 @@ const ProductPage = (props) => {
     }, [])
 
     // Getting products from data base
-    const product = useSelector(state => state.products.product)
+    const product = useSelector(state => state.shop.product)
 
     // Check, whether props are loaded?
-    const isProductDataLoaded = useSelector(state => state.products.isProductDataLoaded)
+    const isProductDataLoaded = useSelector(state => state.shop.isProductDataLoaded)
 
     // If pros aren't loaded, return preloader
     if (isProductDataLoaded === false) return <Preloader/>

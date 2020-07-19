@@ -1,13 +1,13 @@
 import React, {useEffect, useState} from "react"
 import {NavLink} from "react-router-dom"
 import '../../../scss/productsStore/productStoreItem.scss'
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import {useDispatch, useSelector} from "react-redux";
-import {setWishList} from "../../../reducers/shop";
+import FavoriteIcon from '@material-ui/icons/Favorite'
+import {useDispatch, useSelector} from "react-redux"
+import {setWishList} from "../../../reducers/shop"
 
 export const ProductStoreItem = (props) => {
     // Product url
-    const productUrl = `products/${props.description 
+    const productUrl = `products/${props.description
         .replace(',', ' ')
         .replace('& ', '')
         .replace('  ', ' ')
@@ -17,21 +17,16 @@ export const ProductStoreItem = (props) => {
 
     const [isFollowed, setIsFollowed] = useState(false) // Product following state
     const dispatch = useDispatch()
-    const wishList = useSelector(state => state.products.wishList)
+    const wishList = useSelector(state => state.shop.wishList)
 
     const setWishListData = (wishListData) => {
-        debugger
         dispatch(setWishList(wishListData))
     }
 
     useEffect(() => {
-        debugger
         setWishListData()
     }, [])
 
-    console.log(wishList)
-    console.log(props)
-    debugger
     return (
         <div className={'product-store-item'}>
             <NavLink to={productUrl}>
@@ -39,7 +34,7 @@ export const ProductStoreItem = (props) => {
                     <img className={'product-store-item-image-model'} src={`${props.modelPhoto}`}/>
                     <img className={'product-store-item-image-interior'} src={`${props.interiorPhoto}`}/>
                 </div>
-                <p className={'product-store-item-title'}>{props.description.length > 50 ? props.description.slice(0,50) + '..' : props.description }</p>
+                <p className={'product-store-item-title'}>{props.description.length > 50 ? props.description.slice(0, 50) + '..' : props.description}</p>
                 {!props.oldPrice && <p className={'product-store-item-price'}>£{props.price}</p>}
                 {props.oldPrice && <div className={'sale-price-product'}>
                     <p className={'product-store-item-sale-price'}>£{props.oldPrice}</p>
@@ -55,7 +50,6 @@ export const ProductStoreItem = (props) => {
                                   isFollowed === false
                                       ? setIsFollowed(true)
                                       : setIsFollowed(false)
-                                  debugger
                                   setWishListData(props)
                               }}/>
             </div>

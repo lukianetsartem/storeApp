@@ -5,7 +5,7 @@ import {user} from "../reducers/auth"
 
 // Combining reducers
 let rootReducer = combineReducers({
-    products: shop,
+    shop: shop,
     user: user,
 })
 

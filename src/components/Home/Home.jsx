@@ -13,8 +13,8 @@ import {Preloader} from "../common/Preloader/Preloader"
 
 export const Home = () => {
     // Getting shop from data base
-    const products = useSelector(state => state.products.products)
-    const isLoaded = useSelector(state => state.products.isLoaded)
+    const products = useSelector(state => state.shop.products)
+    const isLoaded = useSelector(state => state.shop.isLoaded)
     const dispatch = useDispatch()
     
     // Hard code for banners

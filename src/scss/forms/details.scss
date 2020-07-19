@@ -1,0 +1,16 @@
+.details-form {
+  max-width: 270px;
+  margin: auto;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.details-form-change-password {
+  margin-top: 5px;
+  display: flex;
+  justify-content: center;
+  a {
+    color: #2B2B2B;
+    text-decoration: underline;
+  }
+}

@@ -23,19 +23,19 @@ export const SecondaryArea = () => {
                 </NavLink>
             </div>
             <div className={'secondary-area-content'}>
-                <NavLink to={`/account`} className={'secondary-area-item'}>
+                <NavLink to={`/customer/account`} className={'secondary-area-item'}>
                     <PersonIcon className={'close-icon'}/>
                     <p className={'secondary-area-title'}>account</p>
                 </NavLink>
             </div>
             <div className={'secondary-area-content'}>
-                <NavLink to={`/wishlist`} className={'secondary-area-item'}>
+                <NavLink to={`/customer/wishlist`} className={'secondary-area-item'}>
                     <FavoriteBorderIcon className={'close-icon'}/>
                     <p className={'secondary-area-title'}>wishlist</p>
                 </NavLink>
             </div>
             <div className={'secondary-area-content'}>
-                <NavLink to={`/basket`} className={'secondary-area-item'}>
+                <NavLink to={`/customer/cart`} className={'secondary-area-item'}>
                     <ShoppingBasketIcon className={'close-icon'}/>
                     <p className={'secondary-area-title'}>basket</p>
                 </NavLink>
