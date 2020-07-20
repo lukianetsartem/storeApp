@@ -25,9 +25,9 @@ export const PasswordChangeForm = () => {
                         <p>Current password</p>
                         <input name="currentPassword"
                                type={!visibility ? "password" : undefined}
-                               style={errors.password && {borderColor: '#CC4b4b'}}
-                               ref={register({ required: true, maxLength: 15, minLength: 4 })}/>
-                        {errors.password && <p className={'sign-form-error'}>This is required</p>}
+                               style={errors.currentPassword && {borderColor: '#CC4b4b'}}
+                               ref={register({ required: true, maxLength: 15, minLength: 4, pattern: /^[A-Za-z]+$/ })}/>
+                        {errors.currentPassword && <p className={'sign-form-error'}>This is required</p>}
                         <div className={'password-visibility-icon-container'}>
                             {visibility &&
                             <VisibilityIcon onClick={() => setVisibility(false)} className={'password-visibility-icon visible-icon'}/>}
@@ -39,9 +39,9 @@ export const PasswordChangeForm = () => {
                         <p>New password</p>
                         <input name="newPassword"
                                type={!visibility ? "password" : undefined}
-                               style={errors.password && {borderColor: '#CC4b4b'}}
-                               ref={register({ required: true, maxLength: 15, minLength: 4 })}/>
-                        {errors.password && <p className={'sign-form-error'}>This is required</p>}
+                               style={errors.newPassword && {borderColor: '#CC4b4b'}}
+                               ref={register({ required: true, maxLength: 15, minLength: 4, pattern: /^[A-Za-z]+$/ })}/>
+                        {errors.newPassword && <p className={'sign-form-error'}>This is required</p>}
                     </div>
                     <button disabled={!formState.isValid} type={'submit'} className={'login-form-submit'}>
                         Apply changes

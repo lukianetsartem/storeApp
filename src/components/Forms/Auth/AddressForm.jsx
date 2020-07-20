@@ -35,9 +35,9 @@ export const AddressForm = (props) => {
                         <p>Last Name</p>
                         <input name="lastName"
                                placeholder={'Example'}
-                               style={errors.firstName && {borderColor: '#CC4b4b'}}
+                               style={errors.lastName && {borderColor: '#CC4b4b'}}
                                ref={register({required: true, maxLength: 30, minLength: 2, pattern: /^[A-Za-z]+$/})}/>
-                        {errors.firstName && <p className={'sign-form-error'}>This is required</p>}
+                        {errors.lastName && <p className={'sign-form-error'}>This is required</p>}
                     </div>
                 </div>
                 <div className={'address-form-section-signle'}>
@@ -45,19 +45,19 @@ export const AddressForm = (props) => {
                         <p>Address</p>
                         <input name="address"
                                placeholder={'Example str, home 2, flat 20'}
-                               style={errors.firstName && {borderColor: '#CC4b4b'}}
+                               style={errors.address && {borderColor: '#CC4b4b'}}
                                ref={register({required: true, maxLength: 30, minLength: 2, pattern: /^[A-Za-z]+$/})}/>
-                        {errors.firstName && <p className={'sign-form-error'}>This is required</p>}
+                        {errors.address && <p className={'sign-form-error'}>This is required</p>}
                     </div>
                 </div>
                 <div className={'address-form-section-signle'}>
                     <div className={'sign-form-item'}>
                         <p>Town / City</p>
-                        <input name="city"
+                        <input name="town"
                                placeholder={'Example'}
-                               style={errors.firstName && {borderColor: '#CC4b4b'}}
+                               style={errors.town && {borderColor: '#CC4b4b'}}
                                ref={register({required: true, maxLength: 30, minLength: 2, pattern: /^[A-Za-z]+$/})}/>
-                        {errors.firstName && <p className={'sign-form-error'}>This is required</p>}
+                        {errors.town && <p className={'sign-form-error'}>This is required</p>}
                     </div>
                 </div>
                 <div className={'address-form-section-signle'}>
@@ -65,28 +65,28 @@ export const AddressForm = (props) => {
                         <p>Country</p>
                         <input name="country"
                                placeholder={'Example'}
-                               style={errors.firstName && {borderColor: '#CC4b4b'}}
+                               style={errors.country && {borderColor: '#CC4b4b'}}
                                ref={register({required: true, maxLength: 30, minLength: 2, pattern: /^[A-Za-z]+$/})}/>
-                        {errors.firstName && <p className={'sign-form-error'}>This is required</p>}
+                        {errors.country && <p className={'sign-form-error'}>This is required</p>}
                     </div>
                 </div>
                 <div className={'address-form-section-double'}>
                     <div className={'sign-form-item'}>
                         <p>Postcode</p>
                         <input name="postcode"
-                               style={errors.firstName && {borderColor: '#CC4b4b'}}
-                               ref={register({required: true, maxLength: 30, minLength: 2, pattern: /[^0-9]/g})}/>
-                        {errors.firstName && <p className={'sign-form-error'}>This is required</p>}
+                               style={errors.postcode && {borderColor: '#CC4b4b'}}
+                               ref={register({required: true, maxLength: 30, minLength: 2, pattern: /^[A-Za-z]+$/})}/>
+                        {errors.postcode && <p className={'sign-form-error'}>This is required</p>}
                     </div>
                 </div>
                 <div className={'address-form-section-signle'}>
                     <div className={'sign-form-item'}>
                         <p>Telephone</p>
-                        <input name="phone"
-                               placeholder={'07400 123456'}
-                               style={errors.firstName && {borderColor: '#CC4b4b'}}
-                               ref={register({required: true, maxLength: 30, minLength: 2, pattern: /[^0-9]/g})}/>
-                        {errors.firstName && <p className={'sign-form-error'}>This is required</p>}
+                        <input name="telephone"
+                               placeholder={'07400 12345'}
+                               style={errors.phone && {borderColor: '#CC4b4b'}}
+                               ref={register({required: true, maxLength: 30, minLength: 2, pattern: /^[A-Za-z]+$/})}/>
+                        {errors.phone && <p className={'sign-form-error'}>This is required</p>}
                     </div>
                 </div>
                 <CloseIcon onClick={() => props.setVisibility(false)} className={'address-form-close-icon'}/>
