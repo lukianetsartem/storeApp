@@ -43,11 +43,11 @@ export const ProductStoreItem = (props) => {
             </NavLink>
             <div className={'add-to-wish-list'}>
                 <FavoriteIcon className={'add-to-wish-list-icon'}
-                              style={isFollowed === true
+                              style={isFollowed
                                   ? {color: 'rgb(238, 108, 106)'}
                                   : {color: '#a8a8a8'}}
                               onClick={() => {
-                                  isFollowed === false
+                                  !isFollowed
                                       ? addToWishList(props.id)
                                       : removeFromWishList(props.id)
                               }}/>

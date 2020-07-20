@@ -7,6 +7,7 @@ import ShoppingCartIcon from '@material-ui/icons/ShoppingCart'
 import AssignmentIcon from '@material-ui/icons/Assignment'
 import HomeIcon from '@material-ui/icons/Home'
 import CreditCardIcon from '@material-ui/icons/CreditCard'
+import StyleIcon from '@material-ui/icons/Style'
 import '../../../scss/navigation/account/account.scss'
 
 export const Account = () => {
@@ -50,6 +51,15 @@ export const Account = () => {
                 <div className={'account-page-nav-item-description'}>
                     <NavLink to={'/customer/details'}>My details</NavLink>
                     <p>Edit your name, email address and password.</p>
+                </div>
+            </div>
+            <div className={'account-page-nav-item'}>
+                <div className={'account-page-nav-item-icon'}>
+                    <StyleIcon className={'account-page-icon'}/>
+                </div>
+                <div className={'account-page-nav-item-description'}>
+                    <NavLink to={'/customer/find-your-style'}>Find your style</NavLink>
+                    <p>Find your favorite furniture style.</p>
                 </div>
             </div>
             <div className={'account-page-nav-item'}>

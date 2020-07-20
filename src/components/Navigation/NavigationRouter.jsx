@@ -11,6 +11,8 @@ import {Signup} from "./Account/Auth/Signup"
 import {Signin} from "./Account/Auth/Signin"
 import {Cart} from "./Cart/Cart"
 import {Help} from "./Help/Help"
+import {Style} from "./Account/Style/Style"
+import {Result} from "./Account/Style/Result"
 
 export const NavigationRouter = () => {
     return (
@@ -29,6 +31,9 @@ export const NavigationRouter = () => {
 
             <Route path={'/customer/wishlist'} render={() => <Wishlist/>}/>
             <Route path={'/customer/cart'} render={() => <Cart/>}/>
+
+            <Route path={'/customer/find-your-style'} render={() => <Style/>}/>
+            <Route path={'/customer/your-style'} render={() => <Result/>}/>
         </div>
     )
 }

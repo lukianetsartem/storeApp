@@ -1,0 +1,282 @@
+.style-page {
+  max-width: 1424px;
+  width: 100%;
+  margin: auto;
+}
+
+.style-page-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.style-page-content-item {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  img {
+    width: 100%;
+    cursor: pointer;
+  }
+
+  button {
+    width: 50px;
+    height: 50px;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    border: 1px solid #2B2B2B;
+    background-color: white;
+    cursor: pointer;
+    transition: 0.2s linear;
+  }
+
+  button:hover {
+    background-color: rgba(245, 245, 245, 0.68);
+    transition: 0.2s linear;
+  }
+}
+
+.style-page-progress-bar {
+  position: sticky;
+  top: 0;
+  z-index: 9000;
+  width: 100%;
+  height: 100px;
+  background-color: white;
+  left: 0;
+  right: 0;
+  color: black;
+
+  .style-page-progress-bar-content {
+    height: 100%;
+    width: 300px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    p {
+      font-size: 17px;
+      margin: 0;
+      margin-bottom: 5px;
+    }
+  }
+
+  .progress-bar-content {
+    width: 100%;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .progress-bar-item {
+      height: 20px;
+      width: 220px;
+      background-color: #f3f2f2;
+
+      .progress-line {
+        background-color: #2B2B2B;
+        height: 100%;
+      }
+    }
+
+    p {
+      margin-top: 2px;
+      margin-left: 5px;
+      font-weight: bold;
+    }
+  }
+}
+
+.style-page-analyse-banner {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: rgba(0, 0, 0, 0.43);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .style-page-analyse-banner-content {
+    width: 300px;
+    height: 190px;
+    background-color: white;
+
+    button {
+      letter-spacing: 0.3px;
+      color: black;
+      text-transform: uppercase;
+      cursor: pointer;
+      margin: 0 20px 20px 20px;
+      width: 260px;
+      height: 50px;
+      border: 1px solid #2B2B2B;
+      border-radius: 2px;
+    }
+
+    div {
+      display: flex;
+      justify-content: center;
+      margin: 20px 20px 0 20px;
+      height: 100px;
+      align-items: center;
+
+      p {
+        font-size: 20px;
+        width: 100px;
+        font-family: "FS Neruda";
+        margin: 0;
+        color: #2B2B2B;
+      }
+
+      div {
+        margin-bottom: 22px;
+        margin-right: 0;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: 1px solid #2B2B2B;
+        color: #2B2B2B;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+}
+
+.process-ring-large {
+  color: #2B2B2B;
+  width: 160px;
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20px;
+  position: relative;
+}
+
+.process-ring-little {
+  opacity: 0.6;
+  color: #2B2B2B;
+  width: 155px;
+  height: 155px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 20px;
+  position: relative;
+}
+
+.progress-ring-little-title {
+  text-align: center;
+  font-size: 30px;
+  opacity: 0.6;
+  font-family: "FS Neruda";
+}
+
+.progress-ring-large-title {
+  text-align: center;
+  font-size: 30px;
+  font-family: "FS Neruda";
+}
+
+.process-ring-percent {
+  position: absolute;
+  font-size: 30px;
+  transition: 0.3s linear;
+  cursor:pointer;
+}
+
+.process-ring-percent:hover {
+  font-size: 40px;
+  color: #1385ef;
+  transition: 0.3s linear;
+}
+
+.progress-ring {
+  position: absolute;
+
+  circle {
+    transform-origin: center;
+    transform: rotate(-90deg);
+  }
+}
+
+.process-rings {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.result-page {
+  padding-bottom: 60px;
+}
+
+.result-page-content {
+  display: flex;
+  justify-content: center;
+  color: #2B2B2B;
+}
+
+.result-page-title {
+  color: #2B2B2B;
+  text-align: center;
+  font-size: 40px;
+  font-family: "FS Neruda";
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.result-page-description {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 550px;
+  margin-left: 40px;
+  font-size: 16px;
+}
+
+.result-slider {
+  margin: auto;
+  width: 100%;
+  max-width: 1100px;
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.result-slider-next, .result-slider-prev {
+  cursor: pointer;
+  width: 80px;
+  height: 50px;
+  background-color: rgba(224, 222, 222, 0.64);
+  position: absolute;
+  z-index: 999;
+  top: +41%;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.result-slider-next {
+  margin-right: 14px;
+}
+
+.result-slider-prev {
+  margin-left: 15px;
+  left: 0;
+}
