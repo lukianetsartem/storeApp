@@ -1,14 +1,14 @@
-import {getProducts} from "../api/shop"
+import {addToWishList, getProducts, removeFromWishList} from "../api/shop"
 
 const SET_PRODUCT_DATA_AC = 'SET_PRODUCT_DATA_AC'
 const SET_PRODUCTS_AC = 'SET_PRODUCTS_AC'
-const SET_WISH_LIST_DATA = 'SET_WISH_LIST_DATA'
+const WISH_LIST_ADD = 'WISH_LIST_ADD'
+const WISH_LIST_REMOVE = 'WISH_LIST_REMOVE'
 
 const initialState = {
     isProductDataLoaded: false,
     isProductsLoaded: false,
     products: [],
-    wishList: [],
     product: {},
     count: 0,
 }
@@ -53,6 +53,12 @@ export const setProductData = (reqProduct) => async dispatch => {
     })
 }
 
-export const setWishList = (wishListData) => dispatch => {
-    dispatch({type: SET_WISH_LIST_DATA, wishListData})
+export const wishListAdd = (id) => async dispatch => {
+    const res = await addToWishList(id)
+    // dispatch({type: WISH_LIST_ADD, id})
+}
+
+export const wishListRemove = (id) => async dispatch => {
+    const res = await removeFromWishList(id)
+    // dispatch({type: WISH_LIST_REMOVE, id})
 }

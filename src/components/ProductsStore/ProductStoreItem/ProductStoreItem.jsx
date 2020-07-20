@@ -3,7 +3,7 @@ import {NavLink} from "react-router-dom"
 import '../../../scss/productsStore/productStoreItem.scss'
 import FavoriteIcon from '@material-ui/icons/Favorite'
 import {useDispatch, useSelector} from "react-redux"
-import {setWishList} from "../../../reducers/shop"
+import {wishListAdd, wishListRemove} from "../../../reducers/shop"
 
 export const ProductStoreItem = (props) => {
     // Product url
@@ -17,15 +17,15 @@ export const ProductStoreItem = (props) => {
 
     const [isFollowed, setIsFollowed] = useState(false) // Product following state
     const dispatch = useDispatch()
-    const wishList = useSelector(state => state.shop.wishList)
 
-    const setWishListData = (wishListData) => {
-        dispatch(setWishList(wishListData))
+    const addToWishList = (id) => {
+        setIsFollowed(true)
+        // dispatch(wishListAdd(id))
     }
-
-    useEffect(() => {
-        setWishListData()
-    }, [])
+    const removeFromWishList = (id) => {
+        setIsFollowed(false)
+        // dispatch(wishListRemove(id))
+    }
 
     return (
         <div className={'product-store-item'}>
@@ -37,7 +37,7 @@ export const ProductStoreItem = (props) => {
                 <p className={'product-store-item-title'}>{props.description.length > 50 ? props.description.slice(0, 50) + '..' : props.description}</p>
                 {!props.oldPrice && <p className={'product-store-item-price'}>£{props.price}</p>}
                 {props.oldPrice && <div className={'sale-price-product'}>
-                    <p className={'product-store-item-sale-price'}>£{props.oldPrice}</p>
+                    <p className={'product-store-item-sale-price'}>£{props.price}</p>
                     <p className={'product-store-item-disabled-price'}>£{props.oldPrice}</p>
                 </div>}
             </NavLink>
@@ -48,9 +48,8 @@ export const ProductStoreItem = (props) => {
                                   : {color: '#a8a8a8'}}
                               onClick={() => {
                                   isFollowed === false
-                                      ? setIsFollowed(true)
-                                      : setIsFollowed(false)
-                                  setWishListData(props)
+                                      ? addToWishList(props.id)
+                                      : removeFromWishList(props.id)
                               }}/>
             </div>
         </div>

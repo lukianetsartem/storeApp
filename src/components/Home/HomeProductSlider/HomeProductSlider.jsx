@@ -29,7 +29,7 @@ export const HomeProductSlider = (props) => {
                                             productPhoto={p.productPhotos.modelPhoto}
                                             description={p.description}
                                             price={p.price}
-                                            salePrice={p.salePrice}
+                                            oldPrice={p.oldPrice}
                                             key={p._id}/>)}
             </Carousel>
         </div>
@@ -50,10 +50,10 @@ const ProductSlide = (props) => {
             <p className={'product-slide-name'}>
                 {props.description.length >= 22 ? props.description.substr(0, 25) + '..' : props.description}
             </p>
-            {!props.salePrice && <p className={'product-store-item-price'}>£{props.price}</p>}
-            {props.salePrice && <div className={'sale-price-product'}>
-                <p className={'product-store-item-sale-price'}>£{props.salePrice}</p>
-                <p className={'product-store-item-disabled-price'}>£{props.price}</p>
+            {!props.oldPrice && <p className={'product-store-item-price'}>£{props.price}</p>}
+            {props.oldPrice && <div className={'sale-price-product'}>
+                <p className={'product-store-item-sale-price'}>£{props.price}</p>
+                <p className={'product-store-item-disabled-price'}>£{props.oldPrice}</p>
             </div>}
         </NavLink>
     )

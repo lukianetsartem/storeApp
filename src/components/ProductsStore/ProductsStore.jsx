@@ -47,6 +47,8 @@ export const ProductsStore = (props) => {
         }
     }
 
+    console.log(products)
+
     return (
         <div className={'products'}>
             <div className={'products-header'}>
@@ -72,7 +74,9 @@ export const ProductsStore = (props) => {
                                                      modelPhoto={p.productPhotos.modelPhoto}
                                                      interiorPhoto={p.productPhotos.interiorPhoto}
                                                      productType={p.productType}
-                                                     salePrice={p.salePrice}
+                                                     oldPrice={p.oldPrice}
+                                                     wished={p.wished}
+                                                     id={p._id}
                                                      key={p._id}/>)}
             </div>
         </div>
