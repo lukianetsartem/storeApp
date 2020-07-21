@@ -3,7 +3,7 @@ import '../../../../scss/navigation/account/address.scss'
 import {AddressForm} from "../../../Forms/Auth/AddressForm"
 
 export const Address = () => {
-    const [visibility, setVisibility] = useState(true)
+    const [visibility, setVisibility] = useState(false)
 
     return (
         <div className={'address-page'}>
