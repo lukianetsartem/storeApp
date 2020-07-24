@@ -2,19 +2,16 @@ import React, {useState} from 'react'
 import {useForm} from "react-hook-form"
 import '../../../scss/forms/signin.scss'
 import '../../../scss/forms/details.scss'
-import {useDispatch} from "react-redux"
 import VisibilityIcon from "@material-ui/icons/Visibility"
 import VisibilityOffIcon from "@material-ui/icons/VisibilityOff"
 
-export const PasswordChangeForm = () => {
-    const dispatch = useDispatch()
+export const PasswordChangeForm = (props) => {
     const [visibility, setVisibility] = useState(false)
 
     // Change password form
-    const {register, handleSubmit, errors, formState} = useForm({mode: "onChange"})
+    const {register, handleSubmit, errors} = useForm()
     const onSubmit = (data) => {
-        // dispatch()
-        console.log(data)
+        props.changePasswordHandler(data)
     }
 
     return (
@@ -26,7 +23,7 @@ export const PasswordChangeForm = () => {
                         <input name="currentPassword"
                                type={!visibility ? "password" : undefined}
                                style={errors.currentPassword && {borderColor: '#CC4b4b'}}
-                               ref={register({ required: true, maxLength: 15, minLength: 4, pattern: /^[A-Za-z]+$/ })}/>
+                               ref={register({ required: true, maxLength: 15, minLength: 4 })}/>
                         {errors.currentPassword && <p className={'sign-form-error'}>This is required</p>}
                         <div className={'password-visibility-icon-container'}>
                             {visibility &&
@@ -40,10 +37,10 @@ export const PasswordChangeForm = () => {
                         <input name="newPassword"
                                type={!visibility ? "password" : undefined}
                                style={errors.newPassword && {borderColor: '#CC4b4b'}}
-                               ref={register({ required: true, maxLength: 15, minLength: 4, pattern: /^[A-Za-z]+$/ })}/>
+                               ref={register({ required: true, maxLength: 15, minLength: 4 })}/>
                         {errors.newPassword && <p className={'sign-form-error'}>This is required</p>}
                     </div>
-                    <button disabled={!formState.isValid} type={'submit'} className={'login-form-submit'}>
+                    <button type={'submit'} className={'login-form-submit'}>
                         Apply changes
                     </button>
                 </form>

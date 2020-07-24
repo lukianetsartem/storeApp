@@ -9,7 +9,7 @@ import {InstagramBanner} from "./InstagramBanner/InstagramBanner"
 import {ShopNavigation} from "./ShopNavigation/ShopNavigation"
 import {HomeAboutUs} from "./HomeAboutUs/HomeAboutUs"
 import {HomeProductSlider} from "./HomeProductSlider/HomeProductSlider"
-import {Preloader} from "../common/Preloader/Preloader"
+import {Preloader} from "../common/Preloader"
 
 export const Home = () => {
     // Getting shop from data base

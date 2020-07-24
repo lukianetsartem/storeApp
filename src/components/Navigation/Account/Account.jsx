@@ -1,7 +1,7 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import {useDispatch, useSelector} from "react-redux"
-import {NavLink, Redirect, Route} from "react-router-dom"
-import {Preloader} from "../../common/Preloader/Preloader"
+import {NavLink, Redirect} from "react-router-dom"
+import {Preloader} from "../../common/Preloader"
 import {getUserData} from "../../../reducers/auth"
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart'
 import AssignmentIcon from '@material-ui/icons/Assignment'
@@ -20,21 +20,25 @@ export const Account = () => {
     // Getting data from state
     const isAuth = useSelector(state => state.user.isAuth)
     const isDataLoaded = useSelector(state => state.user.isDataLoaded)
-    const user = useSelector(state => state.user.user)
+    const user = useSelector(state => state.user.userDetails)
 
-    console.log(isAuth)
+    console.log(user)
+    const [logout, setLogout] = useState(false)
+    const destroyAuth = () => {
+        setLogout(true)
+    }
 
     // Checking if user is authorized
-    if (!isAuth) return <Redirect to={'/signin'}/>
+    if (!isAuth || logout) return <Redirect to={'/signin'}/>
     // Checking if user data is loaded
     if (!isDataLoaded) return <Preloader/>
     return (
         <div className={'account-page'}>
-            <div className={'account-page-title'}>
+            <div className={'page-title'}>
                 <p>My account</p>
                 <span/>
             </div>
-            <p className={'account-page-subtitle'}>Hello, Artem</p>
+            <p className={'account-page-subtitle'}>Hello, {user.firstName}</p>
             <div className={'account-page-nav-item'}>
                 <div className={'account-page-nav-item-icon'}>
                     <ShoppingCartIcon className={'account-page-icon'}/>
@@ -80,7 +84,7 @@ export const Account = () => {
                     <p>View your list of saved cards with the option to delete.</p>
                 </div>
             </div>
-            <button className={'account-page-logout-button'}>Log out</button>
+            <button className={'account-page-logout-button'} onClick={() => destroyAuth()}>Log out</button>
         </div>
     )
 }

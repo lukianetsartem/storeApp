@@ -2,20 +2,17 @@ import React, {useState} from 'react'
 import {useForm} from "react-hook-form"
 import '../../../scss/forms/signin.scss'
 import '../../../scss/forms/details.scss'
-import {useDispatch} from "react-redux"
 import VisibilityIcon from "@material-ui/icons/Visibility"
 import VisibilityOffIcon from "@material-ui/icons/VisibilityOff"
 import {NavLink} from "react-router-dom"
 
-export const DetailsForm = () => {
-    const dispatch = useDispatch()
+export const DetailsForm = (props) => {
     const [visibility, setVisibility] = useState(false)
 
     // Change details form
     const {register, handleSubmit, errors, formState} = useForm({mode: "onChange"})
     const onSubmit = (data) => {
-        // dispatch()
-        console.log(data)
+        props.changeData(data)
     }
 
     return (
@@ -25,28 +22,31 @@ export const DetailsForm = () => {
                     <div className={'sign-form-item'}>
                         <p>First Name</p>
                         <input name="firstName"
+                               defaultValue={props.user.firstName}
                                placeholder={'Example'}
                                style={errors.firstName && {borderColor: '#CC4b4b'}}
-                               ref={register({required: true, maxLength: 30, minLength: 2, pattern: /^[A-Za-z]+$/})}/>
+                               ref={register({required: false, maxLength: 40, minLength: 2, pattern: /^[A-Za-z]+$/})}/>
                         {errors.firstName && <p className={'sign-form-error'}>This is required</p>}
                     </div>
                     <div className={'sign-form-item'}>
                         <p>Last Name</p>
                         <input name="lastName"
+                               defaultValue={props.user.lastName}
                                placeholder={'Example'}
                                style={errors.lastName && {borderColor: '#CC4b4b'}}
-                               ref={register({required: true, maxLength: 30, minLength: 2, pattern: /^[A-Za-z]+$/})}/>
+                               ref={register({required: false, maxLength: 40, minLength: 2, pattern: /^[A-Za-z]+$/})}/>
                         {errors.lastName && <p className={'sign-form-error'}>This is required</p>}
                     </div>
                     <div className={'sign-form-item'}>
                         <p>Email</p>
                         <input name="email"
+                               defaultValue={props.user.email}
                                placeholder={'example@domain.com'}
                                style={errors.email && {borderColor: '#CC4b4b'}}
                                ref={register({
-                                   required: true,
+                                   required: false,
                                    minLength: 10,
-                                   maxLength: 30,
+                                   maxLength: 50,
                                    pattern: /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/
                                })}/>
                         {errors.email && <p className={'sign-form-error'}>This is required</p>}
@@ -56,7 +56,7 @@ export const DetailsForm = () => {
                         <input name="password"
                                type={!visibility ? "password" : undefined}
                                style={errors.password && {borderColor: '#CC4b4b'}}
-                               ref={register({ required: true, maxLength: 15, minLength: 4 })}/>
+                               ref={register({ required: false, maxLength: 15, minLength: 4 })}/>
                         {errors.password && <p className={'sign-form-error'}>This is required</p>}
                         <div className={'password-visibility-icon-container'}>
                             {visibility &&

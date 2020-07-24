@@ -2,21 +2,23 @@ import React, {useState} from 'react'
 import {useForm} from "react-hook-form"
 import FacebookIcon from '@material-ui/icons/Facebook'
 import '../../../scss/forms/signin.scss'
-import {useDispatch} from "react-redux"
-import {signIn} from "../../../reducers/auth"
 import VisibilityIcon from "@material-ui/icons/Visibility"
 import VisibilityOffIcon from "@material-ui/icons/VisibilityOff"
+import {Redirect} from "react-router-dom"
 
-export const SigninForm = () => {
-    const dispatch = useDispatch()
+export const SigninForm = (props) => {
     const [visibility, setVisibility] = useState(false)
 
     // Sign in form
     const {register, handleSubmit, errors, formState} = useForm({mode: "onChange"})
+    const [redirect, setRedirect] = useState(false)
+
     const onSubmit = (data) => {
-        dispatch(signIn(data))
+        props.signInSubmit(data)
+        setRedirect(true)
     }
 
+    if(redirect) return <Redirect to={'/account'}/>
     return (
         <div className={'sign-form'}>
             <div className={'sign-form-content'}>

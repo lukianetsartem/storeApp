@@ -5,7 +5,7 @@ import {CategoryPath} from "./CategoryPath/CategoryPath"
 import '../../scss/productsStore/productsStore.scss'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import {ProductStoreItem} from "./ProductStoreItem/ProductStoreItem";
-import {Preloader} from "../common/Preloader/Preloader";
+import {Preloader} from "../common/Preloader";
 
 export const ProductsStore = (props) => {
     const dispatch = useDispatch()

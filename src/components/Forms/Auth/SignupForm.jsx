@@ -7,14 +7,14 @@ import {signUp} from "../../../reducers/auth"
 import VisibilityIcon from '@material-ui/icons/Visibility'
 import VisibilityOffIcon from '@material-ui/icons/VisibilityOff'
 
-export const SignupForm = () => {
-    const dispatch = useDispatch()
+export const SignupForm = (props) => {
     const [visibility, setVisibility] = useState(false)
 
     // Sign up form
     const {register, handleSubmit, errors, formState} = useForm({mode: "onChange"})
+
     const onSubmit = (data) => {
-        dispatch(signUp(data))
+        props.signUpSubmit(data)
     }
 
     return (

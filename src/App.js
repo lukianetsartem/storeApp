@@ -8,6 +8,7 @@ import {StoreRouter} from "./components/ProductsStore/StoreRouter/StoreRouter"
 import {NavigationRouter} from "./components/Navigation/NavigationRouter"
 
 export const App = () => {
+
     return (
         <div>
             <Header/>

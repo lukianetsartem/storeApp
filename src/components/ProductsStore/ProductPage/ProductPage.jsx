@@ -9,7 +9,7 @@ import {ProductGallery} from "./ProductGallery/ProductGallery"
 import {ProductDescription} from "./ProductDescription/ProductDescription"
 import {HouseProudSlider} from "./HouseProudSlider/HouseProudSlider"
 import {setProductData} from "../../../reducers/shop"
-import {Preloader} from "../../common/Preloader/Preloader"
+import {Preloader} from "../../common/Preloader"
 import {CategoryPath} from "../CategoryPath/CategoryPath"
 
 const ProductPage = (props) => {
