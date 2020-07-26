@@ -4,7 +4,6 @@
 
 .products-header {
   max-width: 1224px;
-  margin: auto;
 }
 
 .products-header-title {
@@ -71,6 +70,7 @@
 }
 
 .product-page-heading-basket-adder {
+  cursor: pointer;
   width: 100%;
   height: 45px;
   background-color: #2B2B2B;
