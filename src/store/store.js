@@ -1,12 +1,14 @@
-import thunk from "redux-thunk"
 import {applyMiddleware, combineReducers, compose, createStore} from "redux"
+import {style} from "../reducers/style"
 import {shop} from "../reducers/shop"
 import {user} from "../reducers/auth"
+import thunk from "redux-thunk"
 
 // Combining reducers
 let rootReducer = combineReducers({
     shop: shop,
     user: user,
+    style: style,
 })
 
 // Connecting Redux DEVTools to state

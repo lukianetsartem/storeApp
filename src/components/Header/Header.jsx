@@ -15,7 +15,7 @@ export const Header = () => {
         <header className={'header'}>
             <div className={'first-header-area'}>
                 <NavLink className={'logo'} to={'/home'}>
-                    <img src={logo}/>
+                    <img src={logo} alt={'logo'}/>
                 </NavLink>
                 <div className={'search-area'}>
                     <SearchForm/>

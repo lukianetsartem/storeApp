@@ -1,9 +1,7 @@
 import React, {useState} from 'react'
 import FacebookIcon from '@material-ui/icons/Facebook'
-import {useDispatch} from "react-redux"
 import {useForm} from "react-hook-form"
 import '../../../scss/forms/signin.scss'
-import {signUp} from "../../../reducers/auth"
 import VisibilityIcon from '@material-ui/icons/Visibility'
 import VisibilityOffIcon from '@material-ui/icons/VisibilityOff'
 

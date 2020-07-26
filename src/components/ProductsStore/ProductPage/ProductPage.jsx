@@ -20,7 +20,7 @@ const ProductPage = (props) => {
     useEffect(() => {
         // Request date of product by him name
         dispatch(setProductData(productName))
-    }, [])
+    }, [dispatch, productName])
 
     // Getting products from data base
     const product = useSelector(state => state.shop.product)
@@ -50,7 +50,7 @@ const ProductPage = (props) => {
             <ProductGallery product={product}/>
             <ProductDescription productParams={product.productParams} details={product.details}/>
             <div className={'product-size-photo'}>
-                <img src={product.productPhotos.additionalPhotos[6]}/>
+                <img alt={''} src={product.productPhotos.additionalPhotos[6]}/>
             </div>
             {product.productPhotos.houseProudPhotos.length >= 5 && <HouseProudSlider photos={product.productPhotos.houseProudPhotos}/>}
         </div>

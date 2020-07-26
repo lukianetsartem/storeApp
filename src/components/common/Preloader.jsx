@@ -5,7 +5,7 @@ import '../../scss/common/preloader.scss'
 export const Preloader = () => {
     return (
         <div className={'preloader'}>
-            <img src={loader}/>
+            <img alt={''} src={loader}/>
         </div>
     )
 }

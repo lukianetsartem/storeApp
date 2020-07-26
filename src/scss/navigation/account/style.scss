@@ -123,6 +123,13 @@
       height: 50px;
       border: 1px solid #2B2B2B;
       border-radius: 2px;
+      transition: 0.3s linear;
+    }
+
+    button:hover {
+      background-color: black;
+      color: white;
+      transition: 0.3s linear;
     }
 
     div {
@@ -194,13 +201,14 @@
 
 .process-ring-percent {
   position: absolute;
+  margin-top: 36px;
   font-size: 30px;
   transition: 0.3s linear;
   cursor: pointer;
 }
 
 .process-ring-percent:hover {
-  font-size: 40px;
+  font-size: 35px;
   color: #1385ef;
   transition: 0.3s linear;
 }
@@ -295,23 +303,59 @@
   max-width: 1224px;
   margin: auto;
   top: 0;
+
   div {
     img {
       height: 150px;
     }
+
     display: flex;
     flex-direction: column;
     align-items: center;
     max-width: 300px;
     height: 150px;
+
     p {
       color: #2B2B2B;
       font-weight: bold;
       font-size: 17px;
       margin-bottom: 5px;
     }
+
     span {
       text-align: center;
     }
+  }
+}
+
+.reset-style {
+  width: 300px;
+  margin: auto;
+  padding-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  p {
+    font-weight: bold;
+    color: black;
+    font-size: 18px;
+  }
+
+  button {
+    width: 100%;
+    height: 50px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 2px;
+    text-transform: uppercase;
+    transition: 0.3s linear;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: black;
+    color: white;
+    transition: 0.3s linear;
   }
 }

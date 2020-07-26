@@ -1,4 +1,4 @@
-import React, {useRef, useState} from 'react'
+import React from 'react'
 import '../../../../scss/sliders/productSlider.scss'
 import {Carousel} from "antd"
 import 'antd/dist/antd.css'
@@ -33,7 +33,7 @@ export const ResultSlider = (props) => {
     return (
         <div>
             <Carousel {...settings} effect={"fade"} className={'result-slider'}>
-                {props.photos.map(p => <img src={p} key={p}/>)}
+                {props.photos.map(p => <img alt={''} src={p} key={p}/>)}
             </Carousel>
         </div>
     )

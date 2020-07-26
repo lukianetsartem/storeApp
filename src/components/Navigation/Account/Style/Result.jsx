@@ -1,12 +1,36 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import {ResultSlider} from "./ResultSlider"
+import {useDispatch, useSelector} from "react-redux"
+import {Preloader} from "../../../common/Preloader"
+import {deleteStyle, getStyle} from "../../../../reducers/style"
+import {Redirect} from "react-router-dom"
 
 export const Result = () => {
+    const dispatch = useDispatch()
+    useEffect(() => {
+        dispatch(getStyle())
+    }, [dispatch])
+
+    // Getting data from the state
+    const userStyle = useSelector(state => state.style.userStyle)
+    const photos = useSelector(state => state.style.resultPhotos)
+    const isDataLoaded = useSelector(state => state.style.isDataLoaded)
+    const [redirect, setRedirect] = useState(false)
+
+    const destroyStyle = () => {
+        dispatch(deleteStyle())
+        setRedirect(true)
+    }
+
+    // Checking if user data is loaded
+    if (!isDataLoaded) return <Preloader/>
+    if (!userStyle.firstCategory.name || redirect) return <Redirect to={'/customer/find-your-style'}/>
+
     // Circles settings
-    const largeCirclePercent = 62
-    const littleCirclePercent = 38
-    const largeCircleTitle = 'Modern'
-    const littleCircleTitle = 'Industrial'
+    const largeCirclePercent = userStyle.firstCategory.percent
+    const littleCirclePercent = userStyle.secondCategory.percent
+    const largeCircleTitle = userStyle.firstCategory.name
+    const littleCircleTitle = userStyle.secondCategory.name
     const largeCircle = {
         strokeWidth: '13',
         cx: '80',
@@ -28,16 +52,6 @@ export const Result = () => {
     const setProgress = (percent) => {
         return circumference - percent / 100 * circumference
     }
-
-    // Temporary data storage
-    const photos = [
-        'https://images.prismic.io/made/fa3f86daa56da84a06a92480557a4442b579798f_039_planche.jpg?auto=compress,format',
-        'https://images.prismic.io/made/e37af85a183dedc597a5faae3e43fb49f3bf324e_29_planche.jpg?auto=compress,format',
-        'https://images.prismic.io/made/411bb3e8443caa168f5fa06a182a50b5e3213a21_169_planche.jpg?auto=compress,format',
-        'https://images.prismic.io/made/e646a2aa236dcbae2915ec9282bc1887d2c6a01e_178_planche.jpg?auto=compress,format',
-        'https://images.prismic.io/made/6cc27f361471f39acee6d1c7733f58620db41a12_071_planche.jpg?auto=compress,format',
-        'https://images.prismic.io/made/eefd87b19c037c33b7f215971bda6876a98c33cf_091_planche.jpg?auto=compress,format',
-    ]
 
     return (
         <div className={'result-page'}>
@@ -90,11 +104,18 @@ export const Result = () => {
                     </div>
                 </div>
                 <div className={'result-page-description'}>
-                    <p className={'result-page-description-text'}>{largeCircleTitle} style doesn't like to shout. Rooted in the early to mid-20th century, it elevates the understated with unexpected touches. You'll find a focus on function with architectural shapes and a sophisticated neutral palette.</p>
-                    <p className={'result-page-description-afterword'}>Consider {largeCircleTitle} the destination for contemporary classics.</p>
+                    <p className={'result-page-description-text'}>{largeCircleTitle} style doesn't like to shout. Rooted
+                        in the early to mid-20th century, it elevates the understated with unexpected touches. You'll
+                        find a focus on function with architectural shapes and a sophisticated neutral palette.</p>
+                    <p className={'result-page-description-afterword'}>Consider {largeCircleTitle} the destination for
+                        contemporary classics.</p>
                 </div>
             </div>
             <ResultSlider photos={photos}/>
+            <div className={'reset-style'}>
+                <p>Not satisfied with the result?</p>
+                <button onClick={() => destroyStyle()}>Try again</button>
+            </div>
         </div>
     )
 }

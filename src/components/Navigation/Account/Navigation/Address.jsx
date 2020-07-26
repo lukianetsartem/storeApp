@@ -13,7 +13,7 @@ export const Address = () => {
 
     useEffect(() => {
         dispatch(getUserAddress())
-    }, [])
+    }, [dispatch])
 
     const setAddress = (address) => {
         dispatch(setUserAddress(address))

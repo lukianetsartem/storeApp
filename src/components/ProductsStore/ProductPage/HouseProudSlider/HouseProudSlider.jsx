@@ -27,7 +27,7 @@ export const HouseProudSlider = (props) => {
 const HouseProudSlide = (props) => {
     return (
         <div className={'house-proud-slide'}>
-            <img src={props.photo}/>
+            <img alt='' src={props.photo}/>
         </div>
     )
 }

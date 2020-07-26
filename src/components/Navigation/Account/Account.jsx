@@ -15,14 +15,13 @@ export const Account = () => {
 
     useEffect(() => {
         dispatch(getUserData())
-    }, [])
+    }, [dispatch])
 
     // Getting data from state
     const isAuth = useSelector(state => state.user.isAuth)
     const isDataLoaded = useSelector(state => state.user.isDataLoaded)
-    const user = useSelector(state => state.user.userDetails)
+    const user = useSelector(state => state.user.userData)
 
-    console.log(user)
     const [logout, setLogout] = useState(false)
     const destroyAuth = () => {
         setLogout(true)

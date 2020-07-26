@@ -15,7 +15,7 @@ export const ProductsStore = (props) => {
     useEffect(() => {
         // Get products data from data base
         dispatch(setProducts(props.productType))
-    }, [])
+    }, [props.productType, dispatch])
 
     // Products data for component
     const productsData = useSelector(state => state.shop.products

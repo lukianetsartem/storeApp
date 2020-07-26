@@ -2,24 +2,26 @@ import React, {useEffect} from 'react'
 import '../../../../scss/navigation/account/details.scss'
 import {DetailsForm} from '../../../Forms/Auth/DetailsForm'
 import {useDispatch, useSelector} from "react-redux"
-import {getUserData, resetUserData} from "../../../../reducers/auth"
+import {getUserData, editUserData} from "../../../../reducers/auth"
+import {SuccessBanner} from "../../../common/SuccessBanner"
 
 export const Details = () => {
     const dispatch = useDispatch()
 
     useEffect(() => {
         dispatch(getUserData())
-    }, [])
+    }, [dispatch])
 
     const changeData = (data) => {
-        dispatch(resetUserData(data))
+        dispatch(editUserData(data))
     }
 
-    const user = useSelector(state => state.user.userDetails)
-    console.log(user)
+    const user = useSelector(state => state.user.userData)
+    const dataEdited = useSelector(state => state.user.dataEdited)
 
     return (
         <div className={'details-page'}>
+            {dataEdited && <SuccessBanner text={'Account data edited success'}/>}
             <div className={'page-title'}>
                 <p>My account</p>
                 <span/>

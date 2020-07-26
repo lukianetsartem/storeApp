@@ -48,7 +48,7 @@ export const Home = () => {
     useEffect(() => {
         // Requesting shop
         dispatch(setProducts())
-    }, [])
+    }, [dispatch])
 
     if (isLoaded === false) return <Preloader/>
 

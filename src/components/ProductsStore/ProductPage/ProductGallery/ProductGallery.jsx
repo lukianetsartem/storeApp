@@ -6,11 +6,11 @@ export const ProductGallery = (props) => {
     return (
         <div className={'product-gallery'}>
             <div className={'product-gallery-first-section'}>
-                <img src={product.productPhotos.interiorPhoto}/>
+                <img alt={''} src={product.productPhotos.interiorPhoto}/>
             </div>
             <div className={'product-gallery-second-section'}>
-                <img src={product.productPhotos.additionalPhotos[2]}/>
-                <img src={product.productPhotos.additionalPhotos[4]}/>
+                <img alt={''} src={product.productPhotos.additionalPhotos[2]}/>
+                <img alt={''} src={product.productPhotos.additionalPhotos[4]}/>
             </div>
         </div>
     )

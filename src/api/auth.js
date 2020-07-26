@@ -22,8 +22,8 @@ export const getUserDataRequest = (token) => {
     return instance.get(`/data/${token}`).then(response => response.data)
 }
 
-export const resetUserDataRequest = (token, data) => {
-    return instance.post(`/data`, {token: token, details: data}).then(response => response.data)
+export const editUserDataRequest = (token, data) => {
+    return instance.post(`/data`, {token: token, data: data}).then(response => response.data)
 }
 
 export const getUserAddressRequest = (token) => {
@@ -34,4 +34,14 @@ export const setUserAddressRequest = (token, address) => {
     return instance.post(`/address`, {token: token, data: address}).then(response => response.data)
 }
 
+export const setStyleRequest = (token, data) => {
+    return instance.post(`/style`, {token: token, data: data}).then(response => response.data)
+}
 
+export const getStyleRequest = (token) => {
+    return instance.get(`/style/${token}`).then(response => response.data)
+}
+
+export const deleteStyleRequest = (token) => {
+    return instance.delete(`/style/${token}`).then(response => response.data)
+}

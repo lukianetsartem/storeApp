@@ -31,8 +31,8 @@ export const ProductStoreItem = (props) => {
         <div className={'product-store-item'}>
             <NavLink to={productUrl}>
                 <div className={'product-store-item-image'}>
-                    <img className={'product-store-item-image-model'} src={`${props.modelPhoto}`}/>
-                    <img className={'product-store-item-image-interior'} src={`${props.interiorPhoto}`}/>
+                    <img alt={''} className={'product-store-item-image-model'} src={`${props.modelPhoto}`}/>
+                    <img alt={''} className={'product-store-item-image-interior'} src={`${props.interiorPhoto}`}/>
                 </div>
                 <p className={'product-store-item-title'}>{props.description.length > 50 ? props.description.slice(0, 50) + '..' : props.description}</p>
                 {!props.oldPrice && <p className={'product-store-item-price'}>£{props.price}</p>}

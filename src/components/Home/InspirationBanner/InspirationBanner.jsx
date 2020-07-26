@@ -19,7 +19,7 @@ export const InspirationBanner = () => {
                     <NavLink className={'banner-link'} to={bannerData.link}>Shop now</NavLink>
                 </div>
             </div>
-            <img src={bannerData.picture}/>
+            <img alt='banner' src={bannerData.picture}/>
         </div>
     )
 }

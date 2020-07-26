@@ -46,7 +46,7 @@ const ProductSlide = (props) => {
 
     return (
         <NavLink to={productUrl} className={'product-slide'}>
-            <img src={props.productPhoto} className={'product-slide-img'}/>
+            <img alt={''} src={props.productPhoto} className={'product-slide-img'}/>
             <p className={'product-slide-name'}>
                 {props.description.length >= 22 ? props.description.substr(0, 25) + '..' : props.description}
             </p>

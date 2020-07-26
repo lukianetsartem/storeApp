@@ -6,7 +6,7 @@ export const StyleItem = (props) => {
 
     return (
         <div className={'style-page-content-item'}>
-            <img src={props.url} style={selected
+            <img alt={''} src={props.url} style={selected
                 ? {opacity: 0.5}
                 : {opacity: 1}}/>
             <button style={selected

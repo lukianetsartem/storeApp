@@ -1,8 +1,8 @@
 import {
     changePasswordRequest,
+    editUserDataRequest,
     getUserAddressRequest,
     getUserDataRequest,
-    resetUserDataRequest,
     setUserAddressRequest,
     signInRequest,
     signUpRequest,
@@ -11,20 +11,19 @@ import {
 const SIGN_IN = 'SIGN_IN'
 const SIGN_UP = 'SIGN_UP'
 const CHANGE_PASSWORD = 'CHANGE_PASSWORD'
-
 const GET_USER_DATA = 'GET_USER_DATA'
 const RESET_USER_DATA = 'RESET_USER_DATA'
-
 const GET_USER_ADDRESS = 'GET_USER_ADDRESS'
 const SET_USER_ADDRESS = 'SET_USER_ADDRESS'
 
 const token = localStorage.getItem('token')
 const initialState = {
-    userDetails: {},
+    userData: {},
     userAddress: {},
     passwordChanged: false,
     addressChanged: false,
     signupSuccess: false,
+    dataEdited: false,
     isDataLoaded: true,
     isAuth: true,
 }
@@ -49,14 +48,15 @@ export const user = (state = initialState, action) => {
         case GET_USER_DATA:
             return {
                 ...state,
-                userDetails: action.userDetails,
+                userData: action.userData,
                 isDataLoaded: true,
                 isAuth: true
             }
         case RESET_USER_DATA:
             return {
                 ...state,
-                userDetails: action.userDetails
+                userData: action.userData,
+                dataEdited: true
             }
         case GET_USER_ADDRESS:
             return {
@@ -98,15 +98,15 @@ export const changePassword = (data) => async dispatch => {
 // Get user data
 export const getUserData = () => async dispatch => {
     const res = await getUserDataRequest(token)
-    const userDetails = res.details
-    res.resultCode === 0 && dispatch({type: GET_USER_DATA, userDetails})
+    const userData = res.data
+    res.resultCode === 0 && dispatch({type: GET_USER_DATA, userData})
 }
 
 // Set user data
-export const resetUserData = (data) => async dispatch => {
-    const res = await resetUserDataRequest(token, data)
-    const userDetails = res.details
-    res.resultCode === 0 && dispatch({type: RESET_USER_DATA, userDetails})
+export const editUserData = (data) => async dispatch => {
+    const res = await editUserDataRequest(token, data)
+    const userData = res.data
+    res.resultCode === 0 && dispatch({type: RESET_USER_DATA, userData})
 }
 
 // Get user address
