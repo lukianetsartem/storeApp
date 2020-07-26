@@ -2,13 +2,14 @@ import React, {useEffect, useState} from 'react'
 import {useDispatch, useSelector} from "react-redux"
 import {NavLink, Redirect} from "react-router-dom"
 import {Preloader} from "../../common/Preloader"
-import {getUserData} from "../../../reducers/auth"
+import {getUserData, logout} from "../../../reducers/auth"
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart'
 import AssignmentIcon from '@material-ui/icons/Assignment'
 import HomeIcon from '@material-ui/icons/Home'
 import CreditCardIcon from '@material-ui/icons/CreditCard'
 import StyleIcon from '@material-ui/icons/Style'
 import '../../../scss/navigation/account/account.scss'
+import {SuccessBanner} from "../../common/SuccessBanner";
 
 export const Account = () => {
     const dispatch = useDispatch()
@@ -20,19 +21,22 @@ export const Account = () => {
     // Getting data from state
     const isAuth = useSelector(state => state.user.isAuth)
     const isDataLoaded = useSelector(state => state.user.isDataLoaded)
+    const signinSuccess = useSelector(state => state.user.signinSuccess)
     const user = useSelector(state => state.user.userData)
 
-    const [logout, setLogout] = useState(false)
+    const [redirect, setRedirect] = useState(false)
     const destroyAuth = () => {
-        setLogout(true)
+        dispatch(logout())
+        setRedirect(true)
     }
 
     // Checking if user is authorized
-    if (!isAuth || logout) return <Redirect to={'/signin'}/>
+    if (redirect || !isAuth) return <Redirect to={'/signin'}/>
     // Checking if user data is loaded
     if (!isDataLoaded) return <Preloader/>
     return (
         <div className={'account-page'}>
+            {signinSuccess && <SuccessBanner text={'You successfully logged into your account, pleasant use.'}/>}
             <div className={'page-title'}>
                 <p>My account</p>
                 <span/>

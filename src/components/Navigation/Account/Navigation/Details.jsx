@@ -21,7 +21,7 @@ export const Details = () => {
 
     return (
         <div className={'details-page'}>
-            {dataEdited && <SuccessBanner text={'Account data edited success'}/>}
+            {dataEdited && <SuccessBanner link={true} text={'Account data edited success'}/>}
             <div className={'page-title'}>
                 <p>My account</p>
                 <span/>

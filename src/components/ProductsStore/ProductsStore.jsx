@@ -47,8 +47,6 @@ export const ProductsStore = (props) => {
         }
     }
 
-    console.log(products)
-
     return (
         <div className={'products'}>
             <div className={'products-header'}>

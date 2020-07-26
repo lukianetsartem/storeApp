@@ -7,8 +7,8 @@ export const SuccessBanner = (props) => {
     return (
         <div className={'success-banner'}>
             <CheckIcon className={'success-banner-icon'}/>
-            <p>{props.text},</p>
-            <NavLink to={'/customer/account'}>back to account</NavLink>
+            <p>{props.text}{props.link && ','}</p>
+            {props.link && <NavLink to={'/customer/account'}>back to account</NavLink>}
         </div>
     )
 }

@@ -25,7 +25,7 @@ export const Address = () => {
 
     return (
         <div className={'address-page'}>
-            {addressChanged && <SuccessBanner text={'Your address has been changed'}/>}
+            {addressChanged && <SuccessBanner link={true} text={'Your address has been changed'}/>}
             <div className={'page-title'}>
                 <p>My address book</p>
                 <span/>

@@ -15,7 +15,7 @@ export const PasswordChange = () => {
 
     return (
         <div className={'change-password-page'}>
-            {passwordChanged && <SuccessBanner text={'Password changed'}/>}
+            {passwordChanged && <SuccessBanner link={true} text={'Password changed'}/>}
             <div className={'page-title'}>
                 <p>Change password</p>
                 <span/>

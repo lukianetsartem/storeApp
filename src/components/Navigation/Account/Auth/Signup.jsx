@@ -1,23 +1,21 @@
-import React from 'react'
-import {NavLink} from "react-router-dom"
+import React, {useState} from 'react'
+import {NavLink, Redirect} from "react-router-dom"
 import {SignupForm} from "../../../Forms/Auth/SignupForm"
 import '../../../../scss/navigation/account/signin.scss'
-import {useDispatch, useSelector} from "react-redux"
+import {useDispatch} from "react-redux"
 import {signUp} from "../../../../reducers/auth"
-import {SuccessBanner} from "../../../common/SuccessBanner"
 
 export const Signup = () => {
     const dispatch = useDispatch()
-
+    const [redirect, setRedirect] = useState(false)
     const signUpSubmit = (data) => {
         dispatch(signUp(data))
+        setRedirect(true)
     }
 
-    const signupSuccess = useSelector(state => state.user.signupSuccess)
-
+    if(redirect) return <Redirect to={'/signin'}/>
     return (
         <div className={'sign-page'}>
-            {signupSuccess && <SuccessBanner text={'Sign up success, please sign in'}/>}
             <div className={'sign-title'}>
                 <p>Welcome to furniture.com</p>
             </div>

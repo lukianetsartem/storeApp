@@ -4,21 +4,17 @@ import FacebookIcon from '@material-ui/icons/Facebook'
 import '../../../scss/forms/signin.scss'
 import VisibilityIcon from "@material-ui/icons/Visibility"
 import VisibilityOffIcon from "@material-ui/icons/VisibilityOff"
-import {Redirect} from "react-router-dom"
 
 export const SigninForm = (props) => {
     const [visibility, setVisibility] = useState(false)
 
     // Sign in form
     const {register, handleSubmit, errors, formState} = useForm({mode: "onChange"})
-    const [redirect, setRedirect] = useState(false)
 
     const onSubmit = (data) => {
         props.signInSubmit(data)
-        setRedirect(true)
     }
 
-    if(redirect) return <Redirect to={'/account'}/>
     return (
         <div className={'sign-form'}>
             <div className={'sign-form-content'}>

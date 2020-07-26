@@ -10,6 +10,7 @@ import {
 
 const SIGN_IN = 'SIGN_IN'
 const SIGN_UP = 'SIGN_UP'
+const LOGOUT = 'LOGOUT'
 const CHANGE_PASSWORD = 'CHANGE_PASSWORD'
 const GET_USER_DATA = 'GET_USER_DATA'
 const RESET_USER_DATA = 'RESET_USER_DATA'
@@ -17,15 +18,17 @@ const GET_USER_ADDRESS = 'GET_USER_ADDRESS'
 const SET_USER_ADDRESS = 'SET_USER_ADDRESS'
 
 const token = localStorage.getItem('token')
+
 const initialState = {
     userData: {},
     userAddress: {},
     passwordChanged: false,
     addressChanged: false,
     signupSuccess: false,
+    signinSuccess: false,
     dataEdited: false,
-    isDataLoaded: true,
-    isAuth: true,
+    isDataLoaded: false,
+    isAuth: false,
 }
 
 export const user = (state = initialState, action) => {
@@ -33,12 +36,19 @@ export const user = (state = initialState, action) => {
         case SIGN_IN:
             return {
                 ...state,
-                isAuth: true
+                isAuth: true,
+                signinSuccess: true,
             }
         case SIGN_UP:
             return {
                 ...state,
                 signupSuccess: true
+            }
+        case LOGOUT:
+            return {
+                ...state,
+                isAuth: false,
+                isDataLoaded: false,
             }
         case CHANGE_PASSWORD:
             return {
@@ -49,8 +59,8 @@ export const user = (state = initialState, action) => {
             return {
                 ...state,
                 userData: action.userData,
-                isDataLoaded: true,
-                isAuth: true
+                isAuth: true,
+                isDataLoaded: true
             }
         case RESET_USER_DATA:
             return {
@@ -78,15 +88,21 @@ export const user = (state = initialState, action) => {
 export const signIn = (authData) => async dispatch => {
     const res = await signInRequest(authData)
     if (res.resultCode === 0) {
-        dispatch({type: SIGN_IN})
         localStorage.setItem('token', res.token)
+        dispatch({type: SIGN_IN})
     }
 }
 
 // Sign up
-export const signUp = (authData) => {
-    const res = signUpRequest(authData)
-    res.resultCode === 0 && console.log('account created')
+export const signUp = (authData) => async dispatch => {
+    const res = await signUpRequest(authData)
+    res.resultCode === 0 && dispatch({type: SIGN_UP})
+}
+
+// Logout
+export const logout = () => dispatch => {
+    localStorage.removeItem('token')
+    dispatch({type: LOGOUT})
 }
 
 // Set user address
@@ -97,6 +113,7 @@ export const changePassword = (data) => async dispatch => {
 
 // Get user data
 export const getUserData = () => async dispatch => {
+    const token = localStorage.getItem('token')
     const res = await getUserDataRequest(token)
     const userData = res.data
     res.resultCode === 0 && dispatch({type: GET_USER_DATA, userData})
