@@ -1,4 +1,4 @@
-import {getProducts, getWishList} from "../api/shop"
+import {editWishListRequest, getProducts, getWishList} from "../api/shop"
 
 const SET_PRODUCT_DATA_AC = 'SET_PRODUCT_DATA_AC'
 const SET_PRODUCTS_AC = 'SET_PRODUCTS_AC'
@@ -6,6 +6,7 @@ const SET_WISH_LIST = 'SET_WISH_LIST'
 
 const token = localStorage.getItem('token')
 const initialState = {
+    wishListLoaded: false,
     products: [],
     wishList: [],
     product: {},
@@ -30,6 +31,7 @@ export const shop = (state = initialState, action) => {
             return {
                 ...state,
                 wishList: action.wishList,
+                wishListLoaded: true,
             }
         default:
             return state
@@ -59,6 +61,14 @@ export const setProductData = (reqProduct) => async dispatch => {
 
 // Getting wish list data
 export const setWishList = () => async dispatch => {
+    const res = await getWishList(token)
+    const wishList = res.wishList
+    dispatch({type: SET_WISH_LIST, wishList})
+}
+
+// Editing wish list data
+export const editWishList = (data) => async dispatch => {
+    await editWishListRequest(token, data)
     const res = await getWishList(token)
     const wishList = res.wishList
     dispatch({type: SET_WISH_LIST, wishList})

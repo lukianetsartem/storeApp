@@ -35,7 +35,10 @@ export const WishListItem = (props) => {
                     <p className={'product-store-item-disabled-price'}>£{product.oldPrice}</p>
                 </div>}
             </div>}
-            {removed && <button onClick={() => setRemoved(false)} className={'wish-list-undo-btn'}>undo</button>}
+            {removed && <button onClick={() => {
+                props.removeFromEditList(product.id)
+                setRemoved(false)
+            }} className={'wish-list-undo-btn'}>undo</button>}
             {!props.editMode && <button>Add To Basket</button>}
         </div>
     )

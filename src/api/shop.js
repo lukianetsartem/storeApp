@@ -12,3 +12,7 @@ export const getProducts = () => {
 export const getWishList = (token) => {
     return instance.get(`/wishlist/${token}`).then(response => response.data)
 }
+
+export const editWishListRequest = (token, data) => {
+    return instance.post(`/wishlist/edit`, {token: token, data: data}).then(response => response.data)
+}
