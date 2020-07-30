@@ -1,14 +1,15 @@
-import {addToWishList, getProducts, removeFromWishList} from "../api/shop"
+import {getProducts, getWishList} from "../api/shop"
 
 const SET_PRODUCT_DATA_AC = 'SET_PRODUCT_DATA_AC'
 const SET_PRODUCTS_AC = 'SET_PRODUCTS_AC'
-const WISH_LIST_ADD = 'WISH_LIST_ADD'
-const WISH_LIST_REMOVE = 'WISH_LIST_REMOVE'
+const SET_WISH_LIST = 'SET_WISH_LIST'
 
+const token = localStorage.getItem('token')
 const initialState = {
     isProductDataLoaded: false,
     isProductsLoaded: false,
     products: [],
+    wishList: [],
     product: {},
     count: 0,
 }
@@ -27,19 +28,24 @@ export const shop = (state = initialState, action) => {
                 product: action.product,
                 isProductDataLoaded: true,
             }
+        case SET_WISH_LIST:
+            return {
+                ...state,
+                wishList: action.wishList,
+            }
         default:
             return state
     }
 }
 
-// Getting product data from server
+// Getting product data
 export const setProducts = () => async dispatch => {
     const res = await getProducts()
     const products = res.products
     dispatch({type: SET_PRODUCTS_AC, products})
 }
 
-// Getting product data from server, filtered by requested product type
+// Getting product data, filtered by requested product type
 export const setProductData = (reqProduct) => async dispatch => {
     const res = await getProducts()
     res.products.filter(product => {
@@ -53,12 +59,9 @@ export const setProductData = (reqProduct) => async dispatch => {
     })
 }
 
-export const wishListAdd = (id) => async dispatch => {
-    const res = await addToWishList(id)
-    // dispatch({type: WISH_LIST_ADD, id})
-}
-
-export const wishListRemove = (id) => async dispatch => {
-    const res = await removeFromWishList(id)
-    // dispatch({type: WISH_LIST_REMOVE, id})
+// Getting wish list data
+export const setWishList = () => async dispatch => {
+    const res = await getWishList(token)
+    const wishList = res.wishList
+    dispatch({type: SET_WISH_LIST, wishList})
 }
