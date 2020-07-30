@@ -29,8 +29,8 @@ export const NavigationRouter = () => {
             <Route path={'/signup'} render={() => <Signup/>}/>
             <Route path={'/signin'} render={() => <Signin/>}/>
 
-            <Route path={'/customer/wishlist'} render={() => <Wishlist/>}/>
-            <Route path={'/customer/cart'} render={() => <Cart/>}/>
+            <Route path={'/wishlist'} render={() => <Wishlist/>}/>
+            <Route path={'/cart'} render={() => <Cart/>}/>
 
             <Route path={'/customer/find-your-style'} render={() => <Style/>}/>
             <Route path={'/customer/your-style'} render={() => <Result/>}/>

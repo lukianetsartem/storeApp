@@ -18,8 +18,9 @@ const GET_USER_ADDRESS = 'GET_USER_ADDRESS'
 const SET_USER_ADDRESS = 'SET_USER_ADDRESS'
 
 const token = localStorage.getItem('token')
-
+const isAuth = () => token !== null && true
 const initialState = {
+    isAuth: isAuth(),
     userData: {},
     userAddress: {},
     passwordChanged: false,
@@ -28,7 +29,6 @@ const initialState = {
     signinSuccess: false,
     dataEdited: false,
     isDataLoaded: false,
-    isAuth: false,
 }
 
 export const user = (state = initialState, action) => {

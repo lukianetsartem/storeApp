@@ -1,1 +1,159 @@
+.wish-list-page {
+  max-width: 1224px;
+  width: 100%;
+  margin: auto;
+}
 
+.wish-list-page-title {
+  font-family: "FS Neruda", serif;
+  font-size: 40px;
+  color: #2b2b2b;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  padding: 30px 0 30px 0;
+  border-bottom: 1px solid #dbdada;
+}
+
+.wish-list-content {
+  max-width: 1000px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.wish-list-item {
+  position: relative;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 40px;
+  margin-left: 16px;
+  margin-right: 16px;
+  justify-content: space-between;
+  a {
+    img {
+      width: 100%;
+      transition: 0.2s linear;
+    }
+    color: #2b2b2b;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  button {
+    margin-top: 10px;
+    font-size: 13px;
+    height: 40px;
+    width: 60%;
+    background-color: #2b2b2b;
+    border: none;
+    color: white;
+    text-transform: uppercase;
+    border-radius: 2px;
+    cursor: pointer;
+  }
+
+  .wish-list-remove-btn {
+    margin: 0;
+    z-index: 9999;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    height: 25px;
+    width: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    .wish-list-remove-btn-icon {
+      font-size: 16px;
+    }
+  }
+
+  .wish-list-undo-btn {
+    height: 40px;
+    margin-bottom: 20px;
+    background-color: #f3f2f2;
+    border: 2px solid #2b2b2b;
+    color: #2b2b2b;
+    font-weight: bold;
+    border-radius: 0;
+  }
+}
+
+.wish-list-navigation {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: #2b2b2b;
+
+  button {
+    cursor: pointer;
+    border: none;
+    text-transform: uppercase;
+  }
+
+  .wish-list-edit-btn {
+    height: 25px;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border-bottom: 2px solid #2b2b2b;
+    background-color: white;
+  }
+
+  .wish-list-done-btn {
+    color: white;
+    background-color: #2b2b2b;
+    width: 60px;
+    border-radius: 20px;
+    height: 25px;
+    font-size: 12px;
+    font-weight: bold;
+  }
+}
+
+.wish-list-item-data {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  p {
+    margin-top: 10px;
+    margin-bottom: 0;
+    max-width: 200px;
+    text-align: center;
+  }
+}
+
+.wish-list-inspiration {
+  border-top: 1px solid #dbdada;
+  color: #2b2b2b;
+  p {
+    font-size: 30px;
+    font-family: "FS Neruda", serif;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+    padding-bottom: 15px;
+  }
+  div {
+    display: flex;
+    justify-content: space-between;
+    max-width: 700px;
+    margin: auto;
+    padding-bottom: 50px;
+    a {
+      font-size: 16px;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: #2b2b2b;
+      border-bottom: 2px solid #2b2b2b;
+    }
+  }
+}

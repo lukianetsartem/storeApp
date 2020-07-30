@@ -44,7 +44,7 @@ export const SecondaryArea = () => {
                 </NavLink>
             </div>
             <div className={'secondary-area-content'}>
-                <NavLink to={`/customer/wishlist`} className={'secondary-area-item'}>
+                <NavLink to={`/wishlist`} className={'secondary-area-item'}>
                     <FavoriteBorderIcon className={'secondary-area-icon'}/>
                     <p className={'secondary-area-title'}>wishlist</p>
                 </NavLink>
