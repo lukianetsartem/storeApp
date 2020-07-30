@@ -21,10 +21,8 @@ export const ProductsStore = (props) => {
     const productsData = useSelector(state => state.shop.products
         .filter(p => p.productType === props.productType))
     const [products, sortProducts] = useState(productsData)
-    // Checking, whether props are loaded?
-    const isProductsLoaded = useSelector(state => state.shop.isProductsLoaded)
     // If props isn't loaded, return preloader
-    if (isProductsLoaded === false) return <Preloader/>
+    if (!products[0]) return <Preloader/>
 
     // Products filter
     const productSorter = (e) => {

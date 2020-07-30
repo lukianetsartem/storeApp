@@ -6,8 +6,6 @@ const SET_WISH_LIST = 'SET_WISH_LIST'
 
 const token = localStorage.getItem('token')
 const initialState = {
-    isProductDataLoaded: false,
-    isProductsLoaded: false,
     products: [],
     wishList: [],
     product: {},

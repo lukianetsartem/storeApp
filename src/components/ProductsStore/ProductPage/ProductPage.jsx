@@ -25,11 +25,8 @@ const ProductPage = (props) => {
     // Getting products from data base
     const product = useSelector(state => state.shop.product)
 
-    // Check, whether props are loaded?
-    const isProductDataLoaded = useSelector(state => state.shop.isProductDataLoaded)
-
     // If pros aren't loaded, return preloader
-    if (isProductDataLoaded === false) return <Preloader/>
+    if (!product.price) return <Preloader/>
 
     return (
         <div className={'product'}>

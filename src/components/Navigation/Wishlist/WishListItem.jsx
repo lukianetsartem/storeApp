@@ -23,7 +23,7 @@ export const WishListItem = (props) => {
             }}>
                 <CloseIcon className={'wish-list-remove-btn-icon'}/>
             </button>}
-            <NavLink to={productUrl}>
+            <NavLink to={props.editMode ? '#' : productUrl}>
                 <img style={removed ? {opacity: 0.5, width: "90%"} : {opacity: 1}} alt="" src={product.modelPhoto}/>
             </NavLink>
             {!removed &&

@@ -14,7 +14,6 @@ import {Preloader} from "../common/Preloader"
 export const Home = () => {
     // Getting shop from data base
     const products = useSelector(state => state.shop.products)
-    const isLoaded = useSelector(state => state.shop.isLoaded)
     const dispatch = useDispatch()
     
     // Hard code for banners
@@ -50,8 +49,7 @@ export const Home = () => {
         dispatch(setProducts())
     }, [dispatch])
 
-    if (isLoaded === false) return <Preloader/>
-
+    if (!products[0]) return <Preloader/>
     return (
         <div>
             <HomeSlider/>

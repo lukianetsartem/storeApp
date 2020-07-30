@@ -38,7 +38,7 @@ export const SecondaryArea = () => {
                 </div>
             </div>
             <div className={'secondary-area-content'}>
-                <NavLink to={`/customer/cart`} className={'secondary-area-item'}>
+                <NavLink to={`/cart`} className={'secondary-area-item'}>
                     <ShoppingCartOutlinedIcon className={'secondary-area-icon'}/>
                     <p className={'secondary-area-title'}>cart</p>
                 </NavLink>

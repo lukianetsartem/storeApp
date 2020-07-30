@@ -8,8 +8,9 @@ import AssignmentIcon from '@material-ui/icons/Assignment'
 import HomeIcon from '@material-ui/icons/Home'
 import CreditCardIcon from '@material-ui/icons/CreditCard'
 import StyleIcon from '@material-ui/icons/Style'
+import FavoriteIcon from '@material-ui/icons/Favorite'
 import '../../../scss/navigation/account/account.scss'
-import {SuccessBanner} from "../../common/SuccessBanner";
+import {SuccessBanner} from "../../common/SuccessBanner"
 
 export const Account = () => {
     const dispatch = useDispatch()
@@ -47,8 +48,17 @@ export const Account = () => {
                     <ShoppingCartIcon className={'account-page-icon'}/>
                 </div>
                 <div className={'account-page-nav-item-description'}>
-                    <NavLink to={'/customer/cart'}>My cart</NavLink>
+                    <NavLink to={'/cart'}>My cart</NavLink>
                     <p>Watch products, that you put into your cart.</p>
+                </div>
+            </div>
+            <div className={'account-page-nav-item'}>
+                <div className={'account-page-nav-item-icon'}>
+                    <FavoriteIcon className={'account-page-icon'}/>
+                </div>
+                <div className={'account-page-nav-item-description'}>
+                    <NavLink to={'/wishlist'}>My wish list</NavLink>
+                    <p>Watch products, that you wished.</p>
                 </div>
             </div>
             <div className={'account-page-nav-item'}>
