@@ -7,28 +7,28 @@ import {
     signInRequest,
     signUpRequest,
 } from "../api/auth"
-
-const SIGN_IN = 'SIGN_IN'
-const SIGN_UP = 'SIGN_UP'
-const LOGOUT = 'LOGOUT'
-const CHANGE_PASSWORD = 'CHANGE_PASSWORD'
-const GET_USER_DATA = 'GET_USER_DATA'
-const RESET_USER_DATA = 'RESET_USER_DATA'
-const GET_USER_ADDRESS = 'GET_USER_ADDRESS'
-const SET_USER_ADDRESS = 'SET_USER_ADDRESS'
+import {
+    CHANGE_PASSWORD, changePasswordAC,
+    GET_USER_ADDRESS,
+    GET_USER_DATA, getUserAddressAC, getUserDataAC,
+    LOGOUT, logoutAC,
+    RESET_USER_DATA, resetUserDataAC, SET_USER_ADDRESS, setUserAddressAC,
+    SIGN_IN,
+    SIGN_UP, signInAC, signUpAC
+} from "../actions/auth";
 
 const token = localStorage.getItem('token')
 const isAuth = () => token !== null && true
 const initialState = {
     isAuth: isAuth(),
-    userData: {},
-    userAddress: {},
     passwordChanged: false,
     addressChanged: false,
     signupSuccess: false,
     signinSuccess: false,
-    dataEdited: false,
     isDataLoaded: false,
+    dataEdited: false,
+    userAddress: {},
+    userData: {},
 }
 
 export const user = (state = initialState, action) => {
@@ -88,26 +88,26 @@ export const signIn = (authData) => async dispatch => {
     const res = await signInRequest(authData)
     if (res.resultCode === 0) {
         localStorage.setItem('token', res.token)
-        dispatch({type: SIGN_IN})
+        dispatch(signInAC())
     }
 }
 
 // Sign up
 export const signUp = (authData) => async dispatch => {
     const res = await signUpRequest(authData)
-    res.resultCode === 0 && dispatch({type: SIGN_UP})
+    res.resultCode === 0 && dispatch(signUpAC())
 }
 
 // Logout
 export const logout = () => dispatch => {
     localStorage.removeItem('token')
-    dispatch({type: LOGOUT})
+    dispatch(logoutAC())
 }
 
 // Set user address
 export const changePassword = (data) => async dispatch => {
     const res = await changePasswordRequest(token, data)
-    res.resultCode === 0 && dispatch({type: CHANGE_PASSWORD})
+    res.resultCode === 0 && dispatch(changePasswordAC())
 }
 
 // Get user data
@@ -115,26 +115,26 @@ export const getUserData = () => async dispatch => {
     const token = localStorage.getItem('token')
     const res = await getUserDataRequest(token)
     const userData = res.data
-    res.resultCode === 0 && dispatch({type: GET_USER_DATA, userData})
+    res.resultCode === 0 && dispatch(getUserDataAC(userData))
 }
 
 // Set user data
 export const editUserData = (data) => async dispatch => {
     const res = await editUserDataRequest(token, data)
     const userData = res.data
-    res.resultCode === 0 && dispatch({type: RESET_USER_DATA, userData})
+    res.resultCode === 0 && dispatch(resetUserDataAC(userData))
 }
 
 // Get user address
 export const getUserAddress = () => async dispatch => {
     const res = await getUserAddressRequest(token)
     const userAddress = res.address
-    res.resultCode === 0 && dispatch({type: GET_USER_ADDRESS, userAddress})
+    res.resultCode === 0 && dispatch(getUserAddressAC(userAddress))
 }
 
 // Set user address
 export const setUserAddress = (data) => async dispatch => {
     const res = await setUserAddressRequest(token, data)
     const userAddress = res.address
-    res.resultCode === 0 && dispatch({type: SET_USER_ADDRESS, userAddress})
+    res.resultCode === 0 && dispatch(setUserAddressAC(userAddress))
 }

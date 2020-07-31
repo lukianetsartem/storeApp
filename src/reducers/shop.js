@@ -1,9 +1,5 @@
 import {addToWishListRequest, editWishListRequest, getProduct, getProducts, getWishList} from "../api/shop"
-import {setProductAC, setProductsAC, setWishListAC} from "../actions/shop"
-
-export const SET_PRODUCTS = 'SET_PRODUCTS'
-export const SET_PRODUCT = 'SET_PRODUCT'
-export const SET_WISH_LIST = 'SET_WISH_LIST'
+import {SET_PRODUCT, SET_PRODUCTS, SET_WISH_LIST, setProductAC, setProductsAC, setWishListAC} from "../actions/shop"
 
 const token = localStorage.getItem('token')
 const initialState = {
