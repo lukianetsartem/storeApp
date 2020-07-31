@@ -1,7 +1,5 @@
-import {deleteStyleRequest, getStyleRequest, setStyleRequest} from "../api/auth";
-
-const SET_STYLE = 'SET_STYLE'
-const GET_STYLE = 'GET_STYLE'
+import {deleteStyleRequest, getStyleRequest, setStyleRequest} from "../api/auth"
+import {GET_STYLE, getStyleAC, SET_STYLE, setStyleAC} from "../actions/style"
 
 const token = localStorage.getItem('token')
 const initialState = {
@@ -37,20 +35,19 @@ export const getStyle = () => async dispatch => {
     const analysePhotos = res.analysePhotos
     const resultPhotos = res.resultPhotos
     const style = res.style
-    res.resultCode === 0 && dispatch({type: GET_STYLE, style, analysePhotos, resultPhotos})
+    res.resultCode === 0 && dispatch(getStyleAC(style, analysePhotos, resultPhotos))
 }
 
 // Set user style preferences
 export const setStyle = (data) => async dispatch => {
     const res = await setStyleRequest(token, data)
     const style = res.style
-    res.resultCode === 0 && dispatch({type: SET_STYLE, style})
+    res.resultCode === 0 && dispatch(setStyleAC(style))
 }
 
 // Delete user style preferences
 export const deleteStyle = (data) => async dispatch => {
     const res = await deleteStyleRequest(token, data)
     const style = res.style
-    res.resultCode === 0 && dispatch({type: SET_STYLE, style})
+    res.resultCode === 0 && dispatch(setStyleAC(style))
 }
-
