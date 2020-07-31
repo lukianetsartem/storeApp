@@ -2,9 +2,9 @@ import React, {useEffect, useState} from 'react'
 import {useDispatch, useSelector} from "react-redux"
 import {editWishList, setWishList} from "../../../reducers/shop"
 import {Preloader} from "../../common/Preloader"
-import {WishListItem} from "./WishListItem"
 import {WishListInspiration} from "./WishListInspiration"
-import {NavLink} from "react-router-dom";
+import {WishListAuth} from "./WishListAuth"
+import {WishListContent} from "./WishListContent"
 
 export const Wishlist = () => {
     const dispatch = useDispatch()
@@ -42,23 +42,9 @@ export const Wishlist = () => {
                         setEditMode(false)
                     }}>Done</button>}
             </div>}
-            {!isAuth ? <div className={'wish-list-auth-banner'}>
-                    <p>Looking for your saved items?</p>
-                    <NavLink className={'wish-list-auth-banner-signin'} to={'/signin'}>sign in</NavLink>
-                    <NavLink className={'wish-list-auth-banner-signup'} to={'/signup'}>create an account</NavLink>
-                </div>
-                : <div className={'wish-list-content'}
-                       style={wishList.length === 3 ? {justifyContent: "space-between"} : undefined}>
-                    {wishList.length > 0 ? wishList.map(product => <WishListItem key={product.description}
-                                                                                 editMode={editMode}
-                                                                                 removeFromEditList={removeFromEditList}
-                                                                                 addToEditList={addToEditList}
-                                                                                 product={product}/>)
-                        : <div className={'wish-list-empty'}>
-                            <p className={'wish-list-empty-title'}>Your wishlist is empty</p>
-                            <p className={'wish-list-empty-subtitle'}>We've got some ideas in our <NavLink to={'/home'}>shop</NavLink></p>
-                        </div>}
-                </div>}
+            {!isAuth ? <WishListAuth/>
+                : <WishListContent editMode={editMode} removeFromEditList={removeFromEditList}
+                                   addToEditList={addToEditList} wishList={wishList}/>}
             <WishListInspiration/>
         </div>
     )

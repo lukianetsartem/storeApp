@@ -20,7 +20,7 @@ const SET_USER_ADDRESS = 'SET_USER_ADDRESS'
 const token = localStorage.getItem('token')
 const isAuth = () => token !== null && true
 const initialState = {
-    isAuth: false,//isAuth(),
+    isAuth: isAuth(),
     userData: {},
     userAddress: {},
     passwordChanged: false,
