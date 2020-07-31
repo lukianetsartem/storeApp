@@ -43,7 +43,9 @@ export const Wishlist = () => {
                     }}>Done</button>}
             </div>}
             {!isAuth ? <div className={'wish-list-auth-banner'}>
-
+                    <p>Looking for your saved items?</p>
+                    <NavLink className={'wish-list-auth-banner-signin'} to={'/signin'}>sign in</NavLink>
+                    <NavLink className={'wish-list-auth-banner-signup'} to={'/signup'}>create an account</NavLink>
                 </div>
                 : <div className={'wish-list-content'}
                        style={wishList.length === 3 ? {justifyContent: "space-between"} : undefined}>
