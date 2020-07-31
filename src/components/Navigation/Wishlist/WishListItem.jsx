@@ -7,7 +7,6 @@ export const WishListItem = (props) => {
     const product = props.product
 
     const [removed, setRemoved] = useState(false)
-
     return (
         <div className={'wish-list-item'}>
             {(props.editMode && !removed) && <button className={'wish-list-remove-btn'} onClick={() => {

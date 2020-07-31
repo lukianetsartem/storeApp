@@ -36,7 +36,7 @@ export const ProductStoreItem = (props) => {
                     <p className={'product-store-item-disabled-price'}>£{props.oldPrice}</p>
                 </div>}
             </NavLink>
-            <div className={'add-to-wish-list'}>
+            <div className={'add-to-wish-list'} style={isFollowed ? {border: '1px solid rgb(238, 108, 106)'} : {border: '1px solid grey'}}>
                 <FavoriteIcon className={'add-to-wish-list-icon'}
                               style={isFollowed
                                   ? {color: 'rgb(238, 108, 106)'}
