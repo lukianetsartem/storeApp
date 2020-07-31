@@ -1,9 +1,9 @@
-import React, {useEffect, useState} from "react"
+import React, {useState} from "react"
 import {NavLink} from "react-router-dom"
 import '../../../scss/productsStore/productStoreItem.scss'
 import FavoriteIcon from '@material-ui/icons/Favorite'
-import {useDispatch, useSelector} from "react-redux"
-import {wishListAdd, wishListRemove} from "../../../reducers/shop"
+import {useDispatch} from "react-redux"
+import {addToWishList, editWishList} from "../../../reducers/shop"
 
 export const ProductStoreItem = (props) => {
     // Product url
@@ -15,16 +15,20 @@ export const ProductStoreItem = (props) => {
         .join('-')}`
         .toLowerCase()
 
-    const [isFollowed, setIsFollowed] = useState(false) // Product following state
-    const dispatch = useDispatch()
+    // Checking, is product wished?
+    const index = props.wishList.findIndex(item => item.id.toString() === props.id)
+    const [isFollowed, setIsFollowed] = useState(index >= 0 ? true : false)
 
-    const addToWishList = (id) => {
+    // Add product to wish list
+    const dispatch = useDispatch()
+    const addToWishListSubmit = (id) => {
+        dispatch(addToWishList(id))
         setIsFollowed(true)
-        // dispatch(wishListAdd(id))
     }
+    // Remove product from wish list
     const removeFromWishList = (id) => {
+        dispatch(editWishList([id]))
         setIsFollowed(false)
-        // dispatch(wishListRemove(id))
     }
 
     return (
@@ -48,7 +52,7 @@ export const ProductStoreItem = (props) => {
                                   : {color: '#a8a8a8'}}
                               onClick={() => {
                                   !isFollowed
-                                      ? addToWishList(props.id)
+                                      ? addToWishListSubmit(props.id)
                                       : removeFromWishList(props.id)
                               }}/>
             </div>

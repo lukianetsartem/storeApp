@@ -1,4 +1,4 @@
-import {editWishListRequest, getProducts, getWishList} from "../api/shop"
+import {addToWishListRequest, editWishListRequest, getProducts, getWishList} from "../api/shop"
 
 const SET_PRODUCT_DATA_AC = 'SET_PRODUCT_DATA_AC'
 const SET_PRODUCTS_AC = 'SET_PRODUCTS_AC'
@@ -69,6 +69,14 @@ export const setWishList = () => async dispatch => {
 // Editing wish list data
 export const editWishList = (data) => async dispatch => {
     await editWishListRequest(token, data)
+    const res = await getWishList(token)
+    const wishList = res.wishList
+    dispatch({type: SET_WISH_LIST, wishList})
+}
+
+// Editing wish list data
+export const addToWishList = (data) => async dispatch => {
+    await addToWishListRequest(token, data)
     const res = await getWishList(token)
     const wishList = res.wishList
     dispatch({type: SET_WISH_LIST, wishList})

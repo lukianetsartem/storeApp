@@ -1,11 +1,11 @@
 import React, {useEffect, useState} from 'react'
 import {useDispatch, useSelector} from "react-redux"
-import {setProducts} from "../../reducers/shop"
+import {setProducts, setWishList} from "../../reducers/shop"
 import {CategoryPath} from "./CategoryPath/CategoryPath"
 import '../../scss/productsStore/productsStore.scss'
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import {ProductStoreItem} from "./ProductStoreItem/ProductStoreItem";
-import {Preloader} from "../common/Preloader";
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
+import {ProductStoreItem} from "./ProductStoreItem/ProductStoreItem"
+import {Preloader} from "../common/Preloader"
 
 export const ProductsStore = (props) => {
     const dispatch = useDispatch()
@@ -13,14 +13,15 @@ export const ProductsStore = (props) => {
     const categoryPath = props.productType.toLowerCase()
 
     useEffect(() => {
-        // Get products data from data base
+        dispatch(setWishList())
         dispatch(setProducts(props.productType))
+
     }, [props.productType, dispatch])
 
-    // Products data for component
     const productsData = useSelector(state => state.shop.products
         .filter(p => p.productType === props.productType))
     const [products, sortProducts] = useState(productsData)
+    const wishList = useSelector(state => state.shop.wishList)
     // If props isn't loaded, return preloader
     if (!products[0]) return <Preloader/>
 
@@ -65,7 +66,8 @@ export const ProductsStore = (props) => {
                 {products.length > 1 ? <p>{products.length} products</p> : <p>{products.length} product</p>}
             </div>
             <div className={'products-section'}>
-                {products.map(p => <ProductStoreItem price={p.price}
+                {products.map(p => <ProductStoreItem wishList={wishList}
+                                                     price={p.price}
                                                      description={p.description}
                                                      modelPhoto={p.productPhotos.modelPhoto}
                                                      interiorPhoto={p.productPhotos.interiorPhoto}
