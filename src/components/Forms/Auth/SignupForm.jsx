@@ -19,10 +19,10 @@ export const SignupForm = (props) => {
         <div className={'sign-form'}>
             <div className={'sign-form-content'}>
                 <div className={'sign-form-header'}>
-                    <p className={'sign-form-title'}>Sign in</p>
+                    <p className={'sign-form-title'}>Sign up</p>
                     <button className={'sign-form-facebook'}>
                         <FacebookIcon className={'sign-form-facebook-icon'}/>
-                        <p>sign via facebook</p>
+                        <p>signup via facebook</p>
                     </button>
                     <div className={'sign-spacing'}>
                         <span/><p>or</p><span/>
@@ -87,7 +87,7 @@ export const SignupForm = (props) => {
                             communications at any time</p>
                     </div>
                     <button disabled={!formState.isValid} type={'submit'} className={'login-form-submit'}>
-                        Sign in
+                        Sign up
                     </button>
                 </form>
             </div>

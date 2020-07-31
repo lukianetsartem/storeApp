@@ -7,7 +7,7 @@ import LocationOnOutlinedIcon from '@material-ui/icons/LocationOnOutlined'
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder'
 import HelpOutlineIcon from '@material-ui/icons/HelpOutline'
 
-export const SecondaryArea = () => {
+export const SecondaryArea = (props) => {
     return (
         <div className={'secondary-area'}>
             <div className={'secondary-area-content'} id={'account-link'}>
@@ -27,7 +27,7 @@ export const SecondaryArea = () => {
                     <PersonOutlineOutlinedIcon className={'secondary-area-icon'}/>
                     <p className={'secondary-area-title'}>account</p>
                 </NavLink>
-                <div className={'secondary-area-dropdown'}>
+                {props.isAuth && <div className={'secondary-area-dropdown'}>
                     <div className={'secondary-area-dropdown-content'}>
                         <NavLink to={'/customer/account'}>My Account</NavLink>
                         <NavLink to={'/customer/find-your-style'}>My Style</NavLink>
@@ -35,7 +35,7 @@ export const SecondaryArea = () => {
                         <NavLink to={'/customer/details'}>My Details</NavLink>
                         <NavLink to={'/customer/address'}>My Address Book</NavLink>
                     </div>
-                </div>
+                </div>}
             </div>
             <div className={'secondary-area-content'}>
                 <NavLink to={`/cart`} className={'secondary-area-item'}>

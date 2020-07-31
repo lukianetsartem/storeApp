@@ -22,7 +22,7 @@ export const Signup = () => {
             <div className={'sign-page-content'}>
                 <div className={'sign-redirection'}>
                     <div>
-                        <p>Sign up</p>
+                        <p>Sign in</p>
                         <NavLink to={'/signin'}>I have an account</NavLink>
                     </div>
                 </div>
