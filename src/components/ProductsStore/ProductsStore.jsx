@@ -66,7 +66,8 @@ export const ProductsStore = (props) => {
                 {products.length > 1 ? <p>{products.length} products</p> : <p>{products.length} product</p>}
             </div>
             <div className={'products-section'}>
-                {products.map(p => <ProductStoreItem wishList={wishList}
+                {products.map(p => <ProductStoreItem productLink={p.productLink}
+                                                     wishList={wishList}
                                                      price={p.price}
                                                      description={p.description}
                                                      modelPhoto={p.productPhotos.modelPhoto}

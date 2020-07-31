@@ -22,11 +22,12 @@ const ProductPage = (props) => {
         dispatch(setProductData(productName))
     }, [dispatch, productName])
 
-    // Getting products from data base
+    // Getting product from data base
     const product = useSelector(state => state.shop.product)
+    const productLoaded = useSelector(state => state.shop.productLoaded)
 
     // If pros aren't loaded, return preloader
-    if (!product.price) return <Preloader/>
+    if (!productLoaded) return <Preloader/>
 
     return (
         <div className={'product'}>

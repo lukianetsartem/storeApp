@@ -1,7 +1,7 @@
-import {ProductsStore} from "../ProductsStore";
-import {Route} from "react-router-dom";
-import React from "react";
-import ProductPage from "../ProductPage/ProductPage";
+import ProductPage from "../ProductPage/ProductPage"
+import {Route} from "react-router-dom"
+import {ProductsStore} from "../ProductsStore"
+import React from "react"
 
 export const StoreRouter = () => {
     return (

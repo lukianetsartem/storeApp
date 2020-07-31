@@ -9,6 +9,10 @@ export const getProducts = () => {
     return instance.get('/products/').then(response => response.data)
 }
 
+export const getProduct = (name) => {
+    return instance.get(`/products/${name}`).then(response => response.data)
+}
+
 export const getWishList = (token) => {
     return instance.get(`/wishlist/${token}`).then(response => response.data)
 }

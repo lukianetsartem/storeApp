@@ -6,15 +6,6 @@ import {useDispatch} from "react-redux"
 import {addToWishList, editWishList} from "../../../reducers/shop"
 
 export const ProductStoreItem = (props) => {
-    // Product url
-    const productUrl = `products/${props.description
-        .replace(',', ' ')
-        .replace('& ', '')
-        .replace('  ', ' ')
-        .split(' ')
-        .join('-')}`
-        .toLowerCase()
-
     // Checking, is product wished?
     const index = props.wishList.findIndex(item => item.id.toString() === props.id)
     const [isFollowed, setIsFollowed] = useState(index >= 0 ? true : false)
@@ -33,7 +24,7 @@ export const ProductStoreItem = (props) => {
 
     return (
         <div className={'product-store-item'}>
-            <NavLink to={productUrl}>
+            <NavLink to={`products/${props.productLink}`}>
                 <div className={'product-store-item-image'}>
                     <img alt={''} className={'product-store-item-image-model'} src={`${props.modelPhoto}`}/>
                     <img alt={''} className={'product-store-item-image-interior'} src={`${props.interiorPhoto}`}/>

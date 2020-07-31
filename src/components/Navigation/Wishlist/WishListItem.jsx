@@ -5,13 +5,6 @@ import CloseIcon from '@material-ui/icons/Close'
 
 export const WishListItem = (props) => {
     const product = props.product
-    const productUrl = `products/${product.description
-        .replace(',', ' ')
-        .replace('& ', '')
-        .replace('  ', ' ')
-        .split(' ')
-        .join('-')}`
-        .toLowerCase()
 
     const [removed, setRemoved] = useState(false)
 
@@ -23,7 +16,7 @@ export const WishListItem = (props) => {
             }}>
                 <CloseIcon className={'wish-list-remove-btn-icon'}/>
             </button>}
-            <NavLink to={props.editMode ? '#' : productUrl}>
+            <NavLink to={props.editMode ? '#' : `products/${product.productLink}`}>
                 <img style={removed ? {opacity: 0.5, width: "90%"} : {opacity: 1}} alt="" src={product.modelPhoto}/>
             </NavLink>
             {!removed &&

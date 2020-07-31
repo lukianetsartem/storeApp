@@ -1,12 +1,13 @@
-import {addToWishListRequest, editWishListRequest, getProducts, getWishList} from "../api/shop"
+import {addToWishListRequest, editWishListRequest, getProduct, getProducts, getWishList} from "../api/shop"
 
-const SET_PRODUCT_DATA_AC = 'SET_PRODUCT_DATA_AC'
-const SET_PRODUCTS_AC = 'SET_PRODUCTS_AC'
+const SET_PRODUCTS = 'SET_PRODUCTS'
+const SET_PRODUCT = 'SET_PRODUCT'
 const SET_WISH_LIST = 'SET_WISH_LIST'
 
 const token = localStorage.getItem('token')
 const initialState = {
     wishListLoaded: false,
+    productLoaded: false,
     products: [],
     wishList: [],
     product: {},
@@ -15,17 +16,16 @@ const initialState = {
 
 export const shop = (state = initialState, action) => {
     switch (action.type) {
-        case SET_PRODUCTS_AC:
+        case SET_PRODUCTS:
             return {
                 ...state,
                 products: action.products,
-                isProductsLoaded: true,
             }
-        case SET_PRODUCT_DATA_AC:
+        case SET_PRODUCT:
             return {
                 ...state,
                 product: action.product,
-                isProductDataLoaded: true,
+                productLoaded: true,
             }
         case SET_WISH_LIST:
             return {
@@ -38,32 +38,25 @@ export const shop = (state = initialState, action) => {
     }
 }
 
-// Getting product data
+// Getting products data
 export const setProducts = () => async dispatch => {
     const res = await getProducts()
     const products = res.products
-    dispatch({type: SET_PRODUCTS_AC, products})
+    res.resultCode === 0 && dispatch({type: SET_PRODUCTS, products})
 }
 
-// Getting product data, filtered by requested product type
-export const setProductData = (reqProduct) => async dispatch => {
-    const res = await getProducts()
-    res.products.filter(product => {
-        const resProduct = product.description
-            .replace(',', ' ')
-            .replace('& ', '')
-            .replace('  ', ' ')
-            .split(' ')
-            .join('-').toLowerCase()
-        if(resProduct === reqProduct) dispatch({type: SET_PRODUCT_DATA_AC, product})
-    })
+// Getting product data
+export const setProductData = (name) => async dispatch => {
+    const res = await getProduct(name)
+    const product = res.product
+    res.resultCode === 0 && dispatch({type: SET_PRODUCT, product})
 }
 
 // Getting wish list data
 export const setWishList = () => async dispatch => {
     const res = await getWishList(token)
     const wishList = res.wishList
-    dispatch({type: SET_WISH_LIST, wishList})
+    res.resultCode === 0 && dispatch({type: SET_WISH_LIST, wishList})
 }
 
 // Editing wish list data
@@ -71,13 +64,13 @@ export const editWishList = (data) => async dispatch => {
     await editWishListRequest(token, data)
     const res = await getWishList(token)
     const wishList = res.wishList
-    dispatch({type: SET_WISH_LIST, wishList})
+    res.resultCode === 0 && dispatch({type: SET_WISH_LIST, wishList})
 }
 
-// Editing wish list data
+// Add to wish list
 export const addToWishList = (data) => async dispatch => {
     await addToWishListRequest(token, data)
     const res = await getWishList(token)
     const wishList = res.wishList
-    dispatch({type: SET_WISH_LIST, wishList})
+    res.resultCode === 0 && dispatch({type: SET_WISH_LIST, wishList})
 }
