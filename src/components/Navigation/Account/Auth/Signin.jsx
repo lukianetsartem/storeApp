@@ -3,20 +3,21 @@ import {NavLink, Redirect} from "react-router-dom"
 import {SigninForm} from "../../../Forms/Auth/SigninForm"
 import '../../../../scss/navigation/account/signin.scss'
 import {useDispatch, useSelector} from "react-redux"
-import {signIn} from "../../../../reducers/user"
-import {SuccessBanner} from "../../../common/SuccessBanner";
+import {SuccessBanner} from "../../../common/SuccessBanner"
+import {START_SIGN_IN} from "../../../../actions/user"
 
 export const Signin = () => {
     const dispatch = useDispatch()
 
-    const [redirect, setRedirect] = useState(false)
     const signInSubmit = (data) => {
-        dispatch(signIn(data))
-        setRedirect(true)
+        dispatch({type: START_SIGN_IN, data: data})
     }
 
     const isAuth = useSelector(state => state.user.isAuth)
     const signupSuccess = useSelector(state => state.user.signupSuccess)
+    const signinSuccess = useSelector(state => state.user.signinSuccess)
+
+    const [redirect] = useState(signinSuccess)
 
     if(isAuth || redirect) return <Redirect to={'/customer/account'}/>
     return (

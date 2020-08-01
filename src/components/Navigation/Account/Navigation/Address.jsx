@@ -2,8 +2,8 @@ import React, {useEffect, useState} from 'react'
 import '../../../../scss/navigation/account/address.scss'
 import {AddressForm} from "../../../Forms/Auth/AddressForm"
 import {useDispatch, useSelector} from "react-redux"
-import {getUserAddress, setUserAddress} from "../../../../reducers/user"
 import {SuccessBanner} from "../../../common/SuccessBanner"
+import {LOAD_GET_ADDRESS, LOAD_SET_ADDRESS} from "../../../../actions/user"
 
 export const Address = () => {
     const dispatch = useDispatch()
@@ -12,12 +12,13 @@ export const Address = () => {
     const [editAddressVisibility, setEditVisibility] = useState(false)
 
     useEffect(() => {
-        dispatch(getUserAddress())
+        dispatch({type: LOAD_GET_ADDRESS})
     }, [dispatch])
 
     const setAddress = (address) => {
-        dispatch(setUserAddress(address))
-        editAddressVisibility && setEditVisibility(false)
+        dispatch({type: LOAD_SET_ADDRESS, address: address})
+        setAddVisibility(false)
+        setEditVisibility(false)
     }
 
     const addressChanged = useSelector(state => state.user.addressChanged)

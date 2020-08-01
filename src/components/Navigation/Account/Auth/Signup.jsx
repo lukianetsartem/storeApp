@@ -3,13 +3,13 @@ import {NavLink, Redirect} from "react-router-dom"
 import {SignupForm} from "../../../Forms/Auth/SignupForm"
 import '../../../../scss/navigation/account/signin.scss'
 import {useDispatch} from "react-redux"
-import {signUp} from "../../../../reducers/user"
+import {START_SIGN_UP} from "../../../../actions/user"
 
 export const Signup = () => {
     const dispatch = useDispatch()
     const [redirect, setRedirect] = useState(false)
     const signUpSubmit = (data) => {
-        dispatch(signUp(data))
+        dispatch({type: START_SIGN_UP, data: data})
         setRedirect(true)
     }
 

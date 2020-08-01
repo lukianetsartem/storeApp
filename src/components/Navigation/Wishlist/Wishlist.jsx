@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react'
 import {useDispatch, useSelector} from "react-redux"
-import {editWishList} from "../../../reducers/shop"
 import {Preloader} from "../../common/Preloader"
 import {WishListInspiration} from "./WishListInspiration"
 import {WishListAuth} from "./WishListAuth"

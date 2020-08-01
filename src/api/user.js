@@ -6,31 +6,31 @@ const instance = axios.create({
 })
 
 
-export const signInRequest = (authData) => {
+export const signIn = (authData) => {
     return instance.post('/signin', authData).then(response => response)
 }
 
-export const signUpRequest = (authData) => {
+export const signUp = (authData) => {
     return instance.post('/signup', authData).then(response => response)
 }
 
-export const changePasswordRequest = (token, data) => {
+export const changePassword = (token, data) => {
     return instance.post('/reset-password', {token: token, data: data}).then(response => response)
 }
 
-export const getUserDataRequest = (token) => {
-    return instance.get(`/data/${token}`).then(response => response.data)
+export const getUserData = (token) => {
+    return instance.get(`/data/${token}`).then(response => response)
 }
 
-export const editUserDataRequest = (token, data) => {
+export const editUserData = (token, data) => {
     return instance.post(`/data`, {token: token, data: data}).then(response => response)
 }
 
-export const getUserAddressRequest = (token) => {
+export const getUserAddress = (token) => {
     return instance.get(`/address/${token}`).then(response => response)
 }
 
-export const setUserAddressRequest = (token, address) => {
+export const setUserAddress = (token, address) => {
     return instance.post(`/address`, {token: token, data: address}).then(response => response)
 }
 

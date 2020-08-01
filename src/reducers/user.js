@@ -1,20 +1,6 @@
 import {
-    changePasswordRequest,
-    editUserDataRequest,
-    getUserAddressRequest,
-    getUserDataRequest,
-    setUserAddressRequest,
-    signInRequest,
-    signUpRequest,
-} from "../api/user"
-import {
-    CHANGE_PASSWORD, changePasswordAC,
-    GET_USER_ADDRESS,
-    GET_USER_DATA, getUserAddressAC, getUserDataAC,
-    LOGOUT, logoutAC,
-    RESET_USER_DATA, resetUserDataAC, SET_USER_ADDRESS, setUserAddressAC,
-    SIGN_IN,
-    SIGN_UP, signInAC, signUpAC
+    SET_USER_ADDRESS, GET_USER_ADDRESS, CHANGE_PASSWORD, RESET_USER_DATA,
+    GET_USER_DATA, SIGN_IN, SIGN_UP, LOGOUT,
 } from "../actions/user"
 
 const token = localStorage.getItem('token')
@@ -81,60 +67,4 @@ export const user = (state = initialState, action) => {
         default:
             return state
     }
-}
-
-// Sign in
-export const signIn = (authData) => async dispatch => {
-    const res = await signInRequest(authData)
-    if (res.resultCode === 0) {
-        localStorage.setItem('token', res.token)
-        dispatch(signInAC())
-    }
-}
-
-// Sign up
-export const signUp = (authData) => async dispatch => {
-    const res = await signUpRequest(authData)
-    res.resultCode === 0 && dispatch(signUpAC())
-}
-
-// Logout
-export const logout = () => dispatch => {
-    localStorage.removeItem('token')
-    dispatch(logoutAC())
-}
-
-// Set user address
-export const changePassword = (data) => async dispatch => {
-    const res = await changePasswordRequest(token, data)
-    res.resultCode === 0 && dispatch(changePasswordAC())
-}
-
-// Get user data
-export const getUserData = () => async dispatch => {
-    const token = localStorage.getItem('token')
-    const res = await getUserDataRequest(token)
-    const userData = res.data
-    res.resultCode === 0 && dispatch(getUserDataAC(userData))
-}
-
-// Set user data
-export const editUserData = (data) => async dispatch => {
-    const res = await editUserDataRequest(token, data)
-    const userData = res.data
-    res.resultCode === 0 && dispatch(resetUserDataAC(userData))
-}
-
-// Get user address
-export const getUserAddress = () => async dispatch => {
-    const res = await getUserAddressRequest(token)
-    const userAddress = res.address
-    res.resultCode === 0 && dispatch(getUserAddressAC(userAddress))
-}
-
-// Set user address
-export const setUserAddress = (data) => async dispatch => {
-    const res = await setUserAddressRequest(token, data)
-    const userAddress = res.address
-    res.resultCode === 0 && dispatch(setUserAddressAC(userAddress))
 }

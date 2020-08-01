@@ -2,18 +2,18 @@ import React, {useEffect} from 'react'
 import '../../../../scss/navigation/account/details.scss'
 import {DetailsForm} from '../../../Forms/Auth/DetailsForm'
 import {useDispatch, useSelector} from "react-redux"
-import {getUserData, editUserData} from "../../../../reducers/user"
 import {SuccessBanner} from "../../../common/SuccessBanner"
+import {LOAD_GET_USER_DATA, LOAD_SET_USER_DATA} from "../../../../actions/user"
 
 export const Details = () => {
     const dispatch = useDispatch()
 
     useEffect(() => {
-        dispatch(getUserData())
+        dispatch({type: LOAD_GET_USER_DATA})
     }, [dispatch])
 
     const changeData = (data) => {
-        dispatch(editUserData(data))
+        dispatch({type: LOAD_SET_USER_DATA, data: data})
     }
 
     const user = useSelector(state => state.user.userData)

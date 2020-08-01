@@ -2,7 +2,6 @@ import React, {useEffect, useState} from 'react'
 import {useDispatch, useSelector} from "react-redux"
 import {NavLink, Redirect} from "react-router-dom"
 import {Preloader} from "../../common/Preloader"
-import {getUserData, logout} from "../../../reducers/user"
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart'
 import AssignmentIcon from '@material-ui/icons/Assignment'
 import HomeIcon from '@material-ui/icons/Home'
@@ -11,12 +10,13 @@ import StyleIcon from '@material-ui/icons/Style'
 import FavoriteIcon from '@material-ui/icons/Favorite'
 import '../../../scss/navigation/account/account.scss'
 import {SuccessBanner} from "../../common/SuccessBanner"
+import {LOAD_GET_USER_DATA, START_LOGOUT} from "../../../actions/user"
 
 export const Account = () => {
     const dispatch = useDispatch()
 
     useEffect(() => {
-        dispatch(getUserData())
+        dispatch({type: LOAD_GET_USER_DATA})
     }, [dispatch])
 
     // Getting data from state
@@ -27,7 +27,7 @@ export const Account = () => {
 
     const [redirect, setRedirect] = useState(false)
     const destroyAuth = () => {
-        dispatch(logout())
+        dispatch({type: START_LOGOUT})
         setRedirect(true)
     }
 

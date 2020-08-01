@@ -61,7 +61,7 @@ export function* addToWishListSaga({data}) {
     }
 }
 
-export function* userSaga() {
+export function* shopSaga() {
     yield all([
         takeEvery(LOAD_PRODUCTS, setProductsSaga),
         takeEvery(LOAD_PRODUCT, setProductSaga),
