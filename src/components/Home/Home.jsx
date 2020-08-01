@@ -2,7 +2,6 @@ import React, {useEffect} from 'react'
 import '../../scss/home/home.scss'
 import {HomeSlider} from "./HomeSlider/HomeSlider"
 import {useDispatch, useSelector} from "react-redux"
-import {setProducts} from "../../reducers/shop"
 import {CommercialAdd} from "./CommercialAdd/CommercialAdd"
 import {InspirationBanner} from "./InspirationBanner/InspirationBanner"
 import {InstagramBanner} from "./InstagramBanner/InstagramBanner"
@@ -10,11 +9,17 @@ import {ShopNavigation} from "./ShopNavigation/ShopNavigation"
 import {HomeAboutUs} from "./HomeAboutUs/HomeAboutUs"
 import {HomeProductSlider} from "./HomeProductSlider/HomeProductSlider"
 import {Preloader} from "../common/Preloader"
+import {LOAD_PRODUCTS} from "../../actions/shop"
 
 export const Home = () => {
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch({type: LOAD_PRODUCTS})
+    }, [dispatch])
+
     // Getting shop from data base
     const products = useSelector(state => state.shop.products)
-    const dispatch = useDispatch()
     
     // Hard code for banners
     const commercialAddData = {
@@ -44,12 +49,10 @@ export const Home = () => {
         }
     }
 
-    useEffect(() => {
-        // Requesting shop
-        dispatch(setProducts())
-    }, [dispatch])
+    const productsLoaded = useSelector(state => state.shop.productsLoaded)
+    // If props isn't loaded, return preloader
+    if (!productsLoaded) return <Preloader/>
 
-    if (!products[0]) return <Preloader/>
     return (
         <div>
             <HomeSlider/>

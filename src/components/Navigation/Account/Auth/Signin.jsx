@@ -3,7 +3,7 @@ import {NavLink, Redirect} from "react-router-dom"
 import {SigninForm} from "../../../Forms/Auth/SigninForm"
 import '../../../../scss/navigation/account/signin.scss'
 import {useDispatch, useSelector} from "react-redux"
-import {signIn} from "../../../../reducers/auth"
+import {signIn} from "../../../../reducers/user"
 import {SuccessBanner} from "../../../common/SuccessBanner";
 
 export const Signin = () => {

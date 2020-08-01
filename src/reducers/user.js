@@ -6,7 +6,7 @@ import {
     setUserAddressRequest,
     signInRequest,
     signUpRequest,
-} from "../api/auth"
+} from "../api/user"
 import {
     CHANGE_PASSWORD, changePasswordAC,
     GET_USER_ADDRESS,
@@ -15,7 +15,7 @@ import {
     RESET_USER_DATA, resetUserDataAC, SET_USER_ADDRESS, setUserAddressAC,
     SIGN_IN,
     SIGN_UP, signInAC, signUpAC
-} from "../actions/auth";
+} from "../actions/user"
 
 const token = localStorage.getItem('token')
 const isAuth = () => token !== null && true

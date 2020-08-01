@@ -3,7 +3,7 @@ import {NavLink, Redirect} from "react-router-dom"
 import {SignupForm} from "../../../Forms/Auth/SignupForm"
 import '../../../../scss/navigation/account/signin.scss'
 import {useDispatch} from "react-redux"
-import {signUp} from "../../../../reducers/auth"
+import {signUp} from "../../../../reducers/user"
 
 export const Signup = () => {
     const dispatch = useDispatch()

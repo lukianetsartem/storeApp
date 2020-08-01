@@ -1,8 +1,12 @@
 import {applyMiddleware, combineReducers, compose, createStore} from "redux"
 import {style} from "../reducers/style"
 import {shop} from "../reducers/shop"
-import {user} from "../reducers/auth"
-import thunk from "redux-thunk"
+import {user} from "../reducers/user"
+import createSagaMiddleware from 'redux-saga'
+import {userSaga} from "../sagas/userSagas"
+
+export const token = localStorage.getItem('token')
+const sagaMiddleware = createSagaMiddleware()
 
 // Combining reducers
 let rootReducer = combineReducers({
@@ -15,4 +19,6 @@ let rootReducer = combineReducers({
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
 // Setting store
-export const getStore = () => createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)))
+export const store = createStore(rootReducer, composeEnhancers(applyMiddleware(sagaMiddleware)))
+
+sagaMiddleware.run(userSaga)

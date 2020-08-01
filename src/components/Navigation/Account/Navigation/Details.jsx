@@ -2,7 +2,7 @@ import React, {useEffect} from 'react'
 import '../../../../scss/navigation/account/details.scss'
 import {DetailsForm} from '../../../Forms/Auth/DetailsForm'
 import {useDispatch, useSelector} from "react-redux"
-import {getUserData, editUserData} from "../../../../reducers/auth"
+import {getUserData, editUserData} from "../../../../reducers/user"
 import {SuccessBanner} from "../../../common/SuccessBanner"
 
 export const Details = () => {

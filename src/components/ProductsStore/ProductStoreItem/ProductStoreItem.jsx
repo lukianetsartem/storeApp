@@ -3,7 +3,7 @@ import {NavLink} from "react-router-dom"
 import '../../../scss/productsStore/productStoreItem.scss'
 import FavoriteIcon from '@material-ui/icons/Favorite'
 import {useDispatch, useSelector} from "react-redux"
-import {addToWishList, editWishList} from "../../../reducers/shop"
+import {ADD_TO_WISH_LIST, EDIT_WISH_LIST} from "../../../actions/shop"
 
 export const ProductStoreItem = (props) => {
     // Checking, is product wished?
@@ -14,12 +14,12 @@ export const ProductStoreItem = (props) => {
     // Add product to wish list
     const dispatch = useDispatch()
     const addToWishListSubmit = (id) => {
-        dispatch(addToWishList(id))
+        dispatch({type: ADD_TO_WISH_LIST, data: id})
         setIsFollowed(true)
     }
     // Remove product from wish list
     const removeFromWishList = (id) => {
-        dispatch(editWishList([id]))
+        dispatch({type: EDIT_WISH_LIST, data: [id]})
         setIsFollowed(false)
     }
 

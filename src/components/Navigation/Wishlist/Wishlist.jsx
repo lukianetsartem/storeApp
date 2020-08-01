@@ -1,16 +1,17 @@
 import React, {useEffect, useState} from 'react'
 import {useDispatch, useSelector} from "react-redux"
-import {editWishList, setWishList} from "../../../reducers/shop"
+import {editWishList} from "../../../reducers/shop"
 import {Preloader} from "../../common/Preloader"
 import {WishListInspiration} from "./WishListInspiration"
 import {WishListAuth} from "./WishListAuth"
 import {WishListContent} from "./WishListContent"
+import {EDIT_WISH_LIST, LOAD_WISH_LIST} from "../../../actions/shop"
 
 export const Wishlist = () => {
     const dispatch = useDispatch()
 
     useEffect(() => {
-        dispatch(setWishList())
+        dispatch({type: LOAD_WISH_LIST})
     }, [dispatch])
 
     const isAuth = useSelector(state => state.user.isAuth)
@@ -26,7 +27,7 @@ export const Wishlist = () => {
         setEditList([...editList.filter(itemId => itemId !== id)])
     }
     const editWishListSubmit = (data) => {
-        data.length > 0 && dispatch(editWishList(data))
+        data.length > 0 && dispatch({type: EDIT_WISH_LIST, data: data})
     }
 
     if (!wishListLoaded) return <Preloader/>

@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react'
 import {useDispatch, useSelector} from "react-redux"
 import {NavLink, Redirect} from "react-router-dom"
 import {Preloader} from "../../common/Preloader"
-import {getUserData, logout} from "../../../reducers/auth"
+import {getUserData, logout} from "../../../reducers/user"
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart'
 import AssignmentIcon from '@material-ui/icons/Assignment'
 import HomeIcon from '@material-ui/icons/Home'

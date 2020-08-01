@@ -1,5 +1,5 @@
-import {deleteStyleRequest, getStyleRequest, setStyleRequest} from "../api/auth"
-import {GET_STYLE, getStyleAC, SET_STYLE, setStyleAC} from "../actions/style"
+import {deleteStyleRequest, getStyleRequest, setStyleRequest} from "../api/user"
+import {GET_STYLE, SET_STYLE, getStyleAC, setStyleAC} from "../actions/style"
 
 const token = localStorage.getItem('token')
 const initialState = {

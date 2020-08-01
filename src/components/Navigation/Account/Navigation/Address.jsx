@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react'
 import '../../../../scss/navigation/account/address.scss'
 import {AddressForm} from "../../../Forms/Auth/AddressForm"
 import {useDispatch, useSelector} from "react-redux"
-import {getUserAddress, setUserAddress} from "../../../../reducers/auth"
+import {getUserAddress, setUserAddress} from "../../../../reducers/user"
 import {SuccessBanner} from "../../../common/SuccessBanner"
 
 export const Address = () => {

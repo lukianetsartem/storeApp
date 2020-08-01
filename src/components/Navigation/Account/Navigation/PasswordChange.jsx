@@ -2,7 +2,7 @@ import React from 'react'
 import '../../../../scss/navigation/account/changePassword.scss'
 import {PasswordChangeForm} from "../../../Forms/Auth/PasswordChangeForm"
 import {useDispatch, useSelector} from "react-redux"
-import {changePassword} from "../../../../reducers/auth"
+import {changePassword} from "../../../../reducers/user"
 import {SuccessBanner} from "../../../common/SuccessBanner"
 
 export const PasswordChange = () => {

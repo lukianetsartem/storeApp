@@ -1,11 +1,11 @@
+import '../../scss/productsStore/productsStore.scss'
 import React, {useEffect, useState} from 'react'
 import {useDispatch, useSelector} from "react-redux"
-import {setProducts, setWishList} from "../../reducers/shop"
-import {CategoryPath} from "./CategoryPath/CategoryPath"
-import '../../scss/productsStore/productsStore.scss'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
+import {CategoryPath} from "./CategoryPath/CategoryPath"
 import {ProductStoreItem} from "./ProductStoreItem/ProductStoreItem"
 import {Preloader} from "../common/Preloader"
+import {LOAD_PRODUCTS, LOAD_WISH_LIST} from "../../actions/shop"
 
 export const ProductsStore = (props) => {
     const dispatch = useDispatch()
@@ -13,8 +13,8 @@ export const ProductsStore = (props) => {
     const categoryPath = props.productType.toLowerCase()
 
     useEffect(() => {
-        dispatch(setWishList())
-        dispatch(setProducts(props.productType))
+        dispatch({type: LOAD_WISH_LIST})
+        dispatch({type: LOAD_PRODUCTS})
 
     }, [props.productType, dispatch])
 
@@ -22,8 +22,9 @@ export const ProductsStore = (props) => {
         .filter(p => p.productType === props.productType))
     const [products, sortProducts] = useState(productsData)
     const wishList = useSelector(state => state.shop.wishList)
+    const productsLoaded = useSelector(state => state.shop.productsLoaded)
     // If props isn't loaded, return preloader
-    if (!products[0]) return <Preloader/>
+    if (!productsLoaded) return <Preloader/>
 
     // Products filter
     const productSorter = (e) => {

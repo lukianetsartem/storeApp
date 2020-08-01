@@ -8,9 +8,9 @@ import {ProductHeading} from "./ProductHeading/ProductHeading"
 import {ProductGallery} from "./ProductGallery/ProductGallery"
 import {ProductDescription} from "./ProductDescription/ProductDescription"
 import {HouseProudSlider} from "./HouseProudSlider/HouseProudSlider"
-import {setProductData} from "../../../reducers/shop"
 import {Preloader} from "../../common/Preloader"
 import {CategoryPath} from "../CategoryPath/CategoryPath"
+import {LOAD_PRODUCT} from "../../../actions/shop"
 
 const ProductPage = (props) => {
     const dispatch = useDispatch()
@@ -19,7 +19,7 @@ const ProductPage = (props) => {
 
     useEffect(() => {
         // Request date of product by him name
-        dispatch(setProductData(productName))
+        dispatch({type: LOAD_PRODUCT, productName: productName})
     }, [dispatch, productName])
 
     // Getting product from data base
