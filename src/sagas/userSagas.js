@@ -1,12 +1,4 @@
-import {
-    addToWishList,
-    addToWishListRequest,
-    editWishList,
-    editWishListRequest,
-    getProduct,
-    getProducts,
-    getWishList
-} from "../api/shop"
+import {addToWishList, editWishList, getProduct, getProducts, getWishList} from "../api/shop"
 import {
     ADD_TO_WISH_LIST,
     EDIT_WISH_LIST,
@@ -18,7 +10,7 @@ import {
     setWishListAC
 } from "../actions/shop"
 import {put, call, takeEvery, all} from "@redux-saga/core/effects"
-import {token} from "../store/store";
+import {token} from "../store/store"
 
 
 export function* setProductsSaga() {
@@ -68,13 +60,6 @@ export function* addToWishListSaga({data}) {
         yield put(setWishListAC(wishList))
     }
 }
-
-/*//export const addToWishList = (data) => async dispatch => {
-    await addToWishListRequest(token, data)
-    const res = await getWishList(token)
-    const wishList = res.wishList
-    res.resultCode === 0 && dispatch(setWishListAC(wishList))
-}*/
 
 export function* userSaga() {
     yield all([

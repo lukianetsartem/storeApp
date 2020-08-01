@@ -4,6 +4,7 @@ import {shop} from "../reducers/shop"
 import {user} from "../reducers/user"
 import createSagaMiddleware from 'redux-saga'
 import {userSaga} from "../sagas/userSagas"
+import {styleSaga} from "../sagas/styleSagas"
 
 export const token = localStorage.getItem('token')
 const sagaMiddleware = createSagaMiddleware()
@@ -22,3 +23,4 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 export const store = createStore(rootReducer, composeEnhancers(applyMiddleware(sagaMiddleware)))
 
 sagaMiddleware.run(userSaga)
+sagaMiddleware.run(styleSaga)

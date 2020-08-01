@@ -7,15 +7,15 @@ const instance = axios.create({
 
 
 export const signInRequest = (authData) => {
-    return instance.post('/signin', authData).then(response => response.data)
+    return instance.post('/signin', authData).then(response => response)
 }
 
 export const signUpRequest = (authData) => {
-    return instance.post('/signup', authData).then(response => response.data)
+    return instance.post('/signup', authData).then(response => response)
 }
 
 export const changePasswordRequest = (token, data) => {
-    return instance.post('/reset-password', {token: token, data: data}).then(response => response.data)
+    return instance.post('/reset-password', {token: token, data: data}).then(response => response)
 }
 
 export const getUserDataRequest = (token) => {
@@ -23,25 +23,25 @@ export const getUserDataRequest = (token) => {
 }
 
 export const editUserDataRequest = (token, data) => {
-    return instance.post(`/data`, {token: token, data: data}).then(response => response.data)
+    return instance.post(`/data`, {token: token, data: data}).then(response => response)
 }
 
 export const getUserAddressRequest = (token) => {
-    return instance.get(`/address/${token}`).then(response => response.data)
+    return instance.get(`/address/${token}`).then(response => response)
 }
 
 export const setUserAddressRequest = (token, address) => {
-    return instance.post(`/address`, {token: token, data: address}).then(response => response.data)
+    return instance.post(`/address`, {token: token, data: address}).then(response => response)
 }
 
-export const setStyleRequest = (token, data) => {
-    return instance.post(`/style`, {token: token, data: data}).then(response => response.data)
+export const setStyle = (token, data) => {
+    return instance.post(`/style`, {token: token, data: data}).then(response => response)
 }
 
-export const getStyleRequest = (token) => {
-    return instance.get(`/style/${token}`).then(response => response.data)
+export const getStyle = (token) => {
+    return instance.get(`/style/${token}`).then(response => response)
 }
 
-export const deleteStyleRequest = (token) => {
-    return instance.delete(`/style/${token}`).then(response => response.data)
+export const deleteStyle = (token) => {
+    return instance.delete(`/style/${token}`).then(response => response)
 }

@@ -2,13 +2,13 @@ import React, {useEffect, useState} from 'react'
 import {ResultSlider} from "./ResultSlider"
 import {useDispatch, useSelector} from "react-redux"
 import {Preloader} from "../../../common/Preloader"
-import {deleteStyle, getStyle} from "../../../../reducers/style"
 import {Redirect} from "react-router-dom"
+import {DELETE_STYLE, LOAD_GET_STYLE} from "../../../../actions/style"
 
 export const Result = () => {
     const dispatch = useDispatch()
     useEffect(() => {
-        dispatch(getStyle())
+        dispatch({type: LOAD_GET_STYLE})
     }, [dispatch])
 
     // Getting data from the state
@@ -18,7 +18,7 @@ export const Result = () => {
     const [redirect, setRedirect] = useState(false)
 
     const destroyStyle = () => {
-        dispatch(deleteStyle())
+        dispatch({type: DELETE_STYLE})
         setRedirect(true)
     }
 

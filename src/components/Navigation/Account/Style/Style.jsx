@@ -4,14 +4,14 @@ import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt'
 import {useDispatch, useSelector} from "react-redux"
 import {StyleItem} from "./StyleItem"
 import {Redirect} from "react-router-dom"
-import {getStyle, setStyle} from "../../../../reducers/style"
 import {Preloader} from "../../../common/Preloader"
+import {LOAD_GET_STYLE, LOAD_SET_STYLE} from "../../../../actions/style"
 
 export const Style = () => {
     const dispatch = useDispatch()
 
     useEffect(() => {
-        dispatch(getStyle())
+        dispatch({type: LOAD_GET_STYLE})
     }, [dispatch])
 
     // Selecting photos to analyse (statement)
@@ -32,7 +32,7 @@ export const Style = () => {
     }
 
     const analyseStyle = () => {
-        dispatch(setStyle(selectedPhotos))
+        dispatch({type: LOAD_SET_STYLE, data: selectedPhotos})
         setVisibility(false)
         setAnalysed(true)
     }
