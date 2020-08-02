@@ -1,7 +1,10 @@
 import React from "react"
 import {CartItem} from "./CartItem"
+import {useSelector} from "react-redux"
 
-export const CartContent = ({cart}) => {
+export const CartContent = () => {
+
+    const cart = useSelector(state => state.shop.cart)
 
     return (
         <div className={'cart-page-content'}>

@@ -130,6 +130,8 @@
 .cart-item-total {
   width: 5%;
   text-align: right;
+  font-weight: bold;
+  color: #2b2b2b;
   p {
     margin: 0;
   }
@@ -160,5 +162,16 @@
     align-items: center;
     text-align: center;
     font-size: 15px;
+  }
+  .quantity-loader {
+    height: 30px;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+      width: 30px;
+      height: 30px;
+    }
   }
 }

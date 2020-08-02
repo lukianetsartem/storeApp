@@ -10,6 +10,8 @@ export const EDIT_WISH_LIST = 'EDIT_WISH_LIST'
 export const ADD_TO_WISH_LIST = 'ADD_TO_WISH_LIST'
 export const LOAD_CART = 'LOAD_CART'
 
+export const UPDATE_QUANTITY = 'UPDATE_QUANTITY'
+
 export const setProductsAC = (products) => {
     return {
         type: SET_PRODUCTS,

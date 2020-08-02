@@ -1,4 +1,4 @@
-import {addToWishList, editWishList, getCart, getProduct, getProducts, getWishList} from "../api/shop"
+import {addToWishList, editWishList, getCart, getProduct, getProducts, getWishList, updateQuantity} from "../api/shop"
 import {
     ADD_TO_WISH_LIST,
     EDIT_WISH_LIST, LOAD_CART,
@@ -7,7 +7,7 @@ import {
     LOAD_WISH_LIST, setCart,
     setProductAC,
     setProductsAC,
-    setWishListAC
+    setWishListAC, UPDATE_QUANTITY
 } from "../actions/shop"
 import {put, call, takeEvery, all} from "@redux-saga/core/effects"
 import {token} from "../store/store"
@@ -70,6 +70,16 @@ export function* setCartSaga() {
     }
 }
 
+export function* updateQuantitySaga({data}) {
+    yield call(updateQuantity, token, data)
+    const res = yield call(getCart, token)
+    const cart = res.data.cart
+
+    if (res.status === 200) {
+        yield put(setCart(cart))
+    }
+}
+
 export function* shopSaga() {
     yield all([
         takeEvery(LOAD_PRODUCTS, setProductsSaga),
@@ -77,6 +87,7 @@ export function* shopSaga() {
         takeEvery(LOAD_WISH_LIST, setWishListSaga),
         takeEvery(EDIT_WISH_LIST, editWishListSaga),
         takeEvery(ADD_TO_WISH_LIST, addToWishListSaga),
-        takeEvery(LOAD_CART, setCartSaga)
+        takeEvery(LOAD_CART, setCartSaga),
+        takeEvery(UPDATE_QUANTITY, updateQuantitySaga),
     ])
 }
