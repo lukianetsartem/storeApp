@@ -1,56 +1,68 @@
 import React, {useEffect, useState} from "react"
 import {useDispatch} from "react-redux"
-import {UPDATE_QUANTITY} from "../../../actions/shop"
+import {REMOVE_FROM_CART, UPDATE_QUANTITY} from "../../../actions/shop"
 import loader from '../../../assets/loading/loading.gif'
-import {NavLink} from "react-router-dom";
-import {Price} from "../../common/Price";
+import {NavLink} from "react-router-dom"
+import {Price} from "../../common/Price"
 
 export const CartItem = ({item}) => {
     const dispatch = useDispatch()
 
     useEffect(() => {
         setQuantityUpdating(false)
-        console.log(item.quantity)
     }, [item])
 
     const [isQuantityUpdating, setQuantityUpdating] = useState(false)
     const sendQuantity = (increment) => {
         setQuantityUpdating(true)
-        increment ? dispatch({
-                type: UPDATE_QUANTITY, data: {
+        if (increment) {
+            dispatch({
+                type: UPDATE_QUANTITY,
+                data: {
                     productId: item.id,
                     quantity: item.quantity + 1
                 }
             })
-            : dispatch({
-                type: UPDATE_QUANTITY, data: {
+        } else if (item.quantity - 1 === 0) {
+            debugger
+            removeFromCart()
+        } else {
+            dispatch({
+                type: UPDATE_QUANTITY,
+                data: {
                     productId: item.id,
                     quantity: item.quantity - 1
                 }
             })
+        }
+    }
+
+    const removeFromCart = () => {
+        setQuantityUpdating(true)
+        dispatch({type: REMOVE_FROM_CART, data: item.id})
     }
 
     return (
         <div className={'cart-item'}>
             <div className={'cart-item-first-section'}>
                 <NavLink to={`/products/${item.productLink}`}>
-                    <img alt='' src={item.modelPhoto}/>
+                    <img alt='' src={item.modelPhoto}
+                         style={item.inStock < 1 ? {filter: "grayscale(100%)"} : undefined}/>
                 </NavLink>
                 <div className={'cart-item-data-content'}>
                     <p className={'cart-item-description'}>{item.description}</p>
                     {item.inStock > 0
                         ? <p className={'cart-item-dispatching'}>Dispatched within 10 - 12 weeks</p>
                         : <p className={'cart-item-not-dispatching'}>This product is currently out of stock.</p>}
-                    <button>Remove</button>
+                    <button onClick={() => removeFromCart()}>Remove</button>
                 </div>
             </div>
             <div className={'cart-item-price'}>
-                <Price price={item.price} oldPrice={item.oldPrice}/>
+                <Price price={item.price} oldPrice={item.oldPrice} inStock={item.inStock}/>
             </div>
             <div className={'cart-item-quantity'}>
                 <div className={'cart-item-quantity-seter'}>
                     <button onClick={() => sendQuantity(false)}
-                            disabled={isQuantityUpdating || item.quantity < 2}
                             type={'submit'}>-
                     </button>
                     {!isQuantityUpdating ? <input maxLength={2}
@@ -66,7 +78,7 @@ export const CartItem = ({item}) => {
                 </div>
             </div>
             <div className={'cart-item-total'}>
-                <p>£{item.price * item.quantity}</p>
+                <p style={item.inStock < 1 ? {opacity: 0.5} : undefined}>£{item.price * item.quantity}</p>
             </div>
         </div>
     )

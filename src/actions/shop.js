@@ -11,6 +11,7 @@ export const ADD_TO_WISH_LIST = 'ADD_TO_WISH_LIST'
 export const LOAD_CART = 'LOAD_CART'
 
 export const UPDATE_QUANTITY = 'UPDATE_QUANTITY'
+export const REMOVE_FROM_CART = 'REMOVE_FROM_CART'
 
 export const setProductsAC = (products) => {
     return {

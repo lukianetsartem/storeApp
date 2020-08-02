@@ -1,13 +1,26 @@
-import {addToWishList, editWishList, getCart, getProduct, getProducts, getWishList, updateQuantity} from "../api/shop"
 import {
+    addToWishList,
+    editWishList,
+    getCart,
+    getProduct,
+    getProducts,
+    getWishList,
+    removeFromCart,
+    updateQuantity
+} from "../api/shop"
+import {
+    REMOVE_FROM_CART,
     ADD_TO_WISH_LIST,
-    EDIT_WISH_LIST, LOAD_CART,
-    LOAD_PRODUCT,
+    UPDATE_QUANTITY,
+    EDIT_WISH_LIST,
+    LOAD_WISH_LIST,
     LOAD_PRODUCTS,
-    LOAD_WISH_LIST, setCart,
-    setProductAC,
+    LOAD_PRODUCT,
+    LOAD_CART,
+    setWishListAC,
     setProductsAC,
-    setWishListAC, UPDATE_QUANTITY
+    setProductAC,
+    setCart
 } from "../actions/shop"
 import {put, call, takeEvery, all} from "@redux-saga/core/effects"
 import {token} from "../store/store"
@@ -80,6 +93,16 @@ export function* updateQuantitySaga({data}) {
     }
 }
 
+export function* removeFromCartSaga({data}) {
+    yield call(removeFromCart, token, data)
+    const res = yield call(getCart, token)
+    const cart = res.data.cart
+
+    if (res.status === 200) {
+        yield put(setCart(cart))
+    }
+}
+
 export function* shopSaga() {
     yield all([
         takeEvery(LOAD_PRODUCTS, setProductsSaga),
@@ -89,5 +112,6 @@ export function* shopSaga() {
         takeEvery(ADD_TO_WISH_LIST, addToWishListSaga),
         takeEvery(LOAD_CART, setCartSaga),
         takeEvery(UPDATE_QUANTITY, updateQuantitySaga),
+        takeEvery(REMOVE_FROM_CART, removeFromCartSaga),
     ])
 }

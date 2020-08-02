@@ -2,8 +2,9 @@ import React, {useEffect} from 'react'
 import '../../../scss/navigation/cart.scss'
 import {NavLink} from "react-router-dom"
 import {CartContent} from "./CartContent"
-import {useDispatch} from "react-redux"
+import {useDispatch, useSelector} from "react-redux"
 import {LOAD_CART} from "../../../actions/shop"
+import {Preloader} from "../../common/Preloader"
 
 export const Cart = () => {
     const dispatch = useDispatch()
@@ -12,6 +13,9 @@ export const Cart = () => {
         dispatch({type: LOAD_CART})
     }, [dispatch])
 
+    const cartLoaded = useSelector(state => state.shop.cartLoaded)
+
+    if(!cartLoaded) return <Preloader/>
     return (
         <div className={'cart-page'}>
             <div className={'back-to-shopping-link'}>

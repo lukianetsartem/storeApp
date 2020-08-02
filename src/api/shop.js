@@ -32,3 +32,7 @@ export const getCart = (token) => {
 export const updateQuantity = (token, data) => {
     return instance.post(`/cart/quantity`, {token: token, data: data}).then(response => response)
 }
+
+export const removeFromCart = (token, data) => {
+    return instance.post(`/cart/remove`, {token: token, data: data,}).then(response => response)
+}
