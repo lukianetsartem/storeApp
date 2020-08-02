@@ -7,19 +7,18 @@ import {ProductStoreItem} from "./ProductStoreItem/ProductStoreItem"
 import {Preloader} from "../common/Preloader"
 import {LOAD_PRODUCTS, LOAD_WISH_LIST} from "../../actions/shop"
 
-export const ProductsStore = (props) => {
+export const ProductsStore = ({productType}) => {
     const dispatch = useDispatch()
     // Product category
-    const categoryPath = props.productType.toLowerCase()
 
     useEffect(() => {
         dispatch({type: LOAD_WISH_LIST})
         dispatch({type: LOAD_PRODUCTS})
 
-    }, [props.productType, dispatch])
+    }, [productType, dispatch])
 
     const productsData = useSelector(state => state.shop.products
-        .filter(p => p.productType === props.productType))
+        .filter(p => p.productType === productType))
     const [products, sortProducts] = useState(productsData)
     const wishList = useSelector(state => state.shop.wishList)
     const productsLoaded = useSelector(state => state.shop.productsLoaded)
@@ -50,8 +49,8 @@ export const ProductsStore = (props) => {
     return (
         <div className={'products'}>
             <div className={'products-header'}>
-                <CategoryPath categoryPath={categoryPath}/>
-                <p className={'products-header-title'}>{props.productType}</p>
+                <CategoryPath categoryPath={productType.toLowerCase()}/>
+                <p className={'products-header-title'}>{productType}</p>
             </div>
             <div className={'products-sorter'}>
                 <div className={'products-select'}>
@@ -67,16 +66,8 @@ export const ProductsStore = (props) => {
                 {products.length > 1 ? <p>{products.length} products</p> : <p>{products.length} product</p>}
             </div>
             <div className={'products-section'}>
-                {products.map(p => <ProductStoreItem productLink={p.productLink}
+                {products.map(p => <ProductStoreItem product={p}
                                                      wishList={wishList}
-                                                     price={p.price}
-                                                     description={p.description}
-                                                     modelPhoto={p.productPhotos.modelPhoto}
-                                                     interiorPhoto={p.productPhotos.interiorPhoto}
-                                                     productType={p.productType}
-                                                     oldPrice={p.oldPrice}
-                                                     wished={p.wished}
-                                                     id={p._id}
                                                      key={p._id}/>)}
             </div>
         </div>

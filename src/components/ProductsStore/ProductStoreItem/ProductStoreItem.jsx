@@ -4,10 +4,11 @@ import '../../../scss/productsStore/productStoreItem.scss'
 import FavoriteIcon from '@material-ui/icons/Favorite'
 import {useDispatch, useSelector} from "react-redux"
 import {ADD_TO_WISH_LIST, EDIT_WISH_LIST} from "../../../actions/shop"
+import {Price} from "../../common/Price";
 
-export const ProductStoreItem = (props) => {
+export const ProductStoreItem = ({product, wishList}) => {
     // Checking, is product wished?
-    const index = props.wishList.findIndex(item => item.id.toString() === props.id)
+    const index = wishList.findIndex(item => item.id.toString() === product._id)
     const [isFollowed, setIsFollowed] = useState(index >= 0 ? true : false)
     const isAuth = useSelector(state => state.user.isAuth)
 
@@ -25,17 +26,13 @@ export const ProductStoreItem = (props) => {
 
     return (
         <div className={'product-store-item'}>
-            <NavLink to={`products/${props.productLink}`}>
+            <NavLink to={`products/${product.productLink}`}>
                 <div className={'product-store-item-image'}>
-                    <img alt={''} className={'product-store-item-image-model'} src={`${props.modelPhoto}`}/>
-                    <img alt={''} className={'product-store-item-image-interior'} src={`${props.interiorPhoto}`}/>
+                    <img alt={''} className={'product-store-item-image-model'} src={product.productPhotos.modelPhoto}/>
+                    <img alt={''} className={'product-store-item-image-interior'} src={product.productPhotos.interiorPhoto}/>
                 </div>
-                <p className={'product-store-item-title'}>{props.description.length > 50 ? props.description.slice(0, 50) + '..' : props.description}</p>
-                {!props.oldPrice && <p className={'product-store-item-price'}>£{props.price}</p>}
-                {props.oldPrice && <div className={'sale-price-product'}>
-                    <p className={'product-store-item-sale-price'}>£{props.price}</p>
-                    <p className={'product-store-item-disabled-price'}>£{props.oldPrice}</p>
-                </div>}
+                <p className={'product-store-item-title'}>{product.description.length > 50 ? product.description.slice(0, 50) + '..' : product.description}</p>
+                <Price price={product.price} oldPrice={product.oldPrice}/>
             </NavLink>
             <div className={'add-to-wish-list'}>
                 <FavoriteIcon className={'add-to-wish-list-icon'}
@@ -43,8 +40,8 @@ export const ProductStoreItem = (props) => {
                                   ? {color: 'rgb(238, 108, 106)'}
                                   : {color: '#a8a8a8'}}
                               onClick={() => {
-                                  !isFollowed && isAuth && addToWishListSubmit(props.id)
-                                  isFollowed && isAuth && removeFromWishList(props.id)
+                                  !isFollowed && isAuth && addToWishListSubmit(product._id)
+                                  isFollowed && isAuth && removeFromWishList(product._id)
                               }}/>
             </div>
         </div>

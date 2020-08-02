@@ -2,6 +2,7 @@ import React, {useState} from "react"
 import '../../../scss/navigation/wishlist.scss'
 import {NavLink} from "react-router-dom"
 import CloseIcon from '@material-ui/icons/Close'
+import {Price} from "../../common/Price";
 
 export const WishListItem = (props) => {
     const product = props.product
@@ -20,12 +21,8 @@ export const WishListItem = (props) => {
             </NavLink>
             {!removed &&
             <div className={'wish-list-item-data'}>
-                <p>{product.description}</p>
-                {!product.oldPrice && <p className={'product-store-item-price'}>£{product.price}</p>}
-                {product.oldPrice && <div className={'sale-price-product'}>
-                    <p className={'product-store-item-sale-price'}>£{product.price}</p>
-                    <p className={'product-store-item-disabled-price'}>£{product.oldPrice}</p>
-                </div>}
+                <p>{product.description.length > 50 ? product.description.slice(0, 50) + '..' : product.description}</p>
+                <Price price={product.price} oldPrice={product.oldPrice}/>
             </div>}
             {removed && <button onClick={() => {
                 props.removeFromEditList(product.id)

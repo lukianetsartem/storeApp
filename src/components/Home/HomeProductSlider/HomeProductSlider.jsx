@@ -3,6 +3,7 @@ import '../../../scss/sliders/homeProductSlider.scss'
 import {NavLink} from "react-router-dom"
 import {Carousel} from "antd"
 import 'antd/dist/antd.css'
+import {Price} from "../../common/Price"
 
 export const HomeProductSlider = (props) => {
     // Slider settings
@@ -30,6 +31,7 @@ export const HomeProductSlider = (props) => {
                                             description={p.description}
                                             price={p.price}
                                             oldPrice={p.oldPrice}
+                                            productLink={p.productLink}
                                             key={p._id}/>)}
             </Carousel>
         </div>
@@ -37,24 +39,14 @@ export const HomeProductSlider = (props) => {
 }
 
 const ProductSlide = (props) => {
-    // Product url to reference on product
-    const productUrl = `products/${props.description
-        .replace(',', ' ')
-        .replace('  ', ' ')
-        .split(' ')
-        .join('-').toLowerCase()}`
 
     return (
-        <NavLink to={productUrl} className={'product-slide'}>
+        <NavLink to={`products/${props.productLink}`} className={'product-slide'}>
             <img alt={''} src={props.productPhoto} className={'product-slide-img'}/>
             <p className={'product-slide-name'}>
                 {props.description.length >= 22 ? props.description.substr(0, 25) + '..' : props.description}
             </p>
-            {!props.oldPrice && <p className={'product-store-item-price'}>£{props.price}</p>}
-            {props.oldPrice && <div className={'sale-price-product'}>
-                <p className={'product-store-item-sale-price'}>£{props.price}</p>
-                <p className={'product-store-item-disabled-price'}>£{props.oldPrice}</p>
-            </div>}
+            <Price price={props.price} oldPrice={props.oldPrice}/>
         </NavLink>
     )
 }

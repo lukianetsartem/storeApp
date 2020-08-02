@@ -3,6 +3,7 @@ import {useDispatch} from "react-redux"
 import {UPDATE_QUANTITY} from "../../../actions/shop"
 import loader from '../../../assets/loading/loading.gif'
 import {NavLink} from "react-router-dom";
+import {Price} from "../../common/Price";
 
 export const CartItem = ({item}) => {
     const dispatch = useDispatch()
@@ -44,11 +45,7 @@ export const CartItem = ({item}) => {
                 </div>
             </div>
             <div className={'cart-item-price'}>
-                {!item.oldPrice && <p className={'product-store-item-price'}>£{item.price}</p>}
-                {item.oldPrice && <div className={'sale-price-product'}>
-                    <p className={'product-store-item-sale-price'}>£{item.price}</p>
-                    <p className={'product-store-item-disabled-price'}>£{item.oldPrice}</p>
-                </div>}
+                <Price price={item.price} oldPrice={item.oldPrice}/>
             </div>
             <div className={'cart-item-quantity'}>
                 <div className={'cart-item-quantity-seter'}>
