@@ -2,10 +2,17 @@ import React, {useState} from "react"
 import '../../../scss/navigation/wishlist.scss'
 import {NavLink} from "react-router-dom"
 import CloseIcon from '@material-ui/icons/Close'
-import {Price} from "../../common/Price";
+import {Price} from "../../common/Price"
+import {ADD_TO_CART} from "../../../actions/shop"
+import {useDispatch} from "react-redux"
 
 export const WishListItem = (props) => {
+    const dispatch = useDispatch()
     const product = props.product
+
+    const addToCart = () => {
+        dispatch({type: ADD_TO_CART, data: product.id})
+    }
 
     const [removed, setRemoved] = useState(false)
     return (
@@ -28,7 +35,7 @@ export const WishListItem = (props) => {
                 props.removeFromEditList(product.id)
                 setRemoved(false)
             }} className={'wish-list-undo-btn'}>undo</button>}
-            {!props.editMode && <button>Add To Basket</button>}
+            {!props.editMode && <button onClick={() => addToCart()}>Add To Cart</button>}
         </div>
     )
 }
