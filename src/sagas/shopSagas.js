@@ -1,10 +1,10 @@
-import {addToWishList, editWishList, getProduct, getProducts, getWishList} from "../api/shop"
+import {addToWishList, editWishList, getCart, getProduct, getProducts, getWishList} from "../api/shop"
 import {
     ADD_TO_WISH_LIST,
-    EDIT_WISH_LIST,
+    EDIT_WISH_LIST, LOAD_CART,
     LOAD_PRODUCT,
     LOAD_PRODUCTS,
-    LOAD_WISH_LIST,
+    LOAD_WISH_LIST, setCart,
     setProductAC,
     setProductsAC,
     setWishListAC
@@ -61,12 +61,22 @@ export function* addToWishListSaga({data}) {
     }
 }
 
+export function* setCartSaga() {
+    const res = yield call(getCart, token)
+    const cart = res.data.cart
+
+    if (res.status === 200) {
+        yield put(setCart(cart))
+    }
+}
+
 export function* shopSaga() {
     yield all([
         takeEvery(LOAD_PRODUCTS, setProductsSaga),
         takeEvery(LOAD_PRODUCT, setProductSaga),
         takeEvery(LOAD_WISH_LIST, setWishListSaga),
         takeEvery(EDIT_WISH_LIST, editWishListSaga),
-        takeEvery(ADD_TO_WISH_LIST, addToWishListSaga)
+        takeEvery(ADD_TO_WISH_LIST, addToWishListSaga),
+        takeEvery(LOAD_CART, setCartSaga)
     ])
 }

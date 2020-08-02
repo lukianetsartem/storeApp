@@ -1,5 +1,5 @@
 import React from 'react'
-import {SubscribeForm} from "../Forms/Subscribe/SubscribeForm"
+import {SubscribeForm} from "../Forms/SubscribeForm"
 import '../../scss/footer/footer.scss'
 import {NavLink} from "react-router-dom"
 

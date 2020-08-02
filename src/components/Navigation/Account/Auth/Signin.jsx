@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import {NavLink, Redirect} from "react-router-dom"
 import {SigninForm} from "../../../Forms/Auth/SigninForm"
-import '../../../../scss/navigation/account/signin.scss'
+import '../../../../scss/navigation/signin.scss'
 import {useDispatch, useSelector} from "react-redux"
 import {SuccessBanner} from "../../../common/SuccessBanner"
 import {START_SIGN_IN} from "../../../../actions/user"

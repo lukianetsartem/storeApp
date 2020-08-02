@@ -1,6 +1,6 @@
 import React from 'react'
-import {useForm} from "react-hook-form";
-import '../../../scss/forms/subscribe.scss'
+import {useForm} from "react-hook-form"
+import '../../scss/forms/subscribe.scss'
 
 export const SubscribeForm = () => {
     const { register, handleSubmit } = useForm()

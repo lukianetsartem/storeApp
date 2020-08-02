@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react"
-import '../../../../scss/navigation/account/style.scss'
+import '../../../../scss/navigation/style.scss'
 import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt'
 import {useDispatch, useSelector} from "react-redux"
 import {StyleItem} from "./StyleItem"

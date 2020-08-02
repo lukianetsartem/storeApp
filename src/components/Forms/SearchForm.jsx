@@ -1,7 +1,7 @@
 import React from 'react'
 import {useForm} from "react-hook-form";
 import SearchIcon from '@material-ui/icons/Search'
-import '../../../scss/forms/search.scss'
+import '../../scss/forms/search.scss'
 
 export const SearchForm = () => {
     // Form for searching products

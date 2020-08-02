@@ -4,7 +4,7 @@ import {NavItem} from "./NavItem/NavItem"
 import {InfoBar} from "./InfoBar/InfoBar"
 import logo from "../../assets/img/logo.jpg"
 import {NavLink} from "react-router-dom"
-import {SearchForm} from "../Forms/Search/SearchForm"
+import {SearchForm} from "../Forms/SearchForm"
 import {SecondaryArea} from "./SecondaryArea/SecondaryArea"
 import {useSelector} from "react-redux"
 

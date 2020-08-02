@@ -24,3 +24,7 @@ export const editWishList = (token, data) => {
 export const addToWishList = (token, data) => {
     return instance.post(`/wishlist/add`, {token: token, data: data}).then(response => response)
 }
+
+export const getCart = (token) => {
+    return instance.get(`/cart/${token}`).then(response => response)
+}

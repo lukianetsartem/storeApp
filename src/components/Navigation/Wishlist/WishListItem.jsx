@@ -1,5 +1,5 @@
 import React, {useState} from "react"
-import '../../../scss/navigation/account/wishlist.scss'
+import '../../../scss/navigation/wishlist.scss'
 import {NavLink} from "react-router-dom"
 import CloseIcon from '@material-ui/icons/Close'
 

@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import {NavLink, Redirect} from "react-router-dom"
 import {SignupForm} from "../../../Forms/Auth/SignupForm"
-import '../../../../scss/navigation/account/signin.scss'
+import '../../../../scss/navigation/signin.scss'
 import {useDispatch} from "react-redux"
 import {START_SIGN_UP} from "../../../../actions/user"
 
