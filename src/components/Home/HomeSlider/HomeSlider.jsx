@@ -17,7 +17,7 @@ export const HomeSlider = () => {
     }
 
     return (
-        <Carousel {...settings} effect={'fade'}>
+        <Carousel className={'home-slider'} {...settings} effect={'fade'}>
             <NavLink to={'/chair'} className={'home-slide'}>
                 <img alt={'slide'} src={firstSlide} className={'home-slide-img'}/>
                 <div className={'home-slide-description'} id={'first-slide'}>

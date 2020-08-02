@@ -8,14 +8,21 @@ export const CartContent = () => {
 
     const cart = useSelector(state => state.shop.cart)
     // Subtotal amount of products in cart
-    const subtotal = cart.map(item => item.price)
+    const subtotal = cart.map(item => item.price * item.quantity)
     // Total price (string)
     const totalPrice = subtotal.reduce((prevValue, currentValue) => prevValue + currentValue).toString().split('')
-    totalPrice.splice(0, 1, `${totalPrice[0]}`, ",").join('')
+    if(totalPrice.length === 4) {
+        totalPrice.splice(0, 1, `${totalPrice[0]}`, ",").join('')
+    } else if (totalPrice.length === 5) {
+        totalPrice.splice(0, 2, `${totalPrice[0]}`, `${totalPrice[1]}`, ",").join('')
+    } else if (totalPrice.length === 6) {
+        totalPrice.splice(0, 3, `${totalPrice[0]}`, `${totalPrice[1]}`, `${totalPrice[2]}`, ",").join('')
+    }
     // Is in cart a product, that is out of stock?
     const hasNotInStock = cart.filter(item => item.inStock === 0).length > 0
 
-    const goToCheckout = () => {}
+    const goToCheckout = () => {
+    }
 
     return (
         <div className={'cart-page-content'}>
@@ -48,8 +55,10 @@ export const CartContent = () => {
                             <p className={'cart-page-total-price'}>£{totalPrice}</p>
                             <p>(Excluding delivery)</p>
                         </div>
-                        <button onClick={() => goToCheckout()}
-                            disabled={hasNotInStock}>go to checkout</button>
+                        <button style={hasNotInStock && {opacity: 0.6}}
+                                onClick={() => goToCheckout()}
+                                disabled={hasNotInStock}>go to checkout
+                        </button>
                     </div>
                 </div>
             </div>

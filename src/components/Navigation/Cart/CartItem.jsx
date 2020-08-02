@@ -61,7 +61,7 @@ export const CartItem = ({item}) => {
                 <Price price={item.price} oldPrice={item.oldPrice} inStock={item.inStock}/>
             </div>
             <div className={'cart-item-quantity'}>
-                <div className={'cart-item-quantity-seter'}>
+                <div className={'cart-item-quantity-seter'} style={isQuantityUpdating ? {opacity: 0.5} : undefined}>
                     <button onClick={() => sendQuantity(false)}
                             type={'submit'}>-
                     </button>
